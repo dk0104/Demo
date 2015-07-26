@@ -39,14 +39,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
     <Compile Include="Interfaces\IDelete.cs" />
     <Compile Include="Interfaces\IEventIdentification.cs" />
     <Compile Include="Interfaces\IEventPublischer.cs" />
     <Compile Include="Interfaces\IRead.cs" />
     <Compile Include="Interfaces\ISave.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="XmlAccess\Decorator\ElementAccess.cs" />
+    <Compile Include="XmlAccess\Decorator\ElementModification.cs" />
+    <Compile Include="XmlAccess\XmlDelete.cs" />
+    <Compile Include="XmlAccess\XmlRead.cs" />
+    <Compile Include="XmlAccess\XmlSave.cs" />
+    <Compile Include="XmlFileManager.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
