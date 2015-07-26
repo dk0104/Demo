@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Xml.Linq;
 using XmlConnection.Interfaces;
 
@@ -23,7 +24,8 @@ namespace XmlConnection.XmlAccess
         
         public XElement ReadElement(string id)
         {
-            return this.RootElement.Elements().FirstOrDefault(x => x.Attribute("id").ToString() == id);
+            var element = this.RootElement.Elements().FirstOrDefault(x => x.Attribute("id").Value == id);
+            return element;
         }
 
         public IEnumerable<XElement> ReadAll()

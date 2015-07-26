@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnection", "XmlConnection\XmlConnection.csproj", "{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnectionTest", "XmlConnectionTest\XmlConnectionTest.csproj", "{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
