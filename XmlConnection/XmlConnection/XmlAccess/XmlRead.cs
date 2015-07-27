@@ -1,41 +1,61 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
 {
     internal class XmlRead:IRead<XElement>
     {
-        #region Fields
-
-        /// <summary>
-        /// Gets the Root element.
-        /// </summary>
-        private readonly XElement rootElement; 
-        
-        #endregion
+        private readonly XmlReaderSettings settings;
+        private readonly string path;
+        public event Action<ValidationEventArgs> ValidationViolationEvent; 
 
         #region Constrictor
 
-        public XmlRead(string path, XmlReaderSettings settings)
+        public XmlRead(string path)
         {
-            rootElement = XElement.Load(XmlReader.Create(path, settings));
+            this.path = path;
+            this.settings = new XmlReaderSettings
+            {
+                ValidationType = ValidationType.Schema,
+                ValidationFlags = XmlSchemaValidationFlags.ProcessSchemaLocation|
+                XmlSchemaValidationFlags.ReportValidationWarnings
+            };
         }
+
+        public void LoadXml()
+        {
+            settings.ValidationEventHandler += OnValidationEventHandler;
+            using (var xmlReader = XmlReader.Create(path,settings))
+            {
+                this.RootElement = XElement.Load(xmlReader);
+            }
+        }
+
+        private void OnValidationEventHandler(object sender, ValidationEventArgs e)
+        {
+            if (ValidationViolationEvent != null) ValidationViolationEvent.Invoke(e);
+        }
+
+        public XElement RootElement { get;private set; }
 
         #endregion
 
         #region Methods
 
-        /// <summary>
-        /// Read named elements.
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<XElement> ReadElement(string name)
+        public XElement ReadHeadElement(uint id)
         {
-            var elementmap = rootElement.Elements().ToDictionary(x => x.Name + (string) x.Attribute("id"));
-            return this.rootElement.Elements(elementmap[name].Value);
+            return this.RootElement.Elements().Single(x => x.Attribute("id").Value == id.ToString());
+        }
+
+        public XElement ReadChildElement(uint id, string childElementName)
+        {
+            var element = this.ReadHeadElement(id);
+            return element.Element(childElementName);
         }
 
         /// <summary>
@@ -44,7 +64,8 @@ namespace XmlConnection.XmlAccess
         /// <returns></returns>
         public IEnumerable<XElement> ReadAll()
         {
-            return this.rootElement.Elements();
+            
+            return this.RootElement.Elements();
         }
         
         #endregion

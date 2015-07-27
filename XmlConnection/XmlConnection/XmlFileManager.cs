@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using XmlConnection.XmlAccess;
@@ -13,7 +12,7 @@ namespace XmlConnection
         #region Field
 
         private readonly ElementModification<XElement> elementModification;
-        private readonly ValidatedElementAccess<XElement> elementAccess;
+        private readonly XmlRead xmlRead;
         private const string ElementNamespace = "http://www.demo-application.com/products";
 
         public List<string> XmlReaderWarnings { get; private set; }
@@ -27,13 +26,12 @@ namespace XmlConnection
         {
             var xmlDelete = new XmlDelete(file);
             var xmlSave = new XmlSave(file, ElementNamespace);
-            var xmlReaderSettings = new XmlReaderSettings();
-            var xmlRead = new XmlRead(file, xmlReaderSettings);
+            this.xmlRead = new XmlRead(file); 
+            xmlRead.ValidationViolationEvent += OnValidationViolation;
             this.elementModification = new ElementModification<XElement>(xmlSave, xmlDelete);
-            this.elementAccess = new ValidatedElementAccess<XElement>(xmlRead, xmlReaderSettings);
-            this.elementAccess.ValidationViolationNotification += OnValidationViolation;
             this.XmlReaderErrors = new List<string>();
             this.XmlReaderWarnings = new List<string>();
+            xmlRead.LoadXml();
         }
 
         #endregion
@@ -54,9 +52,14 @@ namespace XmlConnection
         /// </summary>
         /// <param name="name"></param>
         /// <returns></returns>
-        public List<XElement> ReadNamedElements(string name)
+        public XElement ReadNamedElements(uint id)
         {
-            return this.elementAccess.ReadElement(name).ToList();
+            return this.xmlRead.ReadHeadElement(id);
+        }
+
+        public XElement ReadChildElement(uint id, string name)
+        {
+            return this.xmlRead.ReadChildElement(id, name);
         }
 
         /// <summary>
@@ -65,30 +68,29 @@ namespace XmlConnection
         /// <returns></returns>
         public List<XElement> ReadAllElements()
         {
-            return this.elementAccess.ReadAll().ToList();
+            return this.xmlRead.ReadAll().ToList();
         }
 
         /// <summary>
         /// Error or Warnings collector.
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void OnValidationViolation(object sender, ValidationEventArgs e)
+        /// <param name="validationEventArgs"></param>
+        private void OnValidationViolation(ValidationEventArgs validationEventArgs)
         {
-            switch (e.Severity)
+            switch (validationEventArgs.Severity)
             {
                 case XmlSeverityType.Error:
                 {
-                    XmlReaderErrors.Add(string.Format("Error Line Number : {0} Message {1}", e.Exception.LineNumber,
-                        e.Message));
+                    XmlReaderErrors.Add(string.Format("Error Line Number : {0} Message {1}", validationEventArgs.Exception.LineNumber,
+                        validationEventArgs.Message));
 
                 }
                     break;
 
                 case XmlSeverityType.Warning:
                 {
-                    XmlReaderWarnings.Add(string.Format("Warning Line Number : {0} Message {1}", e.Exception.LineNumber,
-                        e.Message));
+                    XmlReaderWarnings.Add(string.Format("Warning Line Number : {0} Message {1}", validationEventArgs.Exception.LineNumber,
+                        validationEventArgs.Message));
                 }
                     break;
             }

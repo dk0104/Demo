@@ -17,8 +17,7 @@ namespace XmlConnection.XmlAccess
 
         public void Save(XElement element)
         {
-            var currentElement = this.RootElement.Elements().FirstOrDefault(e => e.Attribute("id") == element.Attribute("id"));
-            if (currentElement != null) currentElement.Remove();
+            var currentElement = this.RootElement.Elements().Select(x=>x.Name==element.Name).FirstOrDefault();
             element.Add(element);
         }
     }

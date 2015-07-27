@@ -10,13 +10,19 @@ namespace XmlConnection.Interfaces
     public interface IRead<out TElement>
     {
         /// <summary>
-        /// Read elements adressed by name
+        /// Read root adressed by id
         /// </summary>
-        /// <param name="name">
-        /// Element name.
-        /// </param>
+        /// <param name="id"></param>
         /// <returns>Returns a list of elements</returns>
-        IEnumerable<TElement> ReadElement(string name);
+        XElement ReadHeadElement(uint id);
+
+        /// <summary>
+        /// Read child element adressd by id and name.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="childElementName"></param>
+        /// <returns></returns>
+        XElement ReadChildElement(uint id, string childElementName);
         
         /// <summary>
         /// Read all elements
