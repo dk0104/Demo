@@ -1,27 +1,58 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Xml;
+using System.Xml.Schema;
 using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess.Decorator
 {
-    internal class ElementAccess<TElement>:IRead<TElement>
+    internal class ValidatedElementAccess<TElement>:IRead<TElement>
     {
-        private readonly IRead<TElement> read;
 
-        public ElementAccess(IRead<TElement> read)
+        #region Fields
+
+        private readonly IRead<TElement> read;
+        
+        #endregion
+        
+        #region Constructor
+
+        public ValidatedElementAccess(IRead<TElement> read, XmlReaderSettings settings)
         {
             this.read = read;
+            settings.ValidationType = ValidationType.Schema;
+            settings.ValidationFlags |= XmlSchemaValidationFlags.ProcessSchemaLocation;
+            settings.ValidationFlags |= XmlSchemaValidationFlags.ReportValidationWarnings;
+            settings.ValidationEventHandler += ValidationViolationNotificationTrigger;
         }
 
-        #region Methods
+        #endregion
+
+        #region Events
+
+        public event EventHandler<ValidationEventArgs> ValidationViolationNotification;
         
-        public TElement ReadElement(string id)
+        #endregion
+
+        #region Methods
+
+        public IEnumerable<TElement> ReadElement(string name)
         {
-           return read.ReadElement(id);
+           return read.ReadElement(name);
         }
 
         public IEnumerable<TElement> ReadAll()
         {
             return read.ReadAll();
+        }
+
+        private void ValidationViolationNotificationTrigger(object sender, ValidationEventArgs e)
+        {
+            var handler = ValidationViolationNotification;
+            if (handler!=null)
+            {
+                handler(this,e);
+            }
         }
 
         #endregion

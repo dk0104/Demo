@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Xml.Linq;
 
 namespace XmlConnection.Interfaces
 {
@@ -9,16 +10,18 @@ namespace XmlConnection.Interfaces
     public interface IRead<out TElement>
     {
         /// <summary>
-        /// Read single element adressed by name
+        /// Read elements adressed by name
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        TElement ReadElement(string id);
+        /// <param name="name">
+        /// Element name.
+        /// </param>
+        /// <returns>Returns a list of elements</returns>
+        IEnumerable<TElement> ReadElement(string name);
         
         /// <summary>
         /// Read all elements
         /// </summary>
-        /// <returns></returns>
+        /// <returns>Returns a list of elements </returns>
         IEnumerable<TElement> ReadAll();
 
     }

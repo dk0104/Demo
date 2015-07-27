@@ -1,36 +1,51 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices;
+using System.Xml;
 using System.Xml.Linq;
+using System.Xml.Schema;
 using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
 {
     internal class XmlRead:IRead<XElement>
     {
-        public XmlRead(string path)
+        #region Fields
+
+        /// <summary>
+        /// Gets the Root element.
+        /// </summary>
+        private readonly XElement rootElement; 
+        
+        #endregion
+
+        #region Constrictor
+
+        public XmlRead(string path, XmlReaderSettings settings)
         {
-            RootElement = XElement.Load(path);
+            rootElement = XElement.Load(XmlReader.Create(path, settings));
         }
 
-        #region MyRegion
-
-        public XElement RootElement { get; private set; }
-        public XNamespace DocumentNamespace { get; private set; }
-		 
-	    #endregion
+        #endregion
 
         #region Methods
-        
-        public XElement ReadElement(string id)
+
+        /// <summary>
+        /// Read named elements.
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<XElement> ReadElement(string name)
         {
-            var element = this.RootElement.Elements().FirstOrDefault(x => x.Attribute("id").Value == id);
-            return element;
+            return this.rootElement.Elements(name);
         }
 
+        /// <summary>
+        /// Read all elements.
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<XElement> ReadAll()
         {
-            return this.RootElement.Elements();
+            return this.rootElement.Elements();
         }
         
         #endregion
