@@ -21,7 +21,7 @@
   </xs:simpleType>
   
   <!--product id type-->
-  <xs:simpleType name="productnametype">
+  <xs:simpleType name="productidtype">
     <xs:restriction base="xs:positiveInteger">
       <xs:pattern value="[0-9]{6}"/>
     </xs:restriction>
@@ -50,7 +50,7 @@
       <xs:element name="productDescription" type="stringtype"></xs:element>
       <xs:element name="features" maxOccurs="unbounded" type="featureType"></xs:element>
     </xs:sequence>
-    <xs:attribute name="name" type="productnametype" use="required"></xs:attribute>
+    <xs:attribute name="id" type="productidtype" use="required"></xs:attribute>
   </xs:complexType>
 
   <xs:complexType name ="orderType">

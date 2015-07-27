@@ -26,7 +26,6 @@ namespace XmlConnection
         public XmlFileManager(string file)
         {
             var xmlDelete = new XmlDelete(file);
-            ;
             var xmlSave = new XmlSave(file, ElementNamespace);
             var xmlReaderSettings = new XmlReaderSettings();
             var xmlRead = new XmlRead(file, xmlReaderSettings);
@@ -63,9 +62,8 @@ namespace XmlConnection
         /// <summary>
         /// Read all elements .
         /// </summary>
-        /// <param name="elementPath"></param>
         /// <returns></returns>
-        public List<XElement> ReadAllElements(string elementPath)
+        public List<XElement> ReadAllElements()
         {
             return this.elementAccess.ReadAll().ToList();
         }

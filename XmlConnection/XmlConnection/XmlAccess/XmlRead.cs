@@ -1,9 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.InteropServices;
 using System.Xml;
 using System.Xml.Linq;
-using System.Xml.Schema;
 using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
@@ -36,7 +34,8 @@ namespace XmlConnection.XmlAccess
         /// <returns></returns>
         public IEnumerable<XElement> ReadElement(string name)
         {
-            return this.rootElement.Elements(name);
+            var elementmap = rootElement.Elements().ToDictionary(x => x.Name + (string) x.Attribute("id"));
+            return this.rootElement.Elements(elementmap[name].Value);
         }
 
         /// <summary>
