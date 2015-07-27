@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ProductPortofolioSchema"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified"   
+>
+  <!--simple types-->
+  <xs:simpleType name="stringtype">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="dectype">
+    <xs:restriction base="xs:decimal"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="booltype">
+    <xs:restriction base="xs:boolean"/>
+  </xs:simpleType>
+
+  <xs:simpleType name="datetype">
+    <xs:restriction base="xs:date"/>
+  </xs:simpleType>
+  
+  <!--product id type-->
+  <xs:simpleType name="productidtype">
+    <xs:restriction base="xs:positiveInteger">
+      <xs:pattern value="[0-9]{6}"/>
+    </xs:restriction>
+  </xs:simpleType>
+  
+  <!--serial number type-->
+  <xs:simpleType name="sernumber">
+    <xs:restriction base="xs:string">
+      <xs:pattern value="([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12})|(\{[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}\})"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <!--Complex Types-->
+  <xs:complexType name="featureType">
+    <xs:sequence>
+      <xs:element name="featureName" type="stringtype"></xs:element>
+      <xs:element name="featureDescription" type="stringtype"></xs:element>
+      <xs:element name="isSelected" type ="booltype"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <xs:complexType name="productType">
+    <xs:sequence>
+      <xs:element name="productName" type="stringtype"></xs:element>
+      <xs:element name="version" type="stringtype"></xs:element>
+      <xs:element name="productDescription" type="stringtype"></xs:element>
+      <xs:element name="features" maxOccurs="unbounded" type="featureType"></xs:element>
+    </xs:sequence>
+    <xs:attribute name="id" type="productidtype" use="required"></xs:attribute>
+  </xs:complexType>
+
+  <xs:complexType name ="orderType">
+    <xs:sequence>
+      <xs:element name="orderDate" type ="datetype"></xs:element>
+      <xs:element name="orderProducts" maxOccurs="unbounded" type="productType"></xs:element>
+      <xs:element name="serialnumber" type="sernumber"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  <!--Elements-->
+  <xs:element name="products">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="product" type="productType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+      </xs:sequence>
+    </xs:complexType>   
+  </xs:element> 
+
+  <xs:element name ="order" type="orderType"></xs:element>  
+  
+</xs:schema>

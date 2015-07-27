@@ -3,7 +3,7 @@ using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess.Decorator
 {
-    public class ElementAccess<TElement>:IRead<TElement>
+    internal class ElementAccess<TElement>:IRead<TElement>
     {
         private readonly IRead<TElement> read;
 

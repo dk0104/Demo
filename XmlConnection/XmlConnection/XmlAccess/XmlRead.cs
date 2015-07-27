@@ -6,7 +6,7 @@ using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
 {
-    public class XmlRead:IRead<XElement>
+    internal class XmlRead:IRead<XElement>
     {
         public XmlRead(string path)
         {

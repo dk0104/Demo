@@ -6,7 +6,7 @@ using XmlConnection.XmlAccess.Decorator;
 
 namespace XmlConnection
 {
-    public class XmlFileManager
+    internal class XmlFileManager
     {
         #region Field
 

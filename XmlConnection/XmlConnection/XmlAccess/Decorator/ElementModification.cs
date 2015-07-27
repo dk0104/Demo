@@ -2,7 +2,7 @@
 
 namespace XmlConnection.XmlAccess.Decorator
 {
-    public class ElementModification<TElement> : ISave<TElement>,IDelete<TElement>
+    internal class ElementModification<TElement> : ISave<TElement>,IDelete<TElement>
     {
         #region Fields
 

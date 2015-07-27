@@ -4,7 +4,7 @@ using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
 {
-    public class XmlDelete:IDelete<XElement>
+    internal class XmlDelete:IDelete<XElement>
     {
         public XmlDelete(string path)
         {

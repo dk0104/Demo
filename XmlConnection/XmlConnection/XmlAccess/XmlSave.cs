@@ -4,7 +4,7 @@ using XmlConnection.Interfaces;
 
 namespace XmlConnection.XmlAccess
 {
-    public class XmlSave:ISave<XElement>
+    internal class XmlSave:ISave<XElement>
     {
         public XmlSave(string path, string documentNamespace)
         {

@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="ProductPortofolioSchema.xsd">
+  <product id="000001">
+    <productName>ProductA</productName>
+    <version>1.0</version>
+    <productDescription>Product A Bla bla blup</productDescription>
+    <features>
+      <featureName>feature A</featureName>
+      <featureDescription>Feature B is bla bla blup</featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+    <features>
+      <featureName>feature B</featureName>
+      <featureDescription>Feature B is bla bla blup</featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+  </product>
+  <product id="000002">
+    <productName>Product B</productName>
+    <version>1.0</version>
+    <productDescription>Product B Bla bla blup</productDescription>
+    <features>
+      <featureName>feature A</featureName>
+      <featureDescription>Feature B is bla bla blup</featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+    <features>
+      <featureName>feature B</featureName>
+      <featureDescription>Feature B is bla bla blup</featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+  </product>
+</products> 
+
+
+  
