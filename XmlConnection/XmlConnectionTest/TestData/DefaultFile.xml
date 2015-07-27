@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Products>
-  <product id="1000">
+  <product name="1000">
     <name>Product A</name>
     <version>Version 1.0</version>
     <description>Lorem ipsum dolor sit amet, 
@@ -20,7 +20,7 @@
   </description>
   </product>
 
-  <product id="1001">
+  <product name="1001">
     <name>Product B</name>
     <version>Version 1.0</version>
     <description>
@@ -40,7 +40,7 @@
       aliquam tempor, mauris porttitor nunc.
     </description>
   </product>
-  <product id="1002">
+  <product name="1002">
     <name>Product C</name>
     <version>Version 1.1</version>
     <description>
@@ -60,7 +60,7 @@
       aliquam tempor, mauris porttitor nunc.
     </description>
   </product>
-  <product id="1003">
+  <product name="1003">
     <name>Product D</name>
     <version>Version 1.0</version>
     <description>

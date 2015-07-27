@@ -41,7 +41,7 @@ namespace XmlConnectionTest
         [Test]    
         public void TestReadOneCheckValue()
         {
-            var element = xmlFileManager.ReadElement("1000");
+            var element = xmlFileManager.ReadNamedElements("1000");
             var name = element.Elements().FirstOrDefault(x => x.Name == "name");
             Assert.That(name,Is.Not.Null);
             Assert.That(name.Value,Is.EqualTo("Product A"),"Value should be equal to Product A");
@@ -51,7 +51,7 @@ namespace XmlConnectionTest
         public void TestUpdateElementChangeVersion()
         {
             xmlFileManager.UpdateElementVersion("1000","2.0");
-            var element = xmlFileManager.ReadElement("1000");
+            var element = xmlFileManager.ReadNamedElements("1000");
             var versionElement = element.Elements().FirstOrDefault(x => x.Name == "version");
             Assert.That(versionElement,Is.Not.Null, "versionElement != null");
             Assert.That(versionElement.Value,Is.EqualTo("2.0"));
