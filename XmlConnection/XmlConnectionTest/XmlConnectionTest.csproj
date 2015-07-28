@@ -59,6 +59,10 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Model\Model.csproj">
+      <Project>{F5348AC0-9962-4620-AEEE-3C87CBE5E3A2}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
     <ProjectReference Include="..\XmlConnection\XmlConnection.csproj">
       <Project>{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}</Project>
       <Name>XmlConnection</Name>
@@ -66,6 +70,11 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="TestData\ProductPortofolio.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="TestData\TestOrder.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

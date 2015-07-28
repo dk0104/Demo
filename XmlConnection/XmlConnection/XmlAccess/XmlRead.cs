@@ -10,66 +10,53 @@ namespace XmlConnection.XmlAccess
 {
     internal class XmlRead:IRead<XElement>
     {
-        private readonly XmlReaderSettings settings;
-        private readonly string path;
-        public event Action<ValidationEventArgs> ValidationViolationEvent; 
-
         #region Constrictor
 
-        public XmlRead(string path)
+        public XmlRead(XElement rootElement)
         {
-            this.path = path;
-            this.settings = new XmlReaderSettings
-            {
-                ValidationType = ValidationType.Schema,
-                ValidationFlags = XmlSchemaValidationFlags.ProcessSchemaLocation|
-                XmlSchemaValidationFlags.ReportValidationWarnings
-            };
+            this.RootElement = rootElement;
         }
-
-        public void LoadXml()
-        {
-            settings.ValidationEventHandler += OnValidationEventHandler;
-            using (var xmlReader = XmlReader.Create(path,settings))
-            {
-                this.RootElement = XElement.Load(xmlReader);
-            }
-        }
-
-        private void OnValidationEventHandler(object sender, ValidationEventArgs e)
-        {
-            if (ValidationViolationEvent != null) ValidationViolationEvent.Invoke(e);
-        }
-
-        public XElement RootElement { get;private set; }
-
+       
         #endregion
 
+        #region Properties
+
+        public XElement RootElement { get; private set; }
+
+        #endregion
+        
         #region Methods
-
-        public XElement ReadHeadElement(uint id)
+        
+        /// <summary>
+        /// Get element by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public XElement GetElementById(string id)
         {
-            return this.RootElement.Elements().Single(x => x.Attribute("id").Value == id.ToString());
-        }
-
-        public XElement ReadChildElement(uint id, string childElementName)
-        {
-            var element = this.ReadHeadElement(id);
-            return element.Element(childElementName);
+            return this.RootElement.Elements().Single(x => x.Attribute("id").Value == id);
         }
 
         /// <summary>
-        /// Read all elements.
+        /// Get elements by name.
+        /// </summary>
+        /// <param name="childElementName"></param>
+        /// <returns></returns>
+        public IEnumerable<XElement> GetElementsByTagName(string childElementName)
+        {
+            var elements = from x in RootElement.Elements().SelectMany(x => x.Elements().Where(el=>el.Name==childElementName)) select x;
+            return elements;
+        }
+
+        /// <summary>
+        /// Get all elements.
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<XElement> ReadAll()
+        public IEnumerable<XElement> GetAllElements()
         {
-            
             return this.RootElement.Elements();
         }
         
         #endregion
-
-       
     }
 }

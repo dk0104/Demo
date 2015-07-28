@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Xml;
 using System.Xml.Linq;
 using System.Xml.Schema;
 using XmlConnection.XmlAccess;
@@ -12,26 +14,44 @@ namespace XmlConnection
         #region Field
 
         private readonly ElementModification<XElement> elementModification;
+        private XmlReaderSettings settings;
         private readonly XmlRead xmlRead;
-        private const string ElementNamespace = "http://www.demo-application.com/products";
+        private XElement rootElement;
+        private readonly string filePath;
 
-        public List<string> XmlReaderWarnings { get; private set; }
+        #endregion
+
+        #region Properties
+
+        /// <summary>
+        /// Gets the list of xml errors.
+        /// </summary>
         public List<string> XmlReaderErrors { get; private set; }
+
+        /// <summary>
+        /// Gets the list of xml warnings.
+        /// </summary>
+        public List<string> XmlReaderWarnings { get; private set; }
 
         #endregion
 
         #region Constructor
         
-        public XmlFileManager(string file)
+        public XmlFileManager(string filePath)
         {
-            var xmlDelete = new XmlDelete(file);
-            var xmlSave = new XmlSave(file, ElementNamespace);
-            this.xmlRead = new XmlRead(file); 
-            xmlRead.ValidationViolationEvent += OnValidationViolation;
-            this.elementModification = new ElementModification<XElement>(xmlSave, xmlDelete);
-            this.XmlReaderErrors = new List<string>();
-            this.XmlReaderWarnings = new List<string>();
-            xmlRead.LoadXml();
+            this.filePath = filePath;
+            LoadXmlFile(filePath);
+            var order = this.rootElement.Element("order");
+            if (order != null)
+            {
+                this.elementModification = new ElementModification<XElement>(new XmlSave(order), new XmlDelete(order));
+                this.xmlRead = new XmlRead(order); 
+            }
+            else
+            {
+                this.elementModification = new ElementModification<XElement>(new XmlSave(this.rootElement), new XmlDelete(this.rootElement));
+                this.xmlRead = new XmlRead(this.rootElement); 
+            }
         }
 
         #endregion
@@ -42,7 +62,12 @@ namespace XmlConnection
         /// Update element.
         /// </summary>
         /// <param name="element"></param>
-        public void Update(XElement element)
+        public void Save(XElement element)
+        {
+            this.elementModification.Save(element);
+        }
+
+        public void Delete(XElement element)
         {
             this.elementModification.Save(element);
         }
@@ -50,32 +75,37 @@ namespace XmlConnection
         /// <summary>
         /// Read named elements. 
         /// </summary>
-        /// <param name="name"></param>
         /// <returns></returns>
-        public XElement ReadNamedElements(uint id)
+        public XElement GetElementById(string id)
         {
-            return this.xmlRead.ReadHeadElement(id);
+            return this.xmlRead.GetElementById(id);
         }
 
-        public XElement ReadChildElement(uint id, string name)
+        public List<XElement> GetElementsByTagName(string name)
         {
-            return this.xmlRead.ReadChildElement(id, name);
+            return this.xmlRead.GetElementsByTagName(name).ToList();
         }
 
         /// <summary>
         /// Read all elements .
         /// </summary>
         /// <returns></returns>
-        public List<XElement> ReadAllElements()
+        public List<XElement> GetAllElements()
         {
-            return this.xmlRead.ReadAll().ToList();
+            return this.xmlRead.GetAllElements().ToList();
+        }
+
+        public void WriteFile()
+        {
+            this.rootElement.Save(this.filePath);
         }
 
         /// <summary>
         /// Error or Warnings collector.
         /// </summary>
+        /// <param name="sender"></param>
         /// <param name="validationEventArgs"></param>
-        private void OnValidationViolation(ValidationEventArgs validationEventArgs)
+        private void OnValidationViolation(object sender, ValidationEventArgs validationEventArgs)
         {
             switch (validationEventArgs.Severity)
             {
@@ -93,6 +123,27 @@ namespace XmlConnection
                         validationEventArgs.Message));
                 }
                     break;
+            }
+        }
+
+        /// <summary>
+        /// Load xml filePath.
+        /// </summary>
+        /// <param name="file"></param>
+        private void LoadXmlFile(string file)
+        {
+            this.XmlReaderErrors = new List<string>();
+            this.XmlReaderWarnings = new List<string>();
+            this.settings = new XmlReaderSettings
+            {
+                ValidationType = ValidationType.Schema,
+                ValidationFlags = XmlSchemaValidationFlags.ProcessSchemaLocation |
+                                  XmlSchemaValidationFlags.ReportValidationWarnings
+            };
+            settings.ValidationEventHandler += OnValidationViolation;
+            using (var xmlReader = XmlReader.Create(file, settings))
+            {
+                this.rootElement = XElement.Load(xmlReader);
             }
         }
 

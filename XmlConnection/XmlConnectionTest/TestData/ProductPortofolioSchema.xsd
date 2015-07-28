@@ -19,11 +19,9 @@
   <xs:simpleType name="datetype">
     <xs:restriction base="xs:date"/>
   </xs:simpleType>
-  
-  <!--product id type-->
-  <xs:simpleType name="productidtype">
-    <xs:restriction base="xs:positiveInteger">
-      <xs:pattern value="[0-9]{6}"/>
+
+  <xs:simpleType name="idType">
+    <xs:restriction base="xs:ID">
     </xs:restriction>
   </xs:simpleType>
   
@@ -50,26 +48,24 @@
       <xs:element name="productDescription" type="stringtype"></xs:element>
       <xs:element name="features" maxOccurs="unbounded" type="featureType"></xs:element>
     </xs:sequence>
-    <xs:attribute name="id" type="productidtype" use="required"></xs:attribute>
+    <xs:attribute name="id" type="idType" use="required"></xs:attribute>
   </xs:complexType>
 
   <xs:complexType name ="orderType">
     <xs:sequence>
       <xs:element name="orderDate" type ="datetype"></xs:element>
-      <xs:element name="orderProducts" maxOccurs="unbounded" type="productType"></xs:element>
+      <xs:element name="product" maxOccurs="unbounded" type="productType"></xs:element>
       <xs:element name="serialnumber" type="sernumber"></xs:element>
     </xs:sequence>
   </xs:complexType>
   
   <!--Elements-->
-  <xs:element name="products">
+  <xs:element name="root">
     <xs:complexType>
-      <xs:sequence>
+      <xs:choice>
         <xs:element name="product" type="productType" minOccurs="1" maxOccurs="unbounded"></xs:element>
-      </xs:sequence>
+        <xs:element name ="order" type="orderType" maxOccurs="1"></xs:element>  
+      </xs:choice>
     </xs:complexType>   
   </xs:element> 
-
-  <xs:element name ="order" type="orderType"></xs:element>  
-  
 </xs:schema>

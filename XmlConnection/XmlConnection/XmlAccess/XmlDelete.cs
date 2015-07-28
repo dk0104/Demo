@@ -6,9 +6,9 @@ namespace XmlConnection.XmlAccess
 {
     internal class XmlDelete:IDelete<XElement>
     {
-        public XmlDelete(string path)
+        public XmlDelete(XElement rootElement)
         {
-            RootElement = XElement.Load(path);
+            this.RootElement = rootElement;
         }
 
         #region Properties
@@ -18,8 +18,11 @@ namespace XmlConnection.XmlAccess
         #endregion
         public void Delete(XElement element)
         {
-            var foundElement = this.RootElement.Elements().FirstOrDefault(el => el.Attribute("id")==element.Attribute("id"));
-            if (foundElement != null) foundElement.Remove();
+            var foundElement = this.RootElement.Elements().Single(el => el.Attribute("id") == element.Attribute("id"));
+            if (foundElement!=null)
+            {
+                 foundElement.Remove();
+            }
         }
     }
 }

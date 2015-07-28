@@ -14,7 +14,7 @@ namespace XmlConnection.Interfaces
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Returns a list of elements</returns>
-        XElement ReadHeadElement(uint id);
+        TElement GetElementById(string id);
 
         /// <summary>
         /// Read child element adressd by id and name.
@@ -22,13 +22,13 @@ namespace XmlConnection.Interfaces
         /// <param name="id"></param>
         /// <param name="childElementName"></param>
         /// <returns></returns>
-        XElement ReadChildElement(uint id, string childElementName);
+        IEnumerable<TElement> GetElementsByTagName(string childElementName);
         
         /// <summary>
         /// Read all elements
         /// </summary>
         /// <returns>Returns a list of elements </returns>
-        IEnumerable<TElement> ReadAll();
+        IEnumerable<TElement> GetAllElements();
 
     }
 }

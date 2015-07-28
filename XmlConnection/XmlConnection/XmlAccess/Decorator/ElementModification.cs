@@ -39,7 +39,6 @@ namespace XmlConnection.XmlAccess.Decorator
         public void Delete(TElement element)
         {
             delete.Delete(element);
-           
         }
 
         #endregion
