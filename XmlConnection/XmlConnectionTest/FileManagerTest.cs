@@ -8,30 +8,37 @@ namespace XmlConnectionTest
     [TestFixture]
     public class FileManagerTest
     {
-        #region Properties
+        #region Fields
 
         private XmlFileManager xmlFileManager;
         private string xmlPath;
-        private string xmlPathWarning;
+        private string xmlPathErrorFile;
+
+		string xmlPathWarningFile;
 
         #endregion
-        [SetUp]
-        public void SetUp()
-        {
-            this.xmlPath = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortofolio.xml");
-            this.xmlPathWarning = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortofolioWarning.xml");
-         
-        }
 
-        [TearDown]
-        public void TearDown()
-        {
+        #region SetUp/TearDown
+
+		[SetUp]
+		public void SetUp ()
+		{
+			this.xmlPath = Path.Combine (Environment.CurrentDirectory, "TestData", "ProductPortofolio.xml");
+			this.xmlPathErrorFile = Path.Combine (Environment.CurrentDirectory, "TestData", "ProductPortofolioError.xml");
+			this.xmlPathWarningFile = Path.Combine (Environment.CurrentDirectory, "TestData", "ProductPortofolioWarning.xml");
+		}
+
+		[TearDown]
+		public void TearDown ()
+		{
             
-        }
+		}
+
+		#endregion
 
         [Test]
         public void TestReadAllCountElementsError()
-        {   this.xmlFileManager = new XmlFileManager(xmlPathWarning);
+        {   this.xmlFileManager = new XmlFileManager(xmlPathErrorFile);
             var elements = xmlFileManager.ReadAllElements();
             Assert.That(xmlFileManager.XmlReaderWarnings.Count,Is.EqualTo(0));
             Assert.That(xmlFileManager.XmlReaderErrors.Count,Is.EqualTo(1));
