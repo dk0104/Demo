@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<products xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:noNamespaceSchemaLocation="ProductPortofolioSchema.xsd">
+  <product id="1">
+    <productName>ProductA</productName>
+    <version>1.0</version>
+    <productDescription>
+      Product A
+      Lorem ipsum dolor sit amet,
+      amet rutrum eu, elementum nisl vestibulum qui,
+      eros in porta facilisis dui. Scelerisque enim
+      auctor ultricies felis, vestibulum aliquam
+      maecenas donec eu, ac lectus pulvinar lacus a nec
+      adipiscing, semper nulla ut sodales illum varius,
+      viverra maecenas amet turpis. Ante eleifend, corporis
+      morbi, in quis enim. Facilisis donec diam vitae ipsum,
+      vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+      volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+      proin, per maecenas suspendisse nibh eros integer habitant.
+      Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+      pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+      aliquam tempor, mauris porttitor nunc.
+    </productDescription>
+    <features>
+      <featureName>feature A</featureName>
+      <featureDescription>
+        Feature B
+        Lorem ipsum dolor sit amet,
+        amet rutrum eu, elementum nisl vestibulum qui,
+        eros in porta facilisis dui. Scelerisque enim
+        auctor ultricies felis, vestibulum aliquam
+        maecenas donec eu, ac lectus pulvinar lacus a nec
+        adipiscing, semper nulla ut sodales illum varius,
+        viverra maecenas amet turpis. Ante eleifend, corporis
+        morbi, in quis enim. Facilisis donec diam vitae ipsum,
+        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+        proin, per maecenas suspendisse nibh eros integer habitant.
+        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+        aliquam tempor, mauris porttitor nunc.
+      </featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+    <features>
+      <featureName>feature B</featureName>
+      <featureDescription>
+        Feature B 
+        Lorem ipsum dolor sit amet,
+        amet rutrum eu, elementum nisl vestibulum qui,
+        eros in porta facilisis dui. Scelerisque enim
+        auctor ultricies felis, vestibulum aliquam
+        maecenas donec eu, ac lectus pulvinar lacus a nec
+        adipiscing, semper nulla ut sodales illum varius,
+        viverra maecenas amet turpis. Ante eleifend, corporis
+        morbi, in quis enim. Facilisis donec diam vitae ipsum,
+        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+        proin, per maecenas suspendisse nibh eros integer habitant.
+        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+        aliquam tempor, mauris porttitor nunc.</featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+  </product>
+  <product id="000002">
+    <productName>Product B</productName>
+    <version>1.0</version>
+    <productDescription>
+      Product B
+      Lorem ipsum dolor sit amet,
+      amet rutrum eu, elementum nisl vestibulum qui,
+      eros in porta facilisis dui. Scelerisque enim
+      auctor ultricies felis, vestibulum aliquam
+      maecenas donec eu, ac lectus pulvinar lacus a nec
+      adipiscing, semper nulla ut sodales illum varius,
+      viverra maecenas amet turpis. Ante eleifend, corporis
+      morbi, in quis enim. Facilisis donec diam vitae ipsum,
+      vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+      volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+      proin, per maecenas suspendisse nibh eros integer habitant.
+      Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+      pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+      aliquam tempor, mauris porttitor nunc.
+    </productDescription>
+    <features>
+      <featureName>feature A</featureName>
+      <featureDescription>
+        Feature B 
+        Lorem ipsum dolor sit amet,
+        amet rutrum eu, elementum nisl vestibulum qui,
+        eros in porta facilisis dui. Scelerisque enim
+        auctor ultricies felis, vestibulum aliquam
+        maecenas donec eu, ac lectus pulvinar lacus a nec
+        adipiscing, semper nulla ut sodales illum varius,
+        viverra maecenas amet turpis. Ante eleifend, corporis
+        morbi, in quis enim. Facilisis donec diam vitae ipsum,
+        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+        proin, per maecenas suspendisse nibh eros integer habitant.
+        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+        aliquam tempor, mauris porttitor nunc.
+      </featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+    <features>
+      <featureName>feature B</featureName>
+      <featureDescription>
+        Feature B 
+        Lorem ipsum dolor sit amet,
+        amet rutrum eu, elementum nisl vestibulum qui,
+        eros in porta facilisis dui. Scelerisque enim
+        auctor ultricies felis, vestibulum aliquam
+        maecenas donec eu, ac lectus pulvinar lacus a nec
+        adipiscing, semper nulla ut sodales illum varius,
+        viverra maecenas amet turpis. Ante eleifend, corporis
+        morbi, in quis enim. Facilisis donec diam vitae ipsum,
+        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+        proin, per maecenas suspendisse nibh eros integer habitant.
+        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+        aliquam tempor, mauris porttitor nunc.
+      </featureDescription>
+      <isSelected>false</isSelected>
+    </features>
+  </product>
+</products> 
+
+
+  
