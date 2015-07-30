@@ -42,7 +42,6 @@
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
         </featureDescription>
-        <isSelected>false</isSelected>
       </features>
       <features>
         <featureName>feature B</featureName>
@@ -63,7 +62,6 @@
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
         </featureDescription>
-        <isSelected>false</isSelected>
       </features>
     </product>
     <product id="p5">
@@ -105,7 +103,6 @@
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
         </featureDescription>
-        <isSelected>false</isSelected>
       </features>
       <features>
         <featureName>feature B</featureName>
@@ -126,7 +123,6 @@
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
         </featureDescription>
-        <isSelected>false</isSelected>
       </features>
     </product>
     <serialnumber>DCE8024F-8AD8-4254-AAE7-06DA0ED3C24F</serialnumber>

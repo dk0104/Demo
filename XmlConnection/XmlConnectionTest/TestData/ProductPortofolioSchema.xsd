@@ -35,17 +35,16 @@
   <!--Complex Types-->
   <xs:complexType name="featureType">
     <xs:sequence>
-      <xs:element name="featureName" type="stringtype"></xs:element>
-      <xs:element name="featureDescription" type="stringtype"></xs:element>
-      <xs:element name="isSelected" type ="booltype"></xs:element>
+      <xs:element name="featureName" type="stringtype" maxOccurs="1"></xs:element>
+      <xs:element name="featureDescription" type="stringtype" maxOccurs="1"></xs:element>
     </xs:sequence>
   </xs:complexType>
   
   <xs:complexType name="productType">
     <xs:sequence>
-      <xs:element name="productName" type="stringtype"></xs:element>
-      <xs:element name="version" type="stringtype"></xs:element>
-      <xs:element name="productDescription" type="stringtype"></xs:element>
+      <xs:element name="productName" type="stringtype"  maxOccurs="1"></xs:element>
+      <xs:element name="version" type="stringtype"  maxOccurs="1"></xs:element>
+      <xs:element name="productDescription" type="stringtype" maxOccurs="1"></xs:element>
       <xs:element name="features" maxOccurs="unbounded" type="featureType"></xs:element>
     </xs:sequence>
     <xs:attribute name="id" type="idType" use="required"></xs:attribute>
@@ -58,12 +57,19 @@
       <xs:element name="serialnumber" type="sernumber"></xs:element>
     </xs:sequence>
   </xs:complexType>
+
+  <xs:complexType name="productGroupType">
+    <xs:sequence>
+      <xs:element name="productGroupName" type="stringtype" maxOccurs="1"></xs:element>
+      <xs:element name ="product" minOccurs="1" maxOccurs="unbounded" type="productType"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
   
   <!--Elements-->
   <xs:element name="root">
     <xs:complexType>
       <xs:choice>
-        <xs:element name="product" type="productType" minOccurs="1" maxOccurs="unbounded"></xs:element>
+        <xs:element name="portofolio" type="productGroupType" maxOccurs="unbounded"></xs:element>
         <xs:element name ="order" type="orderType" maxOccurs="1"></xs:element>  
       </xs:choice>
     </xs:complexType>   
