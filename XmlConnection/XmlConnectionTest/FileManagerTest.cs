@@ -169,7 +169,7 @@ namespace XmlConnectionTest
         /// <returns>
         /// The <see cref="XElement"/>.
         /// </returns>
-        internal XElement CreateProductElement(Product product)
+        private XElement CreateProductElement(Product product)
         {
             var productElement = new XElement("product");
             productElement.Add(new XAttribute("id", product.Id));

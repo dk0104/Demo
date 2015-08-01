@@ -1,0 +1,128 @@
+﻿<RibbonWindow x:Class="XmlBinderTest.MainWindow" 
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="LicenseCreator" MinHeight="492" Height="492.9" Width="647" MinWidth="647" Icon="Images/AppIcon.png">
+    <DockPanel>
+        <Ribbon x:Name="_ribbon" DockPanel.Dock="Top" >
+            <Ribbon.QuickAccessToolBar>
+                <RibbonQuickAccessToolBar>
+                    <RibbonButton 
+                        SmallImageSource="Images/New.png" 
+                        KeyTip="N"
+                        ToolTip="Create new license"
+                        Command="New"
+                        CommandParameter="*.key"></RibbonButton>
+                    <RibbonButton 
+                        SmallImageSource="Images/ImportOrder.png"
+                        KeyTip="I"
+                        ToolTip="Import license"
+                        Command="Open"
+                        CommandParameter="*.key"></RibbonButton>
+                </RibbonQuickAccessToolBar>
+            </Ribbon.QuickAccessToolBar>
+            <Ribbon.ApplicationMenu>
+                <RibbonApplicationMenu SmallImageSource="Images/File.png" KeyTip="F">
+                   <RibbonApplicationMenuItem 
+                       Header="New order" KeyTip="N" 
+                       ImageSource="Images/New.png"
+                       ToolTip="Create new license"
+                       Command="New"
+                       CommandParameter="*.key">
+                   </RibbonApplicationMenuItem>
+                   <RibbonApplicationMenuItem 
+                       Header="Import order" 
+                       KeyTip="I" 
+                       ToolTip="Import license"
+                       ImageSource="Images/ImportOrder.png"
+                       Command="Open"
+                       CommandParameter="*.key">
+                   </RibbonApplicationMenuItem>
+                   <RibbonApplicationMenuItem 
+                       Header="Import portofolio" 
+                       KeyTip="P" 
+                       ToolTip="Import portofolio"
+                       ImageSource="Images/ImportPortofolio.png"
+                       Command="Open"
+                       CommandParameter="*.portofolio">
+                   </RibbonApplicationMenuItem>
+                   <RibbonApplicationMenuItem 
+                       Header="Save" 
+                       KeyTip="S" 
+                       ToolTip="Save portofolio"
+                       ImageSource="Images/Save.png"
+                       Command="Save" 
+                       CommandParameter="*.key" >
+                   </RibbonApplicationMenuItem>
+                   <RibbonApplicationMenuItem 
+                       Header="Save As..." 
+                       KeyTip="V" 
+                       ImageSource="Images/SaveAs.png"
+                       Command="SaveAs"
+                       ToolTip="Save portofolio"
+                       CommandParameter="*.key">
+                   </RibbonApplicationMenuItem>
+                </RibbonApplicationMenu>
+               
+            </Ribbon.ApplicationMenu>
+            <RibbonTab Header="Home" KeyTip="H">
+                <RibbonGroup x:Name="order" Header="License">
+                    <RibbonMenuButton LargeImageSource="Images/Import.png" Label="Import" ToolTip="Import supported files.">
+                        <RibbonMenuItem 
+                            ImageSource="Images/ImportPortofolio.png" 
+                            Header="Import portofolio"
+                            ToolTip="Import portofolio"
+                            KeyTip="P"
+                            Command="Open"
+                            CommandParameter="*.port"></RibbonMenuItem>
+                        <RibbonMenuItem 
+                            ImageSource="Images/ImportOrder.png" 
+                            Header="Import license"
+                            ToolTip="Import license"
+                            Command="Open"
+                            CommandParameter="*.key"
+                            KeyTip="L"></RibbonMenuItem>
+                    </RibbonMenuButton>
+                    <RibbonButton 
+                        SmallImageSource="Images/eye.png" 
+                        Label="Show"
+                        ToolTip="Show license"
+                        KeyTip="S"></RibbonButton>
+                    <RibbonButton 
+                        SmallImageSource="Images/Refresh.png" 
+                        Label="Reset"
+                        ToolTip="Reset product selection"
+                        KeyTip="R"></RibbonButton>
+                    <RibbonSeparator></RibbonSeparator>
+                    <RibbonButton 
+                        SmallImageSource="Images/New.png" 
+                        Label="New"
+                        KeyTip="N"></RibbonButton>
+                    <RibbonButton 
+                        SmallImageSource="Images/Delete.png" 
+                        Label="Delete"
+                        ToolTip="Delete license file"
+                        KeyTip="D"></RibbonButton>
+                    <RibbonButton 
+                        SmallImageSource="Images/Encrypt.png" 
+                        Label="Encrypt"
+                        ToolTip="Encrypt license file"
+                        KeyTip="E"></RibbonButton>
+                </RibbonGroup>
+                <RibbonGroup Header="View">
+                    <DockPanel>
+                        <RibbonButton DockPanel.Dock="Top" SmallImageSource="Images/Collapse.png" Label="Collapse all"></RibbonButton>
+                        <RibbonButton DockPanel.Dock="Top"  SmallImageSource="Images/Expand.png" Label="Expand all"></RibbonButton>
+                        <RibbonTextBox DockPanel.Dock="Bottom" SmallImageSource="Images/Find.png" HorizontalAlignment="Right" Text="Search"></RibbonTextBox>
+                    </DockPanel>
+                </RibbonGroup>
+            </RibbonTab>
+           
+            <Ribbon.HelpPaneContent>
+                <RibbonButton SmallImageSource="Images/Help.png" KeyTip="?"></RibbonButton>
+            </Ribbon.HelpPaneContent>
+        </Ribbon>
+        <TreeView DockPanel.Dock="Left" Width="200"   BorderThickness="1"></TreeView>
+        <DataGrid DockPanel.Dock="Right"></DataGrid>
+    </DockPanel>
+
+</RibbonWindow>
