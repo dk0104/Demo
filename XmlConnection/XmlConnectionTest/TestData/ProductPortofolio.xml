@@ -2,11 +2,164 @@
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
           xsi:noNamespaceSchemaLocation="ProductPortofolioSchema.xsd">
   <portofolio>
-    <productGroupName>Tools</productGroupName>
-    <product id="t001">
-    <productName>Tool A</productName>
-    <version>1.0</version>
-    <productDescription>
+    <productCroup>
+      <productGroupName>Tools</productGroupName>
+      <product id="T001">
+      <productName>Tool A</productName>
+      <version>
+      <versionNumber>1.0</versionNumber>
+       <feature>
+         <featureName>feature A</featureName>
+         <featureDescription>
+           Feature B
+           Lorem ipsum dolor sit amet,
+           amet rutrum eu, elementum nisl vestibulum qui,
+           eros in porta facilisis dui. Scelerisque enim
+           auctor ultricies felis, vestibulum aliquam
+           maecenas donec eu, ac lectus pulvinar lacus a nec
+           adipiscing, semper nulla ut sodales illum varius,
+           viverra maecenas amet turpis. Ante eleifend, corporis
+           morbi, in quis enim. Facilisis donec diam vitae ipsum,
+           vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+           volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+           proin, per maecenas suspendisse nibh eros integer habitant.
+           Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+           aliquam tempor, mauris porttitor nunc.
+         </featureDescription>
+       </feature>
+       <feature>
+           <featureName>feature B</featureName>
+           <featureDescription>
+             Feature B
+             Lorem ipsum dolor sit amet,
+             amet rutrum eu, elementum nisl vestibulum qui,
+             eros in porta facilisis dui. Scelerisque enim
+             auctor ultricies felis, vestibulum aliquam
+             maecenas donec eu, ac lectus pulvinar lacus a nec
+             adipiscing, semper nulla ut sodales illum varius,
+             viverra maecenas amet turpis. Ante eleifend, corporis
+             morbi, in quis enim. Facilisis donec diam vitae ipsum,
+             vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+             volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+             proin, per maecenas suspendisse nibh eros integer habitant.
+             Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+             pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+             aliquam tempor, mauris porttitor nunc.
+           </featureDescription>
+
+        
+         <featureName>string</featureName>
+         <featureDescription>string</featureDescription>
+       </feature>
+     </version>
+      <version>
+          <versionNumber>1.1</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature A
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+      <version>
+          <versionNumber>1.2</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature A
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature C</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+      <productDescription>
       Product A
       Lorem ipsum dolor sit amet,
       amet rutrum eu, elementum nisl vestibulum qui,
@@ -23,71 +176,140 @@
       pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
       aliquam tempor, mauris porttitor nunc.
     </productDescription>
-    <features>
-      <featureName>feature A</featureName>
-      <featureDescription>
-        Feature B
-        Lorem ipsum dolor sit amet,
-        amet rutrum eu, elementum nisl vestibulum qui,
-        eros in porta facilisis dui. Scelerisque enim
-        auctor ultricies felis, vestibulum aliquam
-        maecenas donec eu, ac lectus pulvinar lacus a nec
-        adipiscing, semper nulla ut sodales illum varius,
-        viverra maecenas amet turpis. Ante eleifend, corporis
-        morbi, in quis enim. Facilisis donec diam vitae ipsum,
-        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-        proin, per maecenas suspendisse nibh eros integer habitant.
-        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-        aliquam tempor, mauris porttitor nunc.
-      </featureDescription>
-    </features>
-    <features>
-      <featureName>feature B</featureName>
-      <featureDescription>
-        Feature B 
-        Lorem ipsum dolor sit amet,
-        amet rutrum eu, elementum nisl vestibulum qui,
-        eros in porta facilisis dui. Scelerisque enim
-        auctor ultricies felis, vestibulum aliquam
-        maecenas donec eu, ac lectus pulvinar lacus a nec
-        adipiscing, semper nulla ut sodales illum varius,
-        viverra maecenas amet turpis. Ante eleifend, corporis
-        morbi, in quis enim. Facilisis donec diam vitae ipsum,
-        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-        proin, per maecenas suspendisse nibh eros integer habitant.
-        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-        aliquam tempor, mauris porttitor nunc.</featureDescription>
-     
-    </features>
   </product>
-    <product id="t002">
-      <productName>Tool A</productName>
-      <version>2.0</version>
-      <productDescription>
-        Product A
-        Lorem ipsum dolor sit amet,
-        amet rutrum eu, elementum nisl vestibulum qui,
-        eros in porta facilisis dui. Scelerisque enim
-        auctor ultricies felis, vestibulum aliquam
-        maecenas donec eu, ac lectus pulvinar lacus a nec
-        adipiscing, semper nulla ut sodales illum varius,
-        viverra maecenas amet turpis. Ante eleifend, corporis
-        morbi, in quis enim. Facilisis donec diam vitae ipsum,
-        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-        proin, per maecenas suspendisse nibh eros integer habitant.
-        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-        aliquam tempor, mauris porttitor nunc.
-      </productDescription>
-      <features>
-        <featureName>feature A</featureName>
-        <featureDescription>
-          Feature B
+      <product id="T002">
+        <productName>Tool B</productName>
+        <version>
+          <versionNumber>1.0</versionNumber>
+          <feature>
+            <featureName>feature A</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+        <version>
+          <versionNumber>1.1</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature A
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+        <version>
+          <versionNumber>1.2</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature A
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>Feature C</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+        <productDescription>
+          Product Tool B
           Lorem ipsum dolor sit amet,
           amet rutrum eu, elementum nisl vestibulum qui,
           eros in porta facilisis dui. Scelerisque enim
@@ -102,12 +324,59 @@
           Reprehenderit proin est, erat fermentum, eleifend hymenaeos
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
-        </featureDescription>
-      </features>
-      <features>
-        <featureName>feature B</featureName>
-        <featureDescription>
-          Feature B
+        </productDescription>
+      </product>
+      </productCroup>
+    <productCroup>
+      <productGroupName>Safety</productGroupName>
+      <product id="SA001">
+        <productName>SafeProg</productName>
+        <version>
+          <versionNumber>1.0</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+
+          </feature>
+        </version>
+        <productDescription>
+          Product A
           Lorem ipsum dolor sit amet,
           amet rutrum eu, elementum nisl vestibulum qui,
           eros in porta facilisis dui. Scelerisque enim
@@ -122,12 +391,120 @@
           Reprehenderit proin est, erat fermentum, eleifend hymenaeos
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
-        </featureDescription>
-      </features>
-      <features>
-        <featureName>feature C</featureName>
-        <featureDescription>
-          Feature C
+        </productDescription>
+      </product>
+      <product id="SA002">
+        <productName>SafeConf</productName>
+        <version>
+          <versionNumber>1.0</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+
+          </feature>
+        </version>
+        <version>
+          <versionNumber>1.1</versionNumber>
+          <feature>
+            <featureName>Feature A</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+          <feature>
+            <featureName>feature B</featureName>
+            <featureDescription>
+              Feature B
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+
+          </feature>
+          <feature>
+            <featureName>feature C</featureName>
+            <featureDescription>
+              Feature C
+              Lorem ipsum dolor sit amet,
+              amet rutrum eu, elementum nisl vestibulum qui,
+              eros in porta facilisis dui. Scelerisque enim
+              auctor ultricies felis, vestibulum aliquam
+              maecenas donec eu, ac lectus pulvinar lacus a nec
+              adipiscing, semper nulla ut sodales illum varius,
+              viverra maecenas amet turpis. Ante eleifend, corporis
+              morbi, in quis enim. Facilisis donec diam vitae ipsum,
+              vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
+              volutpat, consectetuer mattis pede dolor, pellentesque nascetur
+              proin, per maecenas suspendisse nibh eros integer habitant.
+              Reprehenderit proin est, erat fermentum, eleifend hymenaeos
+              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
+              aliquam tempor, mauris porttitor nunc.
+            </featureDescription>
+          </feature>
+        </version>
+        <productDescription>
+          Product A
           Lorem ipsum dolor sit amet,
           amet rutrum eu, elementum nisl vestibulum qui,
           eros in porta facilisis dui. Scelerisque enim
@@ -142,70 +519,9 @@
           Reprehenderit proin est, erat fermentum, eleifend hymenaeos
           pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
           aliquam tempor, mauris porttitor nunc.
-        </featureDescription>
-      </features>
-    </product>
-    <product id="t003">
-    <productName>Tool B</productName>
-    <version>1.0</version>
-    <productDescription>
-      Product B
-      Lorem ipsum dolor sit amet,
-      amet rutrum eu, elementum nisl vestibulum qui,
-      eros in porta facilisis dui. Scelerisque enim
-      auctor ultricies felis, vestibulum aliquam
-      maecenas donec eu, ac lectus pulvinar lacus a nec
-      adipiscing, semper nulla ut sodales illum varius,
-      viverra maecenas amet turpis. Ante eleifend, corporis
-      morbi, in quis enim. Facilisis donec diam vitae ipsum,
-      vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-      volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-      proin, per maecenas suspendisse nibh eros integer habitant.
-      Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-      pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-      aliquam tempor, mauris porttitor nunc.
-    </productDescription>
-    <features>
-      <featureName>feature A</featureName>
-      <featureDescription>
-        Feature B 
-        Lorem ipsum dolor sit amet,
-        amet rutrum eu, elementum nisl vestibulum qui,
-        eros in porta facilisis dui. Scelerisque enim
-        auctor ultricies felis, vestibulum aliquam
-        maecenas donec eu, ac lectus pulvinar lacus a nec
-        adipiscing, semper nulla ut sodales illum varius,
-        viverra maecenas amet turpis. Ante eleifend, corporis
-        morbi, in quis enim. Facilisis donec diam vitae ipsum,
-        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-        proin, per maecenas suspendisse nibh eros integer habitant.
-        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-        aliquam tempor, mauris porttitor nunc.
-      </featureDescription>
-    </features>
-    <features>
-      <featureName>feature B</featureName>
-      <featureDescription>
-        Feature B 
-        Lorem ipsum dolor sit amet,
-        amet rutrum eu, elementum nisl vestibulum qui,
-        eros in porta facilisis dui. Scelerisque enim
-        auctor ultricies felis, vestibulum aliquam
-        maecenas donec eu, ac lectus pulvinar lacus a nec
-        adipiscing, semper nulla ut sodales illum varius,
-        viverra maecenas amet turpis. Ante eleifend, corporis
-        morbi, in quis enim. Facilisis donec diam vitae ipsum,
-        vel vitae lorem ad lacinia eleifend dui. Sapiente aliquam
-        volutpat, consectetuer mattis pede dolor, pellentesque nascetur
-        proin, per maecenas suspendisse nibh eros integer habitant.
-        Reprehenderit proin est, erat fermentum, eleifend hymenaeos
-        pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
-        aliquam tempor, mauris porttitor nunc.
-      </featureDescription>
-    </features>
-  </product>
+        </productDescription>
+      </product>
+    </productCroup>
   </portofolio>
 </root> 
 

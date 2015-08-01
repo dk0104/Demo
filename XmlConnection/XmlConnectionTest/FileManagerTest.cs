@@ -90,10 +90,10 @@ namespace XmlConnectionTest
         public void TestReadAllCountElementsValidationErrorReceiveErrors()
         {
             this.xmlFileManager = new XmlFileManager(this.xmlPathErrorFile);
-            var elements = this.xmlFileManager.GetAllElements();
+            var elements = this.xmlFileManager.GetProductGroups();
             Assert.That(this.xmlFileManager.XmlReaderWarnings.Count, Is.EqualTo(0));
             Assert.That(this.xmlFileManager.XmlReaderErrors.Count, Is.EqualTo(1));
-            Assert.That(elements.Count, Is.EqualTo(2), "Element count should be 2");
+            Assert.That(elements.Count, Is.EqualTo(3), "Element count should be 3");
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace XmlConnectionTest
         public void TestReadAllCountElementsValidationErrorWarning()
         {
             this.xmlFileManager = new XmlFileManager(this.xmlPathErrorWarningFile);
-            this.xmlFileManager.GetAllElements();
+            this.xmlFileManager.GetProductGroups();
             Assert.That(this.xmlFileManager.XmlReaderWarnings.Count, Is.EqualTo(0));
             Assert.That(this.xmlFileManager.XmlReaderErrors.Count, Is.EqualTo(1));
         }
@@ -112,10 +112,10 @@ namespace XmlConnectionTest
         /// The test read all elements_ valid count.
         /// </summary>
         [Test]
-        public void TestReadAllElementsValidCount()
+        public void TestReadAllRootElementsValidCount()
         {
             this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var elements = this.xmlFileManager.GetAllElements();
+            var elements = this.xmlFileManager.GetProductGroups();
             Assert.That(elements.Count, Is.EqualTo(2), "Element count should be 2");
         }
 
@@ -126,8 +126,18 @@ namespace XmlConnectionTest
         public void TestGetElementByIdValidElement()
         {
             this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var element = this.xmlFileManager.GetElementById("p2");
-            Assert.That(element.FirstAttribute.Value, Is.EqualTo("p2"));
+            var element = this.xmlFileManager.GetElementById("T002");
+            Assert.That(element.FirstAttribute.Value, Is.EqualTo("T002"));
+        }
+
+        [Test]
+        public void GetProductGroupByProductElement()
+        {
+            this.xmlFileManager = new XmlFileManager(this.xmlPath);
+            var element = this.xmlFileManager.GetElementById("T002");
+            var group = this.xmlFileManager.GetProductGroup(element);
+            var xElement = @group.Element("productGroupName");
+            Assert.That(xElement != null && xElement.Value=="Tools");
         }
 
         /// <summary>
@@ -147,12 +157,12 @@ namespace XmlConnectionTest
         public void TestSaveElementAddNewElement()
         {
             var product = GreateProductDummy();
-            var element = this.CreateProductElement(product);
+            var element = CreateProductElement(product);
             this.xmlFileManager = new XmlFileManager(this.xmlOrderFile);
-            var elements = this.xmlFileManager.GetAllElements();
+            var elements = this.xmlFileManager.GetProductGroups();
             var prevCount = elements.Count;
             this.xmlFileManager.Save(element);
-            Assert.That(prevCount, Is.Not.GreaterThan(this.xmlFileManager.GetAllElements().Count));
+            Assert.That(prevCount, Is.Not.GreaterThan(this.xmlFileManager.GetProductGroups().Count));
             this.xmlFileManager.WriteFile();
         }
 
@@ -169,22 +179,23 @@ namespace XmlConnectionTest
         /// <returns>
         /// The <see cref="XElement"/>.
         /// </returns>
-        private XElement CreateProductElement(Product product)
+        private static XElement CreateProductElement(Product product)
         {
             var productElement = new XElement("product");
             productElement.Add(new XAttribute("id", product.Id));
             productElement.Add(new XElement("productName", product.Name));
-            productElement.Add(new XElement("version", product.Version));
             productElement.Add(new XElement("productDescription", product.Description));
-            foreach (var feature in product.Features)
+            foreach (var version in product.Versions)
             {
-                var featureEl = new XElement("features");
-                featureEl.Add(new XElement("featureName", feature.Name));
-                featureEl.Add(new XElement("featureDescription", feature.Description));
-                featureEl.Add(new XElement("isSelected", feature.IsSelected));
-                productElement.Add(featureEl);
+                var versionEl = new XElement("version");
+                versionEl.Add("versionNumber",version.VersionNumber);
+                foreach (var feature in version.Features)
+                {
+                    versionEl.Add("featureName",feature.Name);
+                    versionEl.Add("featureDescription",feature.Description);
+                }
+               productElement.Add(versionEl);
             }
-
             return productElement;
         }
 
@@ -209,7 +220,7 @@ namespace XmlConnectionTest
                                   Id = "PJ1", 
                                   Name = "Product J", 
                                   Description = "Product J Description", 
-                                  Features = fl
+                                  
                               };
             return product;
         }

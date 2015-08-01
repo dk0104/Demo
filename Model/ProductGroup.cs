@@ -1,10 +1,10 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Version model
+//   Product Group
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>08.01.2015</since>
+// <since>01.08.2015</since>
 //-----------------------------------------------------------------------
 
 namespace Model
@@ -12,59 +12,50 @@ namespace Model
     using System.Collections.Generic;
 
     /// <summary>
-    /// The product.
+    /// Product Group
     /// </summary>
-    public class Product
+    public class ProductGroup 
     {
         //---------------------------------------------------------------------
-        #region [Constructor]
+        #region [Constructors]
         //---------------------------------------------------------------------
-	
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Product"/> class.
-        /// </summary>
-        public Product()
+        public ProductGroup()
         {
-            this.Versions = new List<Version>();
+            this.Products=new List<Product>();
         }
-
-
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-       
+
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
+        
+        /// <summary>
+        /// Gets or sets the product name
+        /// </summary>
+        public string ProductGroupName { get; set; }
+
+        /// <summary>
+        /// Gets or sets the products list.
+        /// </summary>
+        public IEnumerable<Product> Products { get; set; }
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
+        #region [Methods]
+        //---------------------------------------------------------------------
 	
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the id.
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the features.
-        /// </summary>
-        public IEnumerable<Version> Versions { get; private set; }
-
         public override string ToString()
         {
-            return this.Name;
+            return this.ProductGroupName;
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-      
     }
 }

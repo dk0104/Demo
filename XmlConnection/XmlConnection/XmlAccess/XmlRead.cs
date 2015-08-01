@@ -10,7 +10,9 @@
 namespace XmlConnection.XmlAccess
 {
     using System.Collections.Generic;
+    using System.Diagnostics;
     using System.Linq;
+    using System.Net.Sockets;
     using System.Xml.Linq;
 
     using XmlConnection.Interfaces;
@@ -56,7 +58,9 @@ namespace XmlConnection.XmlAccess
         /// </returns>
         public XElement GetElementById(string id)
         {
-            return this.RootElement.Elements().Single(x => x.Attribute("id").Value == id);
+            var productGroup = this.RootElement.Elements().SelectMany(x => x.Elements().Where(el=>el.Name.LocalName=="product"));
+            var product = productGroup.FirstOrDefault(p => p.Attribute("id").Value == id);
+            return product;
         }
 
         /// <summary>
@@ -82,7 +86,7 @@ namespace XmlConnection.XmlAccess
         /// <returns>
         /// The <see cref="IEnumerable"/>.
         /// </returns>
-        public IEnumerable<XElement> GetAllElements()
+        public IEnumerable<XElement> GetRootElements()
         {
             return this.RootElement.Elements();
         }

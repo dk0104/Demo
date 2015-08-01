@@ -23,29 +23,21 @@
             <Ribbon.ApplicationMenu>
                 <RibbonApplicationMenu SmallImageSource="Images/File.png" KeyTip="F">
                    <RibbonApplicationMenuItem 
-                       Header="New order" KeyTip="N" 
+                       Header="New" KeyTip="N" 
                        ImageSource="Images/New.png"
                        ToolTip="Create new license"
                        Command="New"
                        CommandParameter="*.key">
                    </RibbonApplicationMenuItem>
                    <RibbonApplicationMenuItem 
-                       Header="Import order" 
+                       Header="Import license" 
                        KeyTip="I" 
                        ToolTip="Import license"
                        ImageSource="Images/ImportOrder.png"
                        Command="Open"
                        CommandParameter="*.key">
-                   </RibbonApplicationMenuItem>
-                   <RibbonApplicationMenuItem 
-                       Header="Import portofolio" 
-                       KeyTip="P" 
-                       ToolTip="Import portofolio"
-                       ImageSource="Images/ImportPortofolio.png"
-                       Command="Open"
-                       CommandParameter="*.portofolio">
-                   </RibbonApplicationMenuItem>
-                   <RibbonApplicationMenuItem 
+                    </RibbonApplicationMenuItem>
+                    <RibbonApplicationMenuItem 
                        Header="Save" 
                        KeyTip="S" 
                        ToolTip="Save portofolio"
@@ -58,11 +50,20 @@
                        KeyTip="V" 
                        ImageSource="Images/SaveAs.png"
                        Command="SaveAs"
-                       ToolTip="Save portofolio"
+                       ToolTip="Save license as.."
                        CommandParameter="*.key">
                    </RibbonApplicationMenuItem>
+                   <RibbonSeparator></RibbonSeparator>
+                   <RibbonApplicationMenuItem 
+                       Header="Import portofolio" 
+                       KeyTip="P" 
+                       ToolTip="Import portofolio"
+                       ImageSource="Images/ImportPortofolio.png"
+                       Command="Open"
+                       CommandParameter="*.portofolio">
+                   </RibbonApplicationMenuItem> 
                 </RibbonApplicationMenu>
-               
+              
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Home" KeyTip="H">
                 <RibbonGroup x:Name="order" Header="License">

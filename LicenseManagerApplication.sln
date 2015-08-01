@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnection", "XmlConnect
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnectionTest", "XmlConnection\XmlConnectionTest\XmlConnectionTest.csproj", "{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{2B3AEADC-91DA-48C5-B782-F255BBA461B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FEF5FEC-E7BF-4B77-836E-CCEE79E72264}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

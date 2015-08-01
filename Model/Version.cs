@@ -12,59 +12,59 @@ namespace Model
     using System.Collections.Generic;
 
     /// <summary>
-    /// The product.
+    /// Version model
     /// </summary>
-    public class Product
+    public class Version 
     {
         //---------------------------------------------------------------------
-        #region [Constructor]
+        #region [Constructors]
         //---------------------------------------------------------------------
-	
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Product"/> class.
-        /// </summary>
-        public Product()
+        
+        public Version()
         {
-            this.Versions = new List<Version>();
+            this.Features=new List<Feature>();
         }
-
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-       
+
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
+        
+        /// <summary>
+        /// Gets or sets the version number.
+        /// </summary>
+        public uint VersionNumber { get; set; }
+
+        /// <summary>
+        /// Gets or sets the version description.
+        /// </summary>
+        public string VersionDescription { get; set; }
+
+        /// <summary>
+        /// Gets or sets the features list.
+        /// </summary>
+        public IEnumerable<Feature> Features { get; private set; }
+
+       
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #region [Methods]
+        //---------------------------------------------------------------------
 	
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Gets or sets the id.
-        /// </summary>
-        public string Id { get; set; }
-
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the features.
-        /// </summary>
-        public IEnumerable<Version> Versions { get; private set; }
-
         public override string ToString()
         {
-            return this.Name;
+            return this.VersionNumber.ToString();
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-      
     }
 }

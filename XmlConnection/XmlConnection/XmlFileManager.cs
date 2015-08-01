@@ -64,18 +64,18 @@ namespace XmlConnection
         {
             this.filePath = filePath;
             this.LoadXmlFile(filePath);
-            var order = this.rootElement.Element("order");
-            if (order != null)
+            var elemName= this.rootElement.Elements().First().Name;
+            if ((elemName=="order" || elemName=="portofolio")) 
             {
-                this.elementModification = new ElementModification<XElement>(new XmlSave(order), new XmlDelete(order));
-                this.xmlRead = new XmlRead(order);
-            }
-            else
-            {
+                this.rootElement = this.rootElement.Element(elemName);
                 this.elementModification = new ElementModification<XElement>(
                     new XmlSave(this.rootElement), 
                     new XmlDelete(this.rootElement));
                 this.xmlRead = new XmlRead(this.rootElement);
+            }
+            else
+            {
+                throw new KeyNotFoundException("No order or portofolio entries found.");
             }
         }
 
@@ -152,9 +152,9 @@ namespace XmlConnection
         /// <returns>
         /// The <see cref="List"/>.
         /// </returns>
-        public List<XElement> GetAllElements()
+        public List<XElement> GetProductGroups()
         {
-            return this.xmlRead.GetAllElements().ToList();
+            return this.xmlRead.GetRootElements().ToList();
         }
 
         /// <summary>
@@ -223,6 +223,17 @@ namespace XmlConnection
             }
         }
 
+        /// <summary>
+        /// Get Product Group by product.
+        /// </summary>
+        /// <param name="product"></param>
+        /// <returns></returns>
+        public XElement GetProductGroup(XElement product)
+        {
+            return product.Parent;
+        }
         #endregion
+
+        
     }
 }

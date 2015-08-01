@@ -28,7 +28,7 @@ namespace XmlConnection.Interfaces
         /// Read all elements
         /// </summary>
         /// <returns>Returns a list of elements </returns>
-        IEnumerable<TElement> GetAllElements();
+        IEnumerable<TElement> GetRootElements();
 
     }
 }

@@ -12,8 +12,12 @@ namespace Model
     /// <summary>
     /// The feature.
     /// </summary>
-    internal class Feature
+    public class Feature
     {
+        //---------------------------------------------------------------------
+        #region [Properties]
+        //---------------------------------------------------------------------
+	
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
@@ -23,10 +27,23 @@ namespace Model
         /// Gets or sets the description.
         /// </summary>
         public string Description { get; set; }
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
 
-        /// <summary>
-        /// Gets or sets a value indicating whether is selected.
-        /// </summary>
-        public bool IsSelected { get; set; }
+        //---------------------------------------------------------------------
+        #region [Methods]
+        //---------------------------------------------------------------------
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+       
     }
 }

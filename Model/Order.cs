@@ -3,14 +3,46 @@ using System.Collections.Generic;
 
 namespace Model
 {
-    internal class Order
+    /// <summary>
+    /// Order.
+    /// </summary>
+    public class Order
     {
+        //---------------------------------------------------------------------
+        #region [Constructor]
+        //---------------------------------------------------------------------
+	
         public Order()
         {
-            this.Products=new Dictionary<string, Product>();
+            this.ProductGroups = new List<ProductGroup>();
         }
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
+        #region [Properties]
+        //---------------------------------------------------------------------
+	    
+        /// <summary>
+	    /// Gets or sets the Date time.
+	    /// </summary>
         public DateTime DateTime { get; set; }
-        public Dictionary<string,Product> Products { get; set; } 
+        
+        /// <summary>
+        /// Gets or sets the List of products. 
+        /// </summary>
+        public IEnumerable<ProductGroup> ProductGroups { get; private set; } 
+        
+        /// <summary>
+        /// Gets or sets the serial number.
+        /// </summary>
         public Guid SerialNumber { get; set; }
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+       
     }
 }
