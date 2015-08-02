@@ -1,35 +1,30 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Standard dialog commands
+//   Portofolio Model
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>Date</since>
+// <since>02.08.2015</since>
 //-----------------------------------------------------------------------
 
-namespace ViewModel.Interactions
+namespace Model
 {
-    using System;
-    using System.Windows.Input;
+    using System.Collections;
+    using System.Collections.Generic;
 
     /// <summary>
-    /// Standard dialog commands
+    /// Portofolio Model
     /// </summary>
-    public class StandardDialogCommands : ICommand
+    public class Portofolio 
     {
-        //---------------------------------------------------------------------
-        #region [Fields]
-        //---------------------------------------------------------------------
-        
-        //---------------------------------------------------------------------
-        public event EventHandler CanExecuteChanged;
-
-        #endregion
-        //---------------------------------------------------------------------
-
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
+        
+        public Portofolio()
+        {
+            this.ProductGroups = new List<ProductGroup>();
+        }
 
         //---------------------------------------------------------------------
         #endregion
@@ -39,24 +34,20 @@ namespace ViewModel.Interactions
         #region [Properties]
         //---------------------------------------------------------------------
 
+        public IEnumerable<ProductGroup> ProductGroups { get; private set; }
+        
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #region [Methods]
-
-        public bool CanExecute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void Execute(object parameter)
-        {
-            throw new NotImplementedException();
-        }
-
         //---------------------------------------------------------------------
+
+        public override string ToString()
+        {
+            return "Potofolio";
+        }
 
         //---------------------------------------------------------------------
         #endregion

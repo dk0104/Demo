@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Feature.cs" />
     <Compile Include="Order.cs" />
+    <Compile Include="Portofolio.cs" />
     <Compile Include="Product.cs" />
     <Compile Include="ProductGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

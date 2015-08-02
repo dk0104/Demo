@@ -20,7 +20,7 @@ namespace ViewModel
     /// <summary>
     /// Feature view model
     /// </summary>
-    public class FeatureViewModel:INotifyPropertyChanged,IElementViewModel 
+    public sealed class FeatureViewModel:INotifyPropertyChanged,IElementViewModel 
     {
         //---------------------------------------------------------------------
         #region [Fields]
@@ -110,7 +110,7 @@ namespace ViewModel
         //---------------------------------------------------------------------
         
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = this.PropertyChanged;
             if (handler != null)

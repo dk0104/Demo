@@ -1,7 +1,8 @@
-﻿<RibbonWindow x:Class="XmlBinderTest.MainWindow" 
+﻿<RibbonWindow x:Class="LicenseManagerApplication.MainWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="LicenseCreator" MinHeight="492" Height="492.9" Width="647" MinWidth="647" Icon="Images/AppIcon.png">
+    
     <DockPanel>
         <Ribbon x:Name="_ribbon" DockPanel.Dock="Top" >
             <Ribbon.QuickAccessToolBar>
@@ -18,26 +19,33 @@
                         ToolTip="Import license"
                         Command="Open"
                         CommandParameter="*.key"></RibbonButton>
+                    <RibbonButton
+                        SmallImageSource="Images/Encrypt.png"
+                        KeyTip="E"
+                        ToolTip="Encrypt selected license">
+                        </RibbonButton>
                 </RibbonQuickAccessToolBar>
             </Ribbon.QuickAccessToolBar>
             <Ribbon.ApplicationMenu>
-                <RibbonApplicationMenu SmallImageSource="Images/File.png" KeyTip="F">
+                <RibbonApplicationMenu Label="File" SmallImageSource="Images/File.png" KeyTip="F">
                    <RibbonApplicationMenuItem 
-                       Header="New" KeyTip="N" 
+                       Command="New"
+                       Header= "{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" 
+                       KeyTip="N" 
                        ImageSource="Images/New.png"
                        ToolTip="Create new license"
-                       Command="New"
                        CommandParameter="*.key">
                    </RibbonApplicationMenuItem>
                    <RibbonApplicationMenuItem 
-                       Header="Import license" 
+                       Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" 
                        KeyTip="I" 
                        ToolTip="Import license"
                        ImageSource="Images/ImportOrder.png"
                        Command="Open"
                        CommandParameter="*.key">
                     </RibbonApplicationMenuItem>
-                    <RibbonApplicationMenuItem 
+                    <RibbonApplicationMenuItem Header="Save" ImageSource="Images/Save.png">
+                     <RibbonApplicationMenuItem 
                        Header="Save" 
                        KeyTip="S" 
                        ToolTip="Save portofolio"
@@ -45,17 +53,18 @@
                        Command="Save" 
                        CommandParameter="*.key" >
                    </RibbonApplicationMenuItem>
-                   <RibbonApplicationMenuItem 
+                     <RibbonApplicationMenuItem 
                        Header="Save As..." 
                        KeyTip="V" 
                        ImageSource="Images/SaveAs.png"
                        Command="SaveAs"
                        ToolTip="Save license as.."
                        CommandParameter="*.key">
-                   </RibbonApplicationMenuItem>
+                   </RibbonApplicationMenuItem>   
+                    </RibbonApplicationMenuItem>
                    <RibbonSeparator></RibbonSeparator>
                    <RibbonApplicationMenuItem 
-                       Header="Import portofolio" 
+                       Header="Open portofolio" 
                        KeyTip="P" 
                        ToolTip="Import portofolio"
                        ImageSource="Images/ImportPortofolio.png"
@@ -66,7 +75,7 @@
               
             </Ribbon.ApplicationMenu>
             <RibbonTab Header="Home" KeyTip="H">
-                <RibbonGroup x:Name="order" Header="License">
+                <RibbonGroup x:Name="_order" Header="License">
                     <RibbonMenuButton LargeImageSource="Images/Import.png" Label="Import" ToolTip="Import supported files.">
                         <RibbonMenuItem 
                             ImageSource="Images/ImportPortofolio.png" 
@@ -111,9 +120,12 @@
                 </RibbonGroup>
                 <RibbonGroup Header="View">
                     <DockPanel>
-                        <RibbonButton DockPanel.Dock="Top" SmallImageSource="Images/Collapse.png" Label="Collapse all"></RibbonButton>
-                        <RibbonButton DockPanel.Dock="Top"  SmallImageSource="Images/Expand.png" Label="Expand all"></RibbonButton>
-                        <RibbonTextBox DockPanel.Dock="Bottom" SmallImageSource="Images/Find.png" HorizontalAlignment="Right" Text="Search"></RibbonTextBox>
+                        <DockPanel DockPanel.Dock="Left">
+                            <RibbonButton DockPanel.Dock="Top" SmallImageSource="Images/Collapse.png" Label="Collapse all"></RibbonButton>   
+                            <RibbonButton DockPanel.Dock="Top"  SmallImageSource="Images/Expand.png" Label="Expand all"></RibbonButton>
+                        </DockPanel>
+                        <RibbonButton DockPanel.Dock="Top" SmallImageSource="Images/Hide.png" Label= "Hide Selected"></RibbonButton>
+                        <RibbonTextBox DockPanel.Dock="Bottom" x:Name="_searchBox" SmallImageSource="Images/Find.png" Text="Search" Command="Find" CommandParameter="{Binding Text,ElementName=_searchBox}"> </RibbonTextBox>
                     </DockPanel>
                 </RibbonGroup>
             </RibbonTab>

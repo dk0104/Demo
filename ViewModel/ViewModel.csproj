@@ -30,19 +30,24 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="FeatureViewModel.cs" />
     <Compile Include="IElementViewModel.cs" />
-    <Compile Include="Interactions\StandardDialogCommands.cs" />
     <Compile Include="MainViewModel.cs" />
+    <Compile Include="PortofolioViewModel.cs" />
     <Compile Include="ProductGroupViewModel.cs" />
     <Compile Include="ProductViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
@@ -55,6 +60,9 @@
       <Project>{F5348AC0-9962-4620-AEEE-3C87CBE5E3A2}</Project>
       <Name>Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Interactions\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

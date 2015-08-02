@@ -207,11 +207,11 @@ namespace XmlConnectionTest
         /// </returns>
         private static Product GreateProductDummy()
         {
-            var featureA = new Feature { Description = "feature A Deskription", Name = "Feature A", IsSelected = true };
+            var featureA = new Feature { Description = "feature A Deskription", Name = "Feature A" };
 
-            var featureB = new Feature { Description = "feature A Deskription", Name = "Feature B", IsSelected = true };
+            var featureB = new Feature { Description = "feature A Deskription", Name = "Feature B" };
 
-            var featureC = new Feature { Description = "feature A Deskription", Name = "Feature C", IsSelected = true };
+            var featureC = new Feature { Description = "feature A Deskription", Name = "Feature C" };
 
             var fl = new List<Feature> { featureC, featureA, featureB };
 

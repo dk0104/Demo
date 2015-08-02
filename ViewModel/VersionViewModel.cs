@@ -22,7 +22,7 @@ namespace ViewModel
     /// <summary>
     /// Version view Model
     /// </summary>
-    public class VersionViewModel:INotifyPropertyChanged,IElementViewModel 
+    public sealed class VersionViewModel:INotifyPropertyChanged,IElementViewModel 
     {
         //---------------------------------------------------------------------
         #region [Fields]
@@ -103,7 +103,7 @@ namespace ViewModel
         #region [Methods]
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = this.PropertyChanged;
             if (handler != null)
