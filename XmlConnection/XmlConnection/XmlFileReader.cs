@@ -9,17 +9,13 @@
 
 namespace XmlConnection
 {
-    using System;
     using System.Collections.Generic;
     using System.Linq;
-    using System.Runtime.Remoting.Metadata.W3cXsd2001;
     using System.Xml;
     using System.Xml.Linq;
     using System.Xml.Schema;
 
     using Model;
-
-    using Version = Model.Version;
 
     /// <summary>
     /// XmlFileReader
@@ -114,50 +110,49 @@ namespace XmlConnection
             {
                    productGroup.ProductGroupName = productGroupElementName.Value;
             }
-            foreach (var subElement in element.Elements())
-            {
-                foreach (var productElement in subElement.Elements("product"))
-                {
-                    var product = new Product { CurrentElement = productElement };
-                    productGroup.Products.Add(product);
-                    var descriptionElement = productElement.Element("productDescription");
-                    if (descriptionElement != null)
-                    {
-                        product.Description = descriptionElement.Value;
-                    }
-                    var nameElement = productElement.Element("productName");
-                    if (nameElement!=null)
-                    {
-                        product.Name = nameElement.Value;
-                    }
 
-                    foreach (var versionElement in productElement.Elements("version"))
+            foreach (var productElement in element.Elements("product"))
+            {
+                var product = new Product { CurrentElement = productElement };
+                productGroup.Products.Add(product);
+                var descriptionElement = productElement.Element("productDescription");
+                if (descriptionElement != null)
+                {
+                    product.Description = descriptionElement.Value;
+                }
+                var nameElement = productElement.Element("productName");
+                if (nameElement!=null)
+                {
+                    product.Name = nameElement.Value;
+                }
+
+                foreach (var versionElement in productElement.Elements("version"))
+                {
+                    var version = new Version { CurrentElement = versionElement };
+                    product.Versions.Add(version);
+                    var versionNumberElement = versionElement.Element("versionNumber");
+                    if (versionNumberElement != null)
                     {
-                        var version = new Version { CurrentElement = versionElement };
-                        product.Versions.Add(version);
-                        var versionNumberElement = versionElement.Element("versionNumber");
-                        if (versionNumberElement != null)
+                        version.VersionNumber = versionNumberElement.Value;
+                    }
+                    foreach (var feautureElement in versionElement.Elements("feature"))
+                    {
+                        var feauture = new Feature{CurrentElement = feautureElement};
+                        version.Features.Add(feauture);
+                        var featureElementName = feautureElement.Element("featureName");
+                        if (featureElementName != null)
                         {
-                            version.VersionNumber = versionNumberElement.Value;
+                            feauture.Name = featureElementName.Value;
                         }
-                        foreach (var feautureElement in versionElement.Elements("feature"))
+                        var feautureElementDescription = feautureElement.Element("featureDescription");
+                        if (feautureElementDescription != null)
                         {
-                            var feauture = new Feature{CurrentElement = feautureElement};
-                            version.Features.Add(feauture);
-                            var featureElementName = feautureElement.Element("featureName");
-                            if (featureElementName != null)
-                            {
-                                feauture.Name = featureElementName.Value;
-                            }
-                            var feautureElementDescription = feautureElement.Element("featureDescription");
-                            if (feautureElementDescription != null)
-                            {
-                                feauture.Description = feautureElementDescription.Value;
-                            }
+                            feauture.Description = feautureElementDescription.Value;
                         }
                     }
                 }
             }
+            
         }
 
         /// <summary>

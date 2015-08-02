@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnectionTest", "XmlCon
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{2B3AEADC-91DA-48C5-B782-F255BBA461B0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionMock", "EncryptionMock\EncryptionMock.csproj", "{CE4D6B60-8F87-46FE-A656-3A6F6744036C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +39,10 @@ Global
 		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B3AEADC-91DA-48C5-B782-F255BBA461B0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

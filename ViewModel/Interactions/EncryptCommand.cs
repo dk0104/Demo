@@ -1,66 +1,81 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Version model
+//   Encrypt commans
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>08.01.2015</since>
+// <since>02.08.2015</since>
 //-----------------------------------------------------------------------
 
-namespace Model
+namespace ViewModel.Interactions
 {
     using System;
-    using System.Collections.Generic;
+    using System.Windows.Input;
 
     /// <summary>
-    /// Version model
+    /// Encrypt commans
     /// </summary>
-    public class Version : ModelBase
+    public class EncryptCommand : ICommand
     {
+        //---------------------------------------------------------------------
+        #region [Fields]
+        //---------------------------------------------------------------------
+        
+        public event EventHandler CanExecuteChanged
+        {
+            add { canExecuteChanged.Add(value); }
+            remove { canExecuteChanged.Remove(value); }
+        }
+
+        private MainViewModel viewModel;
+
+        /// <summary>
+        /// The weak collection of delegates for <see cref="CanExecuteChanged"/>.
+        /// </summary>
+        private WeakCollection<EventHandler> canExecuteChanged = new WeakCollection<EventHandler>();
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
-        
-        public Version()
+        public EncryptCommand(MainViewModel mainViewModel)
         {
-            this.Features=new List<Feature>();
+            this.viewModel = mainViewModel;
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
-        #region [Properties]
-        //---------------------------------------------------------------------
         
-        /// <summary>
-        /// Gets or sets the version number.
-        /// </summary>
-        public string VersionNumber { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the features list.
-        /// </summary>
-        public List<Feature> Features { get; private set; }
-
-       
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-	
-        public override string ToString()
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
+        /// <returns></returns>
+        public bool CanExecute(object parameter)
         {
-            return string.Format("Version Number: {0}", this.VersionNumber.ToString()); 
+            return this.viewModel.IsLicenseFileOpened && this.viewModel.IsPortofolioOpened;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="parameter"></param>
+        public void Execute(object parameter)
+        {
+            MainViewModel.ExecuteEncrypt();
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
     }
+   
 }

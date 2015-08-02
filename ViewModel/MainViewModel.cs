@@ -12,15 +12,19 @@ namespace ViewModel
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Input;
+
+    using EncryptionMock;
 
     using Microsoft.Win32;
 
     using Model;
 
     using ViewModel.Annotations;
+    using ViewModel.Interactions;
 
     using XmlConnection;
 
@@ -40,8 +44,7 @@ namespace ViewModel
 
 
         private PortofolioViewModel portofolioViewModel;
-       
-        
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -52,7 +55,10 @@ namespace ViewModel
 
         public MainViewModel()
         {
-           // open = new MenuCommand();
+           
+           this.RootElementCollection = new ObservableCollection<PortofolioViewModel>();
+           this.EncryptCommand = new EncryptCommand(this);
+            
         }
 
         //---------------------------------------------------------------------
@@ -65,10 +71,14 @@ namespace ViewModel
         
         public bool IsPortofolioOpened { get; private set; }
 
-        public string PortofolioFile { get; private set; }
+        public ObservableCollection<PortofolioViewModel> RootElementCollection { get; private set; }
 
-        public ReadOnlyCollection<IElementViewModel> RootElementCollection { get; private set; } 
+        public bool IsLicenseFileOpened { get; set; }
+
+        public ICommand EncryptCommand { get; set; }
+
         //---------------------------------------------------------------------
+
         #endregion
         //---------------------------------------------------------------------
 
@@ -78,8 +88,7 @@ namespace ViewModel
 
         public  void NewCommand(object sender, ExecutedRoutedEventArgs e)
         {
-            var dialog = new OpenFileDialog();
-            dialog.ShowDialog();
+            
         }
 
         public  void OpenCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
@@ -111,7 +120,9 @@ namespace ViewModel
 
         public  void SaveCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
-            throw new NotImplementedException();
+            var dialog = new SaveFileDialog();
+            dialog.Filter = "License key|*.xml";
+            dialog.Title = "Savie license key";
         }
 
         public  void FindCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
@@ -127,9 +138,19 @@ namespace ViewModel
 
         }
 
+        public void DeleteCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
+        {
+            
+        }
+
+        public void HelpCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
+        {
+            MessageBox.Show("TODO: Create help page");
+        }
+
         public  void CanExecuteNew(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
-            canExecuteRoutedEventArgs.CanExecute = true;
+            canExecuteRoutedEventArgs.CanExecute = this.IsPortofolioOpened;
         }
 
         public void CanExecuteOpen(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
@@ -162,6 +183,21 @@ namespace ViewModel
             canExecuteRoutedEventArgs.CanExecute = true;
         }
 
+        public void CanExecuteDelete(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
+        {
+            canExecuteRoutedEventArgs.CanExecute = this.IsLicenseFileOpened;
+        }
+
+        public void CanExecuteHelp(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
+        {
+            canExecuteRoutedEventArgs.CanExecute = true;
+        }
+
+        public static void ExecuteEncrypt()
+        {
+            Encrypt.Enctypt(Guid.NewGuid());
+        }
+
         private void LoadLicenseFile(string fileName)
         {
             throw new NotImplementedException();
@@ -170,11 +206,15 @@ namespace ViewModel
         private void LoadPortofolio(string fileName)
         {
             Portofolio portofolio;
+            if (RootElementCollection.Any())
+            {
+                this.RootElementCollection.Clear();
+            }
             var xmlReader = new XmlFileReader(fileName);
             xmlReader.ReadPortofolio(out portofolio);
-            this.portofolioViewModel=new PortofolioViewModel(portofolio);
-            
-            this.RootElementCollection = portofolioViewModel;
+            this.portofolioViewModel = new PortofolioViewModel(portofolio);
+            this.RootElementCollection.Add(portofolioViewModel);
+            this.IsPortofolioOpened = true;
         }
 
         [NotifyPropertyChangedInvocator]
@@ -186,7 +226,6 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-        
 
         //---------------------------------------------------------------------
         #endregion

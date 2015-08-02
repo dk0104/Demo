@@ -1,30 +1,33 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Version model
+//   BRIEF
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>08.01.2015</since>
+// <since>Date</since>
 //-----------------------------------------------------------------------
 
-namespace Model
+namespace EncryptionMock
 {
     using System;
-    using System.Collections.Generic;
+    using System.Windows;
 
     /// <summary>
-    /// Version model
+    /// BRIEF
     /// </summary>
-    public class Version : ModelBase
+    public class Encrypt 
     {
+        //---------------------------------------------------------------------
+        #region [Fields]
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
-        
-        public Version()
-        {
-            this.Features=new List<Feature>();
-        }
 
         //---------------------------------------------------------------------
         #endregion
@@ -33,18 +36,6 @@ namespace Model
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
-        
-        /// <summary>
-        /// Gets or sets the version number.
-        /// </summary>
-        public string VersionNumber { get; set; }
-        
-        /// <summary>
-        /// Gets or sets the features list.
-        /// </summary>
-        public List<Feature> Features { get; private set; }
-
-       
 
         //---------------------------------------------------------------------
         #endregion
@@ -53,10 +44,12 @@ namespace Model
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-	
-        public override string ToString()
+
+        public static Guid Enctypt(Guid number)
         {
-            return string.Format("Version Number: {0}", this.VersionNumber.ToString()); 
+            var ennumber = Guid.NewGuid();
+            var msg = MessageBox.Show(String.Format("Plain number = {0} Encrypted number{1}",number,ennumber));
+            return ennumber;
         }
 
         //---------------------------------------------------------------------

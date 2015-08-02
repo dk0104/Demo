@@ -1,4 +1,4 @@
-﻿namespace LicenseManagerApplication
+﻿namespace View
 {
     using System.Windows.Controls.Ribbon;
     using System.Windows.Input;
@@ -63,6 +63,14 @@
             binding = new CommandBinding(ApplicationCommands.Find);
             binding.Executed += (s, e) => { mainViewModel.FindCommand(s, e); };
             binding.CanExecute += (s, e) => { mainViewModel.CanExecuteFind(s, e); };
+
+            binding = new CommandBinding(ApplicationCommands.Delete);
+            binding.Executed += (s, e) => { mainViewModel.DeleteCommand(s, e); };
+            binding.CanExecute += (s, e) => { mainViewModel.CanExecuteDelete(s, e); };
+
+            binding = new CommandBinding(ApplicationCommands.Help);
+            binding.Executed += (s, e) => { mainViewModel.HelpCommand(s, e); };
+            binding.CanExecute += (s, e) => { mainViewModel.CanExecuteHelp(s, e); };
             
             this.CommandBindings.Add(binding);
         }

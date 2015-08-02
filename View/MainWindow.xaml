@@ -1,7 +1,7 @@
-﻿<RibbonWindow x:Class="LicenseManagerApplication.MainWindow" 
+﻿<RibbonWindow x:Class="View.MainWindow" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="LicenseCreator" MinHeight="492" Height="492.9" Width="647" MinWidth="647" Icon="Images/AppIcon.png">
+              Title="LicenseCreator" MinHeight="492" Height="492.9" Width="647" MinWidth="647" Icon="Images/AppIcon.png">
     
     <DockPanel>
         <Ribbon x:Name="_ribbon" DockPanel.Dock="Top" >
@@ -22,6 +22,7 @@
                     <RibbonButton
                         SmallImageSource="Images/Encrypt.png"
                         KeyTip="E"
+                        Command="{Binding EncryptCommand}"
                         ToolTip="Encrypt selected license">
                         </RibbonButton>
                 </RibbonQuickAccessToolBar>
@@ -36,14 +37,25 @@
                        ToolTip="Create new license"
                        CommandParameter="*.key">
                    </RibbonApplicationMenuItem>
-                   <RibbonApplicationMenuItem 
-                       Header="{Binding RelativeSource={RelativeSource Self}, Path=Command.Text}" 
-                       KeyTip="I" 
+                    <RibbonApplicationSplitMenuItem Header="Import" ImageSource="Images/Import.png">
+                       <RibbonApplicationMenuItem 
+                       Header="Import" 
+                       KeyTip="O" 
                        ToolTip="Import license"
                        ImageSource="Images/ImportOrder.png"
                        Command="Open"
                        CommandParameter="*.key">
-                    </RibbonApplicationMenuItem>
+                    </RibbonApplicationMenuItem> 
+                       <RibbonApplicationMenuItem 
+                       Header="Import portofolio" 
+                       KeyTip="P" 
+                       ToolTip="Import portofolio"
+                       ImageSource="Images/ImportPortofolio.png"
+                       Command="Open"
+                       CommandParameter="*.portofolio">
+                   </RibbonApplicationMenuItem> 
+                    </RibbonApplicationSplitMenuItem>
+                  
                     <RibbonApplicationMenuItem Header="Save" ImageSource="Images/Save.png">
                      <RibbonApplicationMenuItem 
                        Header="Save" 
@@ -63,14 +75,7 @@
                    </RibbonApplicationMenuItem>   
                     </RibbonApplicationMenuItem>
                    <RibbonSeparator></RibbonSeparator>
-                   <RibbonApplicationMenuItem 
-                       Header="Open portofolio" 
-                       KeyTip="P" 
-                       ToolTip="Import portofolio"
-                       ImageSource="Images/ImportPortofolio.png"
-                       Command="Open"
-                       CommandParameter="*.portofolio">
-                   </RibbonApplicationMenuItem> 
+                  
                 </RibbonApplicationMenu>
               
             </Ribbon.ApplicationMenu>
@@ -83,7 +88,7 @@
                             ToolTip="Import portofolio"
                             KeyTip="P"
                             Command="Open"
-                            CommandParameter="*.port"></RibbonMenuItem>
+                            CommandParameter="*.portofolio"></RibbonMenuItem>
                         <RibbonMenuItem 
                             ImageSource="Images/ImportOrder.png" 
                             Header="Import license"
@@ -106,15 +111,20 @@
                     <RibbonButton 
                         SmallImageSource="Images/New.png" 
                         Label="New"
+                        Command="New"
+                        CommandParameter="*.key"
                         KeyTip="N"></RibbonButton>
                     <RibbonButton 
                         SmallImageSource="Images/Delete.png" 
                         Label="Delete"
+                        Command="Delete"
+                        CommandParameter="*.key"
                         ToolTip="Delete license file"
                         KeyTip="D"></RibbonButton>
                     <RibbonButton 
                         SmallImageSource="Images/Encrypt.png" 
                         Label="Encrypt"
+                        Command="{Binding EncryptCommand}"
                         ToolTip="Encrypt license file"
                         KeyTip="E"></RibbonButton>
                 </RibbonGroup>
@@ -131,11 +141,41 @@
             </RibbonTab>
            
             <Ribbon.HelpPaneContent>
-                <RibbonButton SmallImageSource="Images/Help.png" KeyTip="?"></RibbonButton>
+                <RibbonButton SmallImageSource="Images/Help.png" KeyTip="?" Command="Help"></RibbonButton>
             </Ribbon.HelpPaneContent>
         </Ribbon>
-        <TreeView DockPanel.Dock="Left" Width="200"   BorderThickness="1"></TreeView>
-        <DataGrid DockPanel.Dock="Right"></DataGrid>
+        <Grid DockPanel.Dock="Left">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="5"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TreeView DockPanel.Dock="Left" ItemsSource="{Binding RootElementCollection}">
+
+                <TreeView.ItemContainerStyle>
+                    <Style TargetType="{x:Type TreeViewItem}">
+                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                        <Setter Property="FontWeight" Value="Normal" />
+                        <Style.Triggers>
+                            <Trigger Property="IsSelected" Value="True">
+                                <Setter Property="FontWeight" Value="Bold" />
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TreeView.ItemContainerStyle>
+
+                <TreeView.ItemTemplate>
+                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
+                        <TextBlock Text="{Binding Name}" />
+                    </HierarchicalDataTemplate>
+                </TreeView.ItemTemplate>
+            </TreeView>
+            <GridSplitter  Grid.Column="1" Width="5" HorizontalAlignment="Stretch"> </GridSplitter>  
+            <DataGrid Grid.Column="2"/>
+        </Grid>
+               
+
     </DockPanel>
 
 </RibbonWindow>
