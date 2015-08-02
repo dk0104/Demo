@@ -14,7 +14,7 @@ namespace Model
     /// <summary>
     /// The product.
     /// </summary>
-    public class Product
+    public class Product : ModelBase
     {
         //---------------------------------------------------------------------
         #region [Constructor]
@@ -55,7 +55,7 @@ namespace Model
         /// <summary>
         /// Gets or sets the features.
         /// </summary>
-        public IEnumerable<Version> Versions { get; private set; }
+        public List<Version> Versions { get; private set; }
 
         public override string ToString()
         {

@@ -49,9 +49,15 @@
     <Compile Include="XmlAccess\XmlDelete.cs" />
     <Compile Include="XmlAccess\XmlRead.cs" />
     <Compile Include="XmlAccess\XmlSave.cs" />
-    <Compile Include="XmlFileManager.cs" />
+    <Compile Include="XmlFileReader.cs" />
+    <Compile Include="XmlFileWriter.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\..\Model\Model.csproj">
+      <Project>{F5348AC0-9962-4620-AEEE-3C87CBE5E3A2}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

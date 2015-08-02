@@ -6,7 +6,7 @@ namespace Model
     /// <summary>
     /// Order.
     /// </summary>
-    public class Order
+    public class Order : ModelBase
     {
         //---------------------------------------------------------------------
         #region [Constructor]

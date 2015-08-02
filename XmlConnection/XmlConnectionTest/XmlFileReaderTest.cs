@@ -23,15 +23,10 @@ namespace XmlConnectionTest
     /// The file manager test.
     /// </summary>
     [TestFixture]
-    public class FileManagerTest
+    public class XmlFileReaderTest
     {
         #region Fields
-
-        /// <summary>
-        /// The xml file manager.
-        /// </summary>
-        private XmlFileManager xmlFileManager;
-
+        
         /// <summary>
         /// The xml path.
         /// </summary>
@@ -51,6 +46,8 @@ namespace XmlConnectionTest
         /// The xml order file.
         /// </summary>
         private string xmlOrderFile;
+
+        private XmlFileReader xmlReader;
 
         #endregion
 
@@ -89,11 +86,7 @@ namespace XmlConnectionTest
         [Test]
         public void TestReadAllCountElementsValidationErrorReceiveErrors()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPathErrorFile);
-            var elements = this.xmlFileManager.GetProductGroups();
-            Assert.That(this.xmlFileManager.XmlReaderWarnings.Count, Is.EqualTo(0));
-            Assert.That(this.xmlFileManager.XmlReaderErrors.Count, Is.EqualTo(1));
-            Assert.That(elements.Count, Is.EqualTo(3), "Element count should be 3");
+            
         }
 
         /// <summary>
@@ -102,21 +95,19 @@ namespace XmlConnectionTest
         [Test]
         public void TestReadAllCountElementsValidationErrorWarning()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPathErrorWarningFile);
-            this.xmlFileManager.GetProductGroups();
-            Assert.That(this.xmlFileManager.XmlReaderWarnings.Count, Is.EqualTo(0));
-            Assert.That(this.xmlFileManager.XmlReaderErrors.Count, Is.EqualTo(1));
+            
         }
 
         /// <summary>
         /// The test read all elements_ valid count.
         /// </summary>
         [Test]
-        public void TestReadAllRootElementsValidCount()
+        public void TestReadPortofolioValidElementCount()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var elements = this.xmlFileManager.GetProductGroups();
-            Assert.That(elements.Count, Is.EqualTo(2), "Element count should be 2");
+            this.xmlReader = new XmlFileReader(this.xmlPath);
+            Portofolio portofolio;
+            xmlReader.ReadPortofolio(out portofolio);
+            Assert.That(portofolio.ProductGroups.Count,Is.EqualTo(2));
         }
 
         /// <summary>
@@ -125,19 +116,13 @@ namespace XmlConnectionTest
         [Test]
         public void TestGetElementByIdValidElement()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var element = this.xmlFileManager.GetElementById("T002");
-            Assert.That(element.FirstAttribute.Value, Is.EqualTo("T002"));
+            
         }
 
         [Test]
         public void GetProductGroupByProductElement()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var element = this.xmlFileManager.GetElementById("T002");
-            var group = this.xmlFileManager.GetProductGroup(element);
-            var xElement = @group.Element("productGroupName");
-            Assert.That(xElement != null && xElement.Value=="Tools");
+            
         }
 
         /// <summary>
@@ -146,8 +131,7 @@ namespace XmlConnectionTest
         [Test]
         public void TestGetElementByTagNameValidElementList()
         {
-            this.xmlFileManager = new XmlFileManager(this.xmlPath);
-            var elements = this.xmlFileManager.GetElementsByTagName("version");
+           
         }
 
         /// <summary>
@@ -156,14 +140,7 @@ namespace XmlConnectionTest
         [Test]
         public void TestSaveElementAddNewElement()
         {
-            var product = GreateProductDummy();
-            var element = CreateProductElement(product);
-            this.xmlFileManager = new XmlFileManager(this.xmlOrderFile);
-            var elements = this.xmlFileManager.GetProductGroups();
-            var prevCount = elements.Count;
-            this.xmlFileManager.Save(element);
-            Assert.That(prevCount, Is.Not.GreaterThan(this.xmlFileManager.GetProductGroups().Count));
-            this.xmlFileManager.WriteFile();
+           
         }
 
         #endregion

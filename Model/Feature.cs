@@ -12,7 +12,7 @@ namespace Model
     /// <summary>
     /// The feature.
     /// </summary>
-    public class Feature
+    public class Feature:ModelBase
     {
         //---------------------------------------------------------------------
         #region [Properties]
@@ -27,6 +27,8 @@ namespace Model
         /// Gets or sets the description.
         /// </summary>
         public string Description { get; set; }
+
+
         
         //---------------------------------------------------------------------
         #endregion

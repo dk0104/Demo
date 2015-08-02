@@ -10,7 +10,9 @@
 namespace ViewModel
 {
     using System.Collections.Generic;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Runtime.CompilerServices;
 
     using Model;
@@ -27,6 +29,8 @@ namespace ViewModel
         private bool isSelected;
 
         private bool isExpanded;
+
+        private Portofolio portofolio;
 
         //---------------------------------------------------------------------
         #region [Fields]
@@ -45,6 +49,8 @@ namespace ViewModel
             this.Parent = parent;
             this.portofolio = portofolio;
             this.Name = portofolio.ToString();
+            this.Children = new ReadOnlyCollection<IElementViewModel>((from pgroup in this.portofolio.ProductGroups
+                                                                       select new ProductGroupViewModel(pgroup, this)).ToList<IElementViewModel>());
         }
 
         //---------------------------------------------------------------------

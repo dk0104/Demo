@@ -14,7 +14,7 @@ namespace Model
     /// <summary>
     /// Product Group
     /// </summary>
-    public class ProductGroup 
+    public class ProductGroup : ModelBase
     {
         //---------------------------------------------------------------------
         #region [Constructors]
@@ -39,7 +39,7 @@ namespace Model
         /// <summary>
         /// Gets or sets the products list.
         /// </summary>
-        public IEnumerable<Product> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         //---------------------------------------------------------------------
         #endregion

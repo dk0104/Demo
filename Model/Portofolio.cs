@@ -15,7 +15,7 @@ namespace Model
     /// <summary>
     /// Portofolio Model
     /// </summary>
-    public class Portofolio 
+    public class Portofolio : ModelBase
     {
         //---------------------------------------------------------------------
         #region [Constructors]
@@ -34,7 +34,7 @@ namespace Model
         #region [Properties]
         //---------------------------------------------------------------------
 
-        public IEnumerable<ProductGroup> ProductGroups { get; private set; }
+        public List<ProductGroup> ProductGroups { get; private set; }
         
         //---------------------------------------------------------------------
         #endregion

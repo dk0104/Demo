@@ -14,7 +14,7 @@ namespace Model
     /// <summary>
     /// Version model
     /// </summary>
-    public class Version 
+    public class Version : ModelBase
     {
         //---------------------------------------------------------------------
         #region [Constructors]
@@ -36,17 +36,12 @@ namespace Model
         /// <summary>
         /// Gets or sets the version number.
         /// </summary>
-        public uint VersionNumber { get; set; }
-
-        /// <summary>
-        /// Gets or sets the version description.
-        /// </summary>
-        public string VersionDescription { get; set; }
-
+        public string VersionNumber { get; set; }
+        
         /// <summary>
         /// Gets or sets the features list.
         /// </summary>
-        public IEnumerable<Feature> Features { get; private set; }
+        public List<Feature> Features { get; private set; }
 
        
 

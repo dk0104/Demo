@@ -10,6 +10,7 @@
 namespace ViewModel
 {
     using System;
+    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using System.Windows;
@@ -17,7 +18,11 @@ namespace ViewModel
 
     using Microsoft.Win32;
 
+    using Model;
+
     using ViewModel.Annotations;
+
+    using XmlConnection;
 
     /// <summary>
     /// Main view Model
@@ -28,7 +33,13 @@ namespace ViewModel
         #region [Fields] 
         //---------------------------------------------------------------------
 
+        /// <summary>
+        /// Property changed.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+
+        private PortofolioViewModel portofolioViewModel;
        
         
         //---------------------------------------------------------------------
@@ -54,8 +65,9 @@ namespace ViewModel
         
         public bool IsPortofolioOpened { get; private set; }
 
-        private TViewModel TreeViewModel { get; private set; };
-        
+        public string PortofolioFile { get; private set; }
+
+        public ReadOnlyCollection<IElementViewModel> RootElementCollection { get; private set; } 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -83,7 +95,7 @@ namespace ViewModel
                         dialog.Title = "Open license file";
                         showDialog = dialog.ShowDialog();
                         if ( showDialog != null && (bool)showDialog)
-                        this.LoadPortofolio(dialog.FileName);
+                        this.LoadLicenseFile(dialog.FileName);
                         
                         break;
                     case "*.portofolio":
@@ -91,23 +103,11 @@ namespace ViewModel
                         dialog.Title = "Open portofolio file";
                         showDialog = dialog.ShowDialog();
                         if (showDialog != null && (bool)showDialog)
-                        this.LoadLicenseFile(dialog.FileName);
+                        this.LoadPortofolio(dialog.FileName);
                         break;
                 }
             }
         }
-
-        private void LoadLicenseFile(string fileName)
-        {
-            throw new NotImplementedException();
-        }
-
-        private void LoadPortofolio(string fileName)
-        {
-            this.TreeViewModel =new TViewModel();
-        }
-
-        public string PortofolioFile { get; private set; }
 
         public  void SaveCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
@@ -160,6 +160,21 @@ namespace ViewModel
         public void CanExecuteFind(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
             canExecuteRoutedEventArgs.CanExecute = true;
+        }
+
+        private void LoadLicenseFile(string fileName)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void LoadPortofolio(string fileName)
+        {
+            Portofolio portofolio;
+            var xmlReader = new XmlFileReader(fileName);
+            xmlReader.ReadPortofolio(out portofolio);
+            this.portofolioViewModel=new PortofolioViewModel(portofolio);
+            
+            this.RootElementCollection = portofolioViewModel;
         }
 
         [NotifyPropertyChangedInvocator]
