@@ -64,7 +64,35 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\FeatureUC.xaml.cs">
+      <DependentUpon>FeatureUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProductGroupUC.xaml.cs">
+      <DependentUpon>ProductGroupUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ProductUC.xaml.cs">
+      <DependentUpon>ProductUC.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\VersionUC.xaml.cs">
+      <DependentUpon>VersionUC.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Annotations.cs" />
+    <Page Include="Controls\FeatureUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProductGroupUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ProductUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\VersionUC.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

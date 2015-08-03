@@ -12,6 +12,7 @@ namespace ViewModel
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.IO;
     using System.Linq;
     using System.Runtime.CompilerServices;
     using System.Windows;
@@ -45,6 +46,8 @@ namespace ViewModel
 
         private PortofolioViewModel portofolioViewModel;
 
+        private ObservableCollection<PortofolioViewModel> rootElementCollection;
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -55,10 +58,10 @@ namespace ViewModel
 
         public MainViewModel()
         {
-           
-           this.RootElementCollection = new ObservableCollection<PortofolioViewModel>();
-           this.EncryptCommand = new EncryptCommand(this);
-            
+            this.rootElementCollection = new ObservableCollection<PortofolioViewModel>();
+            this.EncryptCommand = new EncryptCommand(this);
+            this.IsPortofolioOpened = false;
+            this.IsLicenseFileOpened = false;
         }
 
         //---------------------------------------------------------------------
@@ -71,7 +74,18 @@ namespace ViewModel
         
         public bool IsPortofolioOpened { get; private set; }
 
-        public ObservableCollection<PortofolioViewModel> RootElementCollection { get; private set; }
+        public ObservableCollection<PortofolioViewModel> RootElementCollection
+        {
+            get
+            {
+                return this.rootElementCollection;
+            }
+            set
+            {
+                this.rootElementCollection = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         public bool IsLicenseFileOpened { get; set; }
 
@@ -205,16 +219,28 @@ namespace ViewModel
 
         private void LoadPortofolio(string fileName)
         {
-            Portofolio portofolio;
+
             if (RootElementCollection.Any())
             {
                 this.RootElementCollection.Clear();
             }
+
+            this.ReadPortofolio(fileName);
+
+            this.IsPortofolioOpened = true;
+        }
+
+        /// <summary>
+        /// Read Portofolio.
+        /// </summary>
+        /// <param name="fileName"></param>
+        private void ReadPortofolio(string fileName)
+        {
+            Portofolio portofolio;
             var xmlReader = new XmlFileReader(fileName);
             xmlReader.ReadPortofolio(out portofolio);
             this.portofolioViewModel = new PortofolioViewModel(portofolio);
-            this.RootElementCollection.Add(portofolioViewModel);
-            this.IsPortofolioOpened = true;
+            this.RootElementCollection.Add(this.portofolioViewModel);
         }
 
         [NotifyPropertyChangedInvocator]

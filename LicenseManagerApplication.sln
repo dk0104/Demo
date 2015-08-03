@@ -4,6 +4,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{F5348AC0-9962-4620-AEEE-3C87CBE5E3A2}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "View", "View\View.csproj", "{BCD847D9-57A6-44DE-9570-F4B878DF0C96}"
+	ProjectSection(ProjectDependencies) = postProject
+		{CE4D6B60-8F87-46FE-A656-3A6F6744036C} = {CE4D6B60-8F87-46FE-A656-3A6F6744036C}
+		{AB6F3090-2F34-4B98-AF0D-257FE56F7A47} = {AB6F3090-2F34-4B98-AF0D-257FE56F7A47}
+		{F5348AC0-9962-4620-AEEE-3C87CBE5E3A2} = {F5348AC0-9962-4620-AEEE-3C87CBE5E3A2}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlConnection", "XmlConnection\XmlConnection\XmlConnection.csproj", "{AB6F3090-2F34-4B98-AF0D-257FE56F7A47}"
 EndProject
@@ -12,6 +17,11 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ViewModel", "ViewModel\ViewModel.csproj", "{2B3AEADC-91DA-48C5-B782-F255BBA461B0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EncryptionMock", "EncryptionMock\EncryptionMock.csproj", "{CE4D6B60-8F87-46FE-A656-3A6F6744036C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{6082223B-5FCE-4DCA-8DC8-1FC09543AA44}"
+	ProjectSection(SolutionItems) = preProject
+		Data\ProductPortofolio.portofolio.xml = Data\ProductPortofolio.portofolio.xml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

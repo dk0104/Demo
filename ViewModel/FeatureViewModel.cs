@@ -43,6 +43,8 @@ namespace ViewModel
 
         private Feature feature;
 
+        private string name;
+
         public FeatureViewModel(Feature feature, IElementViewModel parent)
         {
             this.feature = feature;
@@ -97,7 +99,18 @@ namespace ViewModel
             }
         }
 
-        public string Name { get; private set; }
+        public string Name
+        {
+            get
+            {
+                return this.name;
+            }
+            private set
+            {
+                this.name = value;
+                this.OnPropertyChanged();
+            }
+        }
 
         
 

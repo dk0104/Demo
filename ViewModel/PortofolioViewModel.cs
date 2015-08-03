@@ -22,7 +22,7 @@ namespace ViewModel
     /// <summary>
     /// Denis Keksel
     /// </summary>
-    public class PortofolioViewModel : INotifyPropertyChanged,IElementViewModel
+    public sealed class PortofolioViewModel : INotifyPropertyChanged,IElementViewModel
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -104,7 +104,7 @@ namespace ViewModel
         //---------------------------------------------------------------------
 
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = this.PropertyChanged;
             if (handler != null)

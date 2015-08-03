@@ -28,8 +28,9 @@
             InitializeComponent();
             // this.ReadXml();
             _ribbon.IsMinimized = true;
-            this.mainViewModel = new MainViewModel();
+            mainViewModel = new MainViewModel();
             base.DataContext = mainViewModel;
+            this._feautureUc.DataContext = base.DataContext;
             this.CreateBindings();
         }
 

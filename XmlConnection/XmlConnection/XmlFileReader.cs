@@ -9,13 +9,17 @@
 
 namespace XmlConnection
 {
+    using System;
     using System.Collections.Generic;
+    using System.IO;
     using System.Linq;
     using System.Xml;
     using System.Xml.Linq;
     using System.Xml.Schema;
 
     using Model;
+
+    using Version = Model.Version;
 
     /// <summary>
     /// XmlFileReader
@@ -171,6 +175,10 @@ namespace XmlConnection
                     XmlSchemaValidationFlags.ProcessSchemaLocation
                     | XmlSchemaValidationFlags.ReportValidationWarnings
             };
+
+            var appPath = Environment.CurrentDirectory;
+            var validationPath = Path.Combine(appPath, "ValidationSchema", "ProductPortofolioSchema.xsd");
+            settings.Schemas.Add(null, validationPath);
 
             this.settings.ValidationEventHandler += this.OnValidationViolation;
             using (var xmlReader = XmlReader.Create(file, this.settings))

@@ -1,6 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:noNamespaceSchemaLocation="ProductPortofolioSchema.xsd">
+<root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <portofolio>
     <productCroup>
       <productGroupName>Tools</productGroupName>
@@ -47,10 +46,6 @@
              pellentesque dictum, in volutpat ea sagittis ut. Purus wisi
              aliquam tempor, mauris porttitor nunc.
            </featureDescription>
-
-        
-         <featureName>string</featureName>
-         <featureDescription>string</featureDescription>
        </feature>
      </version>
       <version>

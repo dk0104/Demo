@@ -22,7 +22,7 @@ namespace ViewModel
     /// <summary>
     /// Portofolio view model
     /// </summary>
-    public class ProductGroupViewModel :INotifyPropertyChanged,IElementViewModel
+    public sealed class ProductGroupViewModel :INotifyPropertyChanged,IElementViewModel
     {
         //---------------------------------------------------------------------
         #region [Fields]
@@ -122,7 +122,7 @@ namespace ViewModel
         /// </summary>
         /// <param name="propertyName"></param>
         [NotifyPropertyChangedInvocator]
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = this.PropertyChanged;
             if (handler != null)
