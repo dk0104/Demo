@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <portofolio>
+  <portfolio>
     <productCroup>
       <productGroupName>Tools</productGroupName>
       <product id="T001">
@@ -517,7 +517,7 @@
         </productDescription>
       </product>
     </productCroup>
-  </portofolio>
+  </portfolio>
 </root> 
 
 
