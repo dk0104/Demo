@@ -30,7 +30,7 @@
             _ribbon.IsMinimized = true;
             mainViewModel = new MainViewModel();
             base.DataContext = mainViewModel;
-            this._feautureUc.DataContext = base.DataContext;
+            this._treeViewControl.DataContext = base.DataContext;
             this.CreateBindings();
         }
 
