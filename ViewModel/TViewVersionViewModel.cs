@@ -44,7 +44,7 @@ namespace ViewModel
             this.Parent = parent;
             this.Name = version.ToString();
             this.Children = new ReadOnlyCollection<ElementViewModel>((from feature in this.version.Features
-                                                                       select new TViewFeatureViewModel(feature, this)).ToList<ElementViewModel>());
+                                                                       select new TViewFeatureViewModel(feature, this)).ToList<ElementViewModel>()).ToList();
         }
 
         //---------------------------------------------------------------------

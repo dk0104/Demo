@@ -40,7 +40,7 @@ namespace ViewModel
             this.Parent = parent;
             this.Name = this.productGroup.ToString();
             this.Children = new ReadOnlyCollection<ElementViewModel>((from  product in this.productGroup.Products 
-                                                                           select new TViewProductViewModel(product,this)).ToList<ElementViewModel>());
+                                                                           select new TViewProductViewModel(product,this)).ToList<ElementViewModel>()).ToList();
         }
 
         //---------------------------------------------------------------------
