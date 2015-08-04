@@ -22,7 +22,7 @@ namespace Model
         //---------------------------------------------------------------------
         public ProductGroup()
         {
-            this.Products=new List<PortfolioProduct>();
+            this.Products=new List<Product>();
         }
         //---------------------------------------------------------------------
         #endregion
@@ -40,7 +40,7 @@ namespace Model
         /// <summary>
         /// Gets or sets the products list.
         /// </summary>
-        public List<PortfolioProduct> Products { get; set; }
+        public List<Product> Products { get; set; }
 
         //---------------------------------------------------------------------
         #endregion

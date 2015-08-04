@@ -24,8 +24,10 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
-       
-        private ProductGroup productGroup;
+
+        public ProductGroup Group { get; private set; }
+
+        private Order order;
 
         //---------------------------------------------------------------------
         #endregion
@@ -37,10 +39,10 @@ namespace ViewModel
 
         public TViewProductGroupViewModel(ProductGroup productGroup, ElementViewModel parent = null)
         {
-            this.productGroup = productGroup;
+            this.Group = productGroup;
             this.Parent = parent;
-            this.Name = this.productGroup.ToString();
-            this.Children = new ReadOnlyCollection<ElementViewModel>((from  product in this.productGroup.Products 
+            this.Name = this.Group.ToString();
+            this.Children = new ReadOnlyCollection<ElementViewModel>((from  product in this.Group.Products 
                                                                            select new TViewProductViewModel(product,this)).ToList<ElementViewModel>()).ToList();
         }
 
@@ -50,17 +52,52 @@ namespace ViewModel
 
         internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
+            TViewPortfolioViewModel portfolio = null;
+            if (this.Parent != null && this.Parent is TViewPortfolioViewModel)
+            {
+                portfolio = (TViewPortfolioViewModel)this.Parent;
+            }
 
-            if (value != null && (bool)value)
+            if (portfolio!=null)
             {
-                Console.WriteLine("SCHREIBE PG " + productGroup.ToString());
+                if (value==null)
+                {
+                    this.CreateProductGroupOrder(portfolio);
+                }
+                else if ((bool)value)
+                {
+                    this.CreateProductGroupOrder(portfolio);
+                }
+                else
+                {
+                    RemoveProductGroupOrder(portfolio);
+                }
             }
-            else if (value != null && !(bool)value)
-            {
-                Console.WriteLine("Lösche PG " + productGroup.ToString());
-            }
-            
+
             base.SetIsChecked(value, updateChildren, updateParent);
+        }
+
+        private void CreateProductGroupOrder(TViewPortfolioViewModel portfolio)
+        {
+            if (portfolio.Order != null)
+            {
+                if (null==portfolio.Order.ProductGroups.ToList().FirstOrDefault(pg=>pg.ProductGroupName==this.Group.ProductGroupName))
+                {
+                    var orderPg = new ProductGroup();
+                    orderPg.ProductGroupName = this.Group.ProductGroupName;
+                    portfolio.Order.ProductGroups.ToList().Add(orderPg);
+                }
+            }
+        }
+
+        private void RemoveProductGroupOrder(TViewPortfolioViewModel portfolio)
+        {
+             if (portfolio.Order != null)
+             {
+                 Console.WriteLine("LÖSCHE Ganze PG " + this.Group.ToString());
+                 portfolio.Order.ProductGroups.ToList()
+                     .RemoveAll(pg => pg.ProductGroupName == this.Group.ProductGroupName);
+             }
         }
     }
 }

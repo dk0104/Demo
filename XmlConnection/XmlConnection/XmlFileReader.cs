@@ -117,7 +117,7 @@ namespace XmlConnection
 
             foreach (var productElement in element.Elements("product"))
             {
-                var product = new PortfolioProduct { CurrentElement = productElement };
+                var product = new Product { CurrentElement = productElement };
                 productGroup.Products.Add(product);
                 var descriptionElement = productElement.Element("productDescription");
                 if (descriptionElement != null)
