@@ -1,10 +1,10 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Product Group
+//   Version model
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>01.08.2015</since>
+// <since>08.01.2015</since>
 //-----------------------------------------------------------------------
 
 namespace Model
@@ -13,52 +13,71 @@ namespace Model
     using System.Xml.Linq;
 
     /// <summary>
-    /// Product Group
+    /// The product.
     /// </summary>
-    public class ProductGroup : ModelBase
+    public class PortfolioProduct : ModelBase
     {
+
         //---------------------------------------------------------------------
-        #region [Constructors]
+        #region [Constructor]
         //---------------------------------------------------------------------
-        public ProductGroup()
+	
+        /// <summary>
+        /// Initializes a new instance of the <see cref="PortfolioProduct"/> class.
+        /// </summary>
+        public PortfolioProduct()
         {
-            this.Products=new List<PortfolioProduct>();
+            this.Versions = new List<Version>();
         }
+        
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-
+       
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
+	
+        /// <summary>
+        /// Gets or sets the name.
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// Gets or sets the id.
+        /// </summary>
+        public string Id { get; set; }
+
+        /// <summary>
+        /// Gets or sets the description.
+        /// </summary>
+        public string Description { get; set; }
+
+        /// <summary>
+        /// Gets or sets the features.
+        /// </summary>
+        public List<Version> Versions { get; private set; }
+
+        /// <summary>
+        /// Gets or sets the Current xelement.Shoul de used for data transfomation.
+        /// </summary>
+        public override XElement CurrentElement { get; set; }
         
-        /// <summary>
-        /// Gets or sets the product name
-        /// </summary>
-        public string ProductGroupName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the products list.
-        /// </summary>
-        public List<PortfolioProduct> Products { get; set; }
-
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-        
+
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
 	
         public override string ToString()
         {
-            return this.ProductGroupName;
+            return this.Name;
         }
 
-        public override XElement CurrentElement { get; set; }
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-       
     }
 }

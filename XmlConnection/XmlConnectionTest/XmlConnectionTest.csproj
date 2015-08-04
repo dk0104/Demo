@@ -47,14 +47,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <EmbeddedResource Include="TestData\ProductPortofolioSchema.xsd">
-      <SubType>Designer</SubType>
+    <EmbeddedResource Include="TestData\ProductPortfolioError.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
-    <EmbeddedResource Include="TestData\ProductPortofolioError.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TestData\ProductPortofolioErrorWarning.xml">
+    <EmbeddedResource Include="TestData\ProductPortfolioErrorWarning.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>
@@ -69,7 +65,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="TestData\ProductPortofolio.xml">
+    <EmbeddedResource Include="TestData\ProductPortfolio.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
   </ItemGroup>

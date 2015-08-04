@@ -105,8 +105,8 @@ namespace XmlConnectionTest
         public void TestReadPortofolioValidElementCount()
         {
             this.xmlReader = new XmlFileReader(this.xmlPath);
-            Portofolio portofolio;
-            xmlReader.ReadPortofolio(out portofolio);
+            Portfolio portofolio;
+            xmlReader.ReadPortfolio(out portofolio);
             Assert.That(portofolio.ProductGroups.Count,Is.EqualTo(2));
         }
 
@@ -156,7 +156,7 @@ namespace XmlConnectionTest
         /// <returns>
         /// The <see cref="XElement"/>.
         /// </returns>
-        private static XElement CreateProductElement(PortofolioProduct product)
+        private static XElement CreateProductElement(PortfolioProduct product)
         {
             var productElement = new XElement("product");
             productElement.Add(new XAttribute("id", product.Id));
@@ -180,9 +180,9 @@ namespace XmlConnectionTest
         /// The greate product dummy.
         /// </summary>
         /// <returns>
-        /// The <see cref="PortofolioProduct"/>.
+        /// The <see cref="PortfolioProduct"/>.
         /// </returns>
-        private static PortofolioProduct GreateProductDummy()
+        private static PortfolioProduct GreateProductDummy()
         {
             var featureA = new Feature { Description = "feature A Deskription", Name = "Feature A" };
 
@@ -192,7 +192,7 @@ namespace XmlConnectionTest
 
             var fl = new List<Feature> { featureC, featureA, featureB };
 
-            var product = new PortofolioProduct
+            var product = new PortfolioProduct
                               {
                                   Id = "PJ1", 
                                   Name = "Product J", 

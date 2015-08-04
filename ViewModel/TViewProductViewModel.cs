@@ -29,7 +29,7 @@ namespace ViewModel
         #region [Fields]
         //---------------------------------------------------------------------
 
-        private readonly PortofolioProduct product;
+        private readonly PortfolioProduct product;
         
         //---------------------------------------------------------------------
         #endregion
@@ -39,7 +39,7 @@ namespace ViewModel
         #region [Constructors]
         //---------------------------------------------------------------------
         
-        public TViewProductViewModel(PortofolioProduct product, ElementViewModel parent = null)
+        public TViewProductViewModel(PortfolioProduct product, ElementViewModel parent = null)
         {
             this.Parent = parent;
             this.product = product;
