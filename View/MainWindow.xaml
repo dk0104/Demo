@@ -146,33 +146,10 @@
                 <ColumnDefinition Width="5"/>
                 <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
-            <TreeView DockPanel.Dock="Left" ItemsSource="{Binding RootElementCollection}">
-
-                <TreeView.ItemContainerStyle>
-                    <Style TargetType="{x:Type TreeViewItem}">
-                        <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
-                        <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
-                        <Setter Property="FontWeight" Value="Normal" />
-                        <Style.Triggers>
-                            <Trigger Property="IsSelected" Value="True">
-                                <Setter Property="FontWeight" Value="Bold" />
-                            </Trigger>
-                        </Style.Triggers>
-                    </Style>
-                </TreeView.ItemContainerStyle>
-
-                <TreeView.ItemTemplate>
-                    <HierarchicalDataTemplate ItemsSource="{Binding Children}">
-                        <TextBlock Text="{Binding Name}" />
-                    </HierarchicalDataTemplate>
-                </TreeView.ItemTemplate>
-            </TreeView>
+           
+            <Controls:TreeViewControl Grid.Column="0" x:Name="_treeViewControl"></Controls:TreeViewControl>
             <GridSplitter  Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
 
-           
-
-           <Controls:Feauture Grid.Column="2" x:Name="_feautureUc"  VerticalAlignment="Top"/>
-            <!--<TextBox Grid.Column="2" Text="{Binding IsSelected}"></TextBox>-->
         </Grid>
     </DockPanel>
 

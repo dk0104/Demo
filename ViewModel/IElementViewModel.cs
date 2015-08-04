@@ -41,6 +41,8 @@ namespace ViewModel
         /// </summary>
         bool IsExpanded { get; set; }
 
+
+
         /// <summary>
         /// Gets or Sets the element name.
         /// </summary>

@@ -11,6 +11,7 @@ namespace Model
 {
     using System;
     using System.Collections.Generic;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Version model
@@ -44,7 +45,10 @@ namespace Model
         /// </summary>
         public List<Feature> Features { get; private set; }
 
-       
+        /// <summary>
+        /// 
+        /// </summary>
+        public override XElement CurrentElement { get; set; }
 
         //---------------------------------------------------------------------
         #endregion
@@ -62,5 +66,6 @@ namespace Model
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
+       
     }
 }

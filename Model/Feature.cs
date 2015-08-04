@@ -9,6 +9,8 @@
 
 namespace Model
 {
+    using System.Xml.Linq;
+
     /// <summary>
     /// The feature.
     /// </summary>
@@ -28,7 +30,7 @@ namespace Model
         /// </summary>
         public string Description { get; set; }
 
-
+        public override XElement CurrentElement { get; set; }
         
         //---------------------------------------------------------------------
         #endregion
@@ -46,6 +48,7 @@ namespace Model
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
+
        
     }
 }

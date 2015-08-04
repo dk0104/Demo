@@ -10,6 +10,7 @@
 namespace Model
 {
     using System.Collections.Generic;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Product Group
@@ -54,8 +55,10 @@ namespace Model
             return this.ProductGroupName;
         }
 
+        public override XElement CurrentElement { get; set; }
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
+       
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="FeatureViewModel.cs" />
     <Compile Include="IElementViewModel.cs" />
     <Compile Include="Interactions\EncryptCommand.cs" />
+    <Compile Include="Interactions\VirtualToggleButton.cs" />
     <Compile Include="Interactions\WeakCollection.cs" />
     <Compile Include="MainViewModel.cs" />
     <Compile Include="OrderElementViewModel.cs" />
