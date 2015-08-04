@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Product view model
+//   Portofolio view model
 // </brief>
 //
 // <author>Denis Keksel</author>
@@ -20,54 +20,45 @@ namespace ViewModel
     using ViewModel.Annotations;
 
     /// <summary>
-    /// Product view model
+    /// Portofolio view model
     /// </summary>
-    public sealed class ProductViewModel:INotifyPropertyChanged ,IElementViewModel 
+    public sealed class TViewProductGroupViewModel :INotifyPropertyChanged,IElementViewModel
     {
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
-
-        private readonly Product product;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private bool isSelected;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private bool isExpanded;
-
-        /// <summary>
-        /// 
-        /// </summary>
+        
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private bool isSelected;
+
+        private bool isExpanded;
+
+        private ProductGroup productGroup;
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
-        #region [Constructors]
+        #region [Constructors] 
         //---------------------------------------------------------------------
 
-        //---------------------------------------------------------------------
-        public ProductViewModel(Product product, IElementViewModel parent = null)
+        public TViewProductGroupViewModel(ProductGroup productGroup, IElementViewModel parent = null)
         {
+            this.productGroup = productGroup;
             this.Parent = parent;
-            this.product = product;
-            this.Name = product.ToString();
-            this.Children = new ReadOnlyCollection<IElementViewModel>((from version in this.product.Versions
-                                                                       select new VersionViewModel(version, this)).ToList<IElementViewModel>());
+            this.Name = this.productGroup.ToString();
+            this.Children = new ReadOnlyCollection<IElementViewModel>((from  product in this.productGroup.Products 
+                                                                           select new TViewProductViewModel(product,this)).ToList<IElementViewModel>());
         }
 
-        
+        //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
+
         #region [Properties]
         //---------------------------------------------------------------------
         
@@ -80,7 +71,7 @@ namespace ViewModel
         /// 
         /// </summary>
         public IEnumerable<IElementViewModel> Children { get; private set; }
-
+        
         /// <summary>
         /// 
         /// </summary>
@@ -125,7 +116,7 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-
+        
         /// <summary>
         /// 
         /// </summary>

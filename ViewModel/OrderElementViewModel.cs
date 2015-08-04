@@ -1,28 +1,31 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Product Group
+//   BRIEF
 // </brief>
 //
-// <author>Denis Keksel</author>
-// <since>01.08.2015</since>
+// <author>AUTHOR</author>
+// <since>Date</since>
 //-----------------------------------------------------------------------
 
-namespace Model
+namespace ViewModel
 {
-    using System.Collections.Generic;
-
     /// <summary>
-    /// Product Group
+    /// BRIEF
     /// </summary>
-    public class ProductGroup : ModelBase
+    public class OrderElementViewModel 
     {
+        //---------------------------------------------------------------------
+        #region [Fields]
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
-        public ProductGroup()
-        {
-            this.Products=new List<PortofolioProduct>();
-        }
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -30,29 +33,14 @@ namespace Model
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
-        
-        /// <summary>
-        /// Gets or sets the product name
-        /// </summary>
-        public string ProductGroupName { get; set; }
-
-        /// <summary>
-        /// Gets or sets the products list.
-        /// </summary>
-        public List<PortofolioProduct> Products { get; set; }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-        
+
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-	
-        public override string ToString()
-        {
-            return this.ProductGroupName;
-        }
 
         //---------------------------------------------------------------------
         #endregion

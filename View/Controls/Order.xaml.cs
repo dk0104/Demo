@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace LicenceManagerApplication.Controls
 {
     /// <summary>
-    /// Interaction logic for VersionUC.xaml
+    /// Interaction logic for Order.xaml
     /// </summary>
-    public partial class VersionUC : UserControl
+    public partial class Order : UserControl
     {
-        public VersionUC()
+        public Order()
         {
             InitializeComponent();
         }

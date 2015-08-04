@@ -10,25 +10,26 @@
 namespace Model
 {
     using System.Collections.Generic;
+    using System.Xml.Linq;
 
     /// <summary>
     /// The product.
     /// </summary>
-    public class Product : ModelBase
+    public class PortofolioProduct : ModelBase
     {
+
         //---------------------------------------------------------------------
         #region [Constructor]
         //---------------------------------------------------------------------
 	
         /// <summary>
-        /// Initializes a new instance of the <see cref="Product"/> class.
+        /// Initializes a new instance of the <see cref="PortofolioProduct"/> class.
         /// </summary>
-        public Product()
+        public PortofolioProduct()
         {
             this.Versions = new List<Version>();
         }
-
-
+        
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -57,6 +58,19 @@ namespace Model
         /// </summary>
         public List<Version> Versions { get; private set; }
 
+        /// <summary>
+        /// Gets or sets the Current xelement.Shoul de used for data transfomation.
+        /// </summary>
+        public override XElement CurrentElement { get; set; }
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #region [Methods]
+        //---------------------------------------------------------------------
+	
         public override string ToString()
         {
             return this.Name;
@@ -65,6 +79,5 @@ namespace Model
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-      
     }
 }

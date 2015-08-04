@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Version view Model
+//   Product view model
 // </brief>
 //
 // <author>Denis Keksel</author>
@@ -20,31 +20,30 @@ namespace ViewModel
     using ViewModel.Annotations;
 
     /// <summary>
-    /// Version view Model
+    /// Product view model
     /// </summary>
-    public sealed class VersionViewModel:INotifyPropertyChanged,IElementViewModel 
+    public sealed class TViewProductViewModel:INotifyPropertyChanged ,IElementViewModel 
     {
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
-        
-        
-        public event PropertyChangedEventHandler PropertyChanged;
 
-        private bool isExpanded;
+        private readonly PortofolioProduct product;
 
+        /// <summary>
+        /// 
+        /// </summary>
         private bool isSelected;
 
-        private Version version;
+        /// <summary>
+        /// 
+        /// </summary>
+        private bool isExpanded;
 
-        public VersionViewModel(Version version, IElementViewModel parent)
-        {
-            this.version = version;
-            this.Parent = parent;
-            this.Name = version.ToString();
-            this.Children = new ReadOnlyCollection<IElementViewModel>((from feature in this.version.Features
-                                                                       select new FeatureViewModel(feature, this)).ToList<IElementViewModel>());
-        }
+        /// <summary>
+        /// 
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
 
         //---------------------------------------------------------------------
         #endregion
@@ -55,18 +54,41 @@ namespace ViewModel
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
+        public TViewProductViewModel(PortofolioProduct product, IElementViewModel parent = null)
+        {
+            this.Parent = parent;
+            this.product = product;
+            this.Name = product.ToString();
+            this.Children = new ReadOnlyCollection<IElementViewModel>((from version in this.product.Versions
+                                                                       select new TViewVersionViewModel(version, this)).ToList<IElementViewModel>());
+        }
+
+        
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #region [Properties]
-
+        //---------------------------------------------------------------------
+        
+        /// <summary>
+        /// 
+        /// </summary>
         public IElementViewModel Parent { get; private set; }
 
-        public string Name { get; private set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public IEnumerable<IElementViewModel> Children { get; private set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Name { get; private set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsSelected
         {
             get
@@ -80,6 +102,9 @@ namespace ViewModel
             }
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public bool IsExpanded
         {
             get
@@ -94,14 +119,17 @@ namespace ViewModel
         }
 
         //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #region [Methods]
+        //---------------------------------------------------------------------
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="propertyName"></param>
         [NotifyPropertyChangedInvocator]
         private void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -111,8 +139,6 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #endregion

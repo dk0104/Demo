@@ -9,6 +9,7 @@
 
 namespace Model
 {
+    using System;
     using System.Xml.Linq;
 
     /// <summary>
@@ -21,7 +22,9 @@ namespace Model
         #region [Properties]
         //---------------------------------------------------------------------
 
-        public XElement CurrentElement { get; set; }
+        public abstract XElement CurrentElement { get; set; }
+
+        public abstract string Value { get; }
 
         //---------------------------------------------------------------------
         #endregion
