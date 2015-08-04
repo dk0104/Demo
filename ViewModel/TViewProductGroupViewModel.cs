@@ -9,6 +9,7 @@
 
 namespace ViewModel
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
@@ -46,5 +47,20 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
+
+        internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
+        {
+
+            if (value != null && (bool)value)
+            {
+                Console.WriteLine("SCHREIBE PG " + productGroup.ToString());
+            }
+            else if (value != null && !(bool)value)
+            {
+                Console.WriteLine("Lösche PG " + productGroup.ToString());
+            }
+            
+            base.SetIsChecked(value, updateChildren, updateParent);
+        }
     }
 }

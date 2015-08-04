@@ -9,15 +9,16 @@
 
 namespace ViewModel
 {
+    using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Linq;
     using System.Runtime.CompilerServices;
 
-    using Model;
-
     using ViewModel.Annotations;
+
+    using Version = Model.Version;
 
     /// <summary>
     /// Version view Model
@@ -46,6 +47,30 @@ namespace ViewModel
             this.Children = new ReadOnlyCollection<ElementViewModel>((from feature in this.version.Features
                                                                        select new TViewFeatureViewModel(feature, this)).ToList<ElementViewModel>()).ToList();
         }
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #region [Method]
+        //---------------------------------------------------------------------
+
+        internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
+        {
+
+            if (value!=null && (bool)value)
+            {
+                Console.WriteLine("SCHREIBE V "+ version.ToString());
+            }
+            else if (value!=null && !(bool)value)
+            {
+                Console.WriteLine("Lösche V " + version.ToString());
+            }
+            
+            base.SetIsChecked(value,updateChildren,updateParent);
+        }
+        
 
         //---------------------------------------------------------------------
         #endregion

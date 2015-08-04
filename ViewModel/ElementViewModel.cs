@@ -12,6 +12,7 @@ namespace ViewModel
 {
     using System.Collections.Generic;
     using System.ComponentModel;
+    using System.Diagnostics;
     using System.Runtime.CompilerServices;
 
     using ViewModel.Annotations;
@@ -117,7 +118,7 @@ namespace ViewModel
         /// <param name="value"></param>
         /// <param name="updateChildren"></param>
         /// <param name="updateParent"></param>
-        void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
+        internal virtual void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
             if (value == this.isChecked)
                 return;
@@ -130,6 +131,7 @@ namespace ViewModel
             if (updateParent && this.Parent != null)
                 this.Parent.VerifyCheckState();
 
+            
             this.OnPropertyChanged("IsChecked");
         }
 
