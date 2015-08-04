@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Portofolio Model
+//   Portfolio Model
 // </brief>
 //
 // <author>Denis Keksel</author>
@@ -13,7 +13,7 @@ namespace Model
     using System.Xml.Linq;
 
     /// <summary>
-    /// Portofolio Model
+    /// Portfolio Model
     /// </summary>
     public class Portfolio : ModelBase
     {

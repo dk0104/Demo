@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Portofolio view model
+//   Portfolio view model
 // </brief>
 //
 // <author>Denis Keksel</author>
@@ -17,7 +17,7 @@ namespace ViewModel
     using Model;
 
     /// <summary>
-    /// Portofolio view model
+    /// Portfolio view model
     /// </summary>
     public class TViewProductGroupViewModel :ElementViewModel
     {

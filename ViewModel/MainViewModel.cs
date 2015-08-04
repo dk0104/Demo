@@ -44,7 +44,7 @@ namespace ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private TViewPortfolioViewModel portofolioViewModel;
+        private TViewPortfolioViewModel portfolioViewModel;
 
         private ObservableCollection<TViewPortfolioViewModel> rootElementCollection;
 
@@ -60,7 +60,7 @@ namespace ViewModel
         {
             this.rootElementCollection = new ObservableCollection<TViewPortfolioViewModel>();
             this.EncryptCommand = new EncryptCommand(this);
-            this.IsPortofolioOpened = false;
+            this.IsPortfolioOpened = false;
             this.IsLicenseFileOpened = false;
         }
 
@@ -72,7 +72,7 @@ namespace ViewModel
         #region [Properties]
         //---------------------------------------------------------------------
         
-        public bool IsPortofolioOpened { get; private set; }
+        public bool IsPortfolioOpened { get; private set; }
 
         public ObservableCollection<TViewPortfolioViewModel> RootElementCollection
         {
@@ -121,12 +121,12 @@ namespace ViewModel
                         this.LoadLicenseFile(dialog.FileName);
                         
                         break;
-                    case "*.portofolio":
-                        dialog.Filter = "Portofolio file|*.xml";
-                        dialog.Title = "Open portofolio file";
+                    case "*.portfolio":
+                        dialog.Filter = "Portfolio file|*.xml";
+                        dialog.Title = "Open portfolio file";
                         showDialog = dialog.ShowDialog();
                         if (showDialog != null && (bool)showDialog)
-                        this.LoadPortofolio(dialog.FileName);
+                        this.LoadPortfolio(dialog.FileName);
                         break;
                 }
             }
@@ -164,7 +164,7 @@ namespace ViewModel
 
         public  void CanExecuteNew(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
-            canExecuteRoutedEventArgs.CanExecute = this.IsPortofolioOpened;
+            canExecuteRoutedEventArgs.CanExecute = this.IsPortfolioOpened;
         }
 
         public void CanExecuteOpen(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
@@ -175,10 +175,10 @@ namespace ViewModel
                 {
                     case "*.key":
                         {
-                            canExecuteRoutedEventArgs.CanExecute = this.IsPortofolioOpened;
+                            canExecuteRoutedEventArgs.CanExecute = this.IsPortfolioOpened;
 
                         }break;
-                    case "*.portofolio":
+                    case "*.portfolio":
                         {
                             //TODO: Add logic
                             canExecuteRoutedEventArgs.CanExecute = true;
@@ -217,7 +217,7 @@ namespace ViewModel
             throw new NotImplementedException();
         }
 
-        private void LoadPortofolio(string fileName)
+        private void LoadPortfolio(string fileName)
         {
 
             if (RootElementCollection.Any())
@@ -225,22 +225,22 @@ namespace ViewModel
                 this.RootElementCollection.Clear();
             }
 
-            this.ReadPortofolio(fileName);
+            this.ReadPortfolio(fileName);
 
-            this.IsPortofolioOpened = true;
+            this.IsPortfolioOpened = true;
         }
 
         /// <summary>
-        /// Read Portofolio.
+        /// Read Portfolio.
         /// </summary>
         /// <param name="fileName"></param>
-        private void ReadPortofolio(string fileName)
+        private void ReadPortfolio(string fileName)
         {
-            Portfolio portofolio;
+            Portfolio portfolio;
             var xmlReader = new XmlFileReader(fileName);
-            xmlReader.ReadPortfolio(out portofolio);
-            this.portofolioViewModel = new TViewPortfolioViewModel(portofolio);
-            this.RootElementCollection.Add(this.portofolioViewModel);
+            xmlReader.ReadPortfolio(out portfolio);
+            this.portfolioViewModel = new TViewPortfolioViewModel(portfolio);
+            this.RootElementCollection.Add(this.portfolioViewModel);
         }
 
         [NotifyPropertyChangedInvocator]

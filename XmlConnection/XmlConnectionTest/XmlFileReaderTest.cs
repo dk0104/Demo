@@ -59,12 +59,12 @@ namespace XmlConnectionTest
         [SetUp]
         public void SetUp()
         {
-            this.xmlPath = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortofolio.xml");
-            this.xmlPathErrorFile = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortofolioError.xml");
+            this.xmlPath = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortfolio.xml");
+            this.xmlPathErrorFile = Path.Combine(Environment.CurrentDirectory, "TestData", "ProductPortfolioError.xml");
             this.xmlPathErrorWarningFile = Path.Combine(
                 Environment.CurrentDirectory, 
                 "TestData", 
-                "ProductPortofolioErrorWarning.xml");
+                "ProductPortfolioErrorWarning.xml");
             this.xmlOrderFile = Path.Combine(Environment.CurrentDirectory, "TestData", "TestOrder.xml");
         }
 
@@ -102,12 +102,12 @@ namespace XmlConnectionTest
         /// The test read all elements_ valid count.
         /// </summary>
         [Test]
-        public void TestReadPortofolioValidElementCount()
+        public void TestReadPortfolioValidElementCount()
         {
             this.xmlReader = new XmlFileReader(this.xmlPath);
-            Portfolio portofolio;
-            xmlReader.ReadPortfolio(out portofolio);
-            Assert.That(portofolio.ProductGroups.Count,Is.EqualTo(2));
+            Portfolio portfolio;
+            xmlReader.ReadPortfolio(out portfolio);
+            Assert.That(portfolio.ProductGroups.Count,Is.EqualTo(2));
         }
 
         /// <summary>

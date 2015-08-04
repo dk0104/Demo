@@ -89,7 +89,7 @@ namespace XmlConnection
         /// <param name="portfolio"></param>
         public void ReadPortfolio(out Portfolio portfolio)
         {
-            var portfolioElement = this.rootElement.Element("portofolio");
+            var portfolioElement = this.rootElement.Element("portfolio");
             if (portfolioElement!=null)
             {
                 portfolio = new Portfolio { CurrentElement = portfolioElement };

@@ -1,6 +1,6 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-// Portofolio view model.
+// Portfolio view model.
 // </brief>
 //
 // <author>Denis Keksel</author>
