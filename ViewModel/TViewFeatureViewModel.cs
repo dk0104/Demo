@@ -56,7 +56,6 @@ namespace ViewModel
 
         internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
-
             if (value!=null && (bool)value)
             {
                 Console.WriteLine("SCHREIBE F " + feature.ToString());
@@ -65,8 +64,7 @@ namespace ViewModel
             {
                 Console.WriteLine("Lösche F " + feature.ToString());
             }
-            
-            base.SetIsChecked(value, updateChildren, updateParent);
+            base.SetIsChecked(value,updateChildren,updateParent);
         }
 
         //---------------------------------------------------------------------
