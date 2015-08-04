@@ -82,7 +82,7 @@
   <xs:element name="root">
     <xs:complexType>
       <xs:choice>
-        <xs:element name="portfolio" type="portfolioType" maxOccurs="unbounded"></xs:element>
+        <xs:element name="portflio" type="portfolioType" maxOccurs="unbounded"></xs:element>
         <xs:element name ="order" type="orderType" maxOccurs="1"></xs:element>  
       </xs:choice>
     </xs:complexType>   

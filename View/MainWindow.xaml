@@ -45,19 +45,19 @@
 							Command="Open"
 							CommandParameter="*.key"/>
                         <RibbonApplicationMenuItem 
-							Header="Import portofolio" 
+							Header="Import portfolio" 
 							KeyTip="P" 
-							ToolTip="Import portofolio"
-							ImageSource="Images/ImportPortofolio.png"
+							ToolTip="Import portfolio"
+							ImageSource="Images/Importportfolio.png"
 							Command="Open"
-							CommandParameter="*.portofolio"/>
+							CommandParameter="*.portfolio"/>
                     </RibbonApplicationSplitMenuItem>
 
                     <RibbonApplicationMenuItem Header="Save" ImageSource="Images/Save.png">
                         <RibbonApplicationMenuItem 
 							Header="Save" 
 							KeyTip="S" 
-							ToolTip="Save portofolio"
+							ToolTip="Save portfolio"
 							ImageSource="Images/Save.png"
 							Command="Save" 
 							CommandParameter="*.key" />
@@ -82,12 +82,12 @@
                 <RibbonGroup x:Name="_order" Header="License">
                     <RibbonMenuButton LargeImageSource="Images/Import.png" Label="Import" ToolTip="Import supported files.">
                         <RibbonMenuItem 
-							ImageSource="Images/ImportPortofolio.png" 
-							Header="Import portofolio"
-							ToolTip="Import portofolio"
+							ImageSource="Images/ImportPortfolio.png" 
+							Header="Import portfolio"
+							ToolTip="Import portfolio"
 							KeyTip="P"
 							Command="Open"
-							CommandParameter="*.portofolio"/>
+							CommandParameter="*.portfolio"/>
                         <RibbonMenuItem 
 							ImageSource="Images/ImportOrder.png" 
 							Header="Import license"

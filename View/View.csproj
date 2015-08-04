@@ -165,7 +165,7 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\ImportOrder.png" />
-    <Resource Include="Images\ImportPortofolio.png" />
+    <Resource Include="Images\ImportPortfolio.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Hide.png" />
