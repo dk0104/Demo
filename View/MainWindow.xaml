@@ -8,6 +8,12 @@
         <Ribbon x:Name="_ribbon" DockPanel.Dock="Top" >
             <Ribbon.QuickAccessToolBar>
                 <RibbonQuickAccessToolBar>
+                    <RibbonButton
+                        SmallImageSource="Images/ImportPortfolio.png"
+                        KeyTip="P"
+                        ToolTip="Open portfolio"
+                        Command="Open"
+                        CommandParameter="*.portfolio"/>
                     <RibbonButton 
 						SmallImageSource="Images/New.png" 
 						KeyTip="N"
@@ -36,18 +42,18 @@
 						ImageSource="Images/New.png"
 						ToolTip="Create new license"
 						CommandParameter="*.key"/>
-                    <RibbonApplicationSplitMenuItem Header="Import" ImageSource="Images/Import.png">
+                    <RibbonApplicationSplitMenuItem Header="Open" ImageSource="Images/Import.png">
                         <RibbonApplicationMenuItem 
-							Header="Import" 
+							Header="Import license" 
 							KeyTip="O" 
-							ToolTip="Import license"
+							ToolTip="Open license"
 							ImageSource="Images/ImportOrder.png"
 							Command="Open"
 							CommandParameter="*.key"/>
                         <RibbonApplicationMenuItem 
-							Header="Import portfolio" 
+							Header="Open portfolio" 
 							KeyTip="P" 
-							ToolTip="Import portfolio"
+							ToolTip="Open portfolio"
 							ImageSource="Images/Importportfolio.png"
 							Command="Open"
 							CommandParameter="*.portfolio"/>
@@ -79,18 +85,18 @@
                 <RibbonButton SmallImageSource="Images/Help.png" KeyTip="?" Command="Help"/>
             </Ribbon.HelpPaneContent>
             <RibbonTab Header="Home" KeyTip="H">
-                <RibbonGroup x:Name="_order" Header="License">
-                    <RibbonMenuButton LargeImageSource="Images/Import.png" Label="Import" ToolTip="Import supported files.">
+                <RibbonGroup x:Name="_orderRg" Header="License">
+                    <RibbonMenuButton LargeImageSource="Images/Import.png" Label="Open" ToolTip="Import supported files.">
                         <RibbonMenuItem 
 							ImageSource="Images/ImportPortfolio.png" 
-							Header="Import portfolio"
+							Header="Open portfolio"
 							ToolTip="Import portfolio"
 							KeyTip="P"
 							Command="Open"
 							CommandParameter="*.portfolio"/>
                         <RibbonMenuItem 
 							ImageSource="Images/ImportOrder.png" 
-							Header="Import license"
+							Header="Open license"
 							ToolTip="Import license"
 							Command="Open"
 							CommandParameter="*.key"
@@ -149,7 +155,7 @@
            
             <Controls:TreeViewControl Grid.Column="0" x:Name="_treeViewControl"></Controls:TreeViewControl>
             <GridSplitter  Grid.Column="1" Width="5" HorizontalAlignment="Stretch"/>
-
+            <Controls:Order Grid.Column="2" x:Name="_orderGrid"></Controls:Order>
         </Grid>
     </DockPanel>
 

@@ -55,7 +55,7 @@ namespace Model
             return this.ProductGroupName;
         }
 
-        public override XElement CurrentElement { get; set; }
+        public override bool IsSelected { get; set; }
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------

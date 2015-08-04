@@ -59,9 +59,9 @@ namespace Model
         public List<Version> Versions { get; private set; }
 
         /// <summary>
-        /// Gets or sets the Current xelement.Shoul de used for data transfomation.
+        /// 
         /// </summary>
-        public override XElement CurrentElement { get; set; }
+        public override bool IsSelected { get; set; }
         
         //---------------------------------------------------------------------
         #endregion

@@ -31,6 +31,7 @@
             mainViewModel = new MainViewModel();
             base.DataContext = mainViewModel;
             this._treeViewControl.DataContext = base.DataContext;
+            this._orderGrid.DataContext = mainViewModel.CurrentOrder;
             this.CreateBindings();
         }
 

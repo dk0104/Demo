@@ -38,14 +38,6 @@ namespace ViewModel
             this.Name = product.ToString();
             this.Children = new ReadOnlyCollection<ElementViewModel>((from version in this.Product.Versions
                                                                        select new TViewVersionViewModel(version, this)).ToList<ElementViewModel>()).ToList();
-
-            var elementViewModel = this.Parent;
-            if (elementViewModel != null && (elementViewModel.Parent != null && elementViewModel.Parent is TViewPortfolioViewModel))
-            {
-                this.Portfolio = (TViewPortfolioViewModel)this.Parent.Parent;
-                this.ParentProductGroup = ((TViewProductGroupViewModel)this.Parent).Group;
-            }
-
         }
 
         //---------------------------------------------------------------------
@@ -64,60 +56,21 @@ namespace ViewModel
         /// <param name="updateParent"></param>
         internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
-            var productGroup =
-                    this.Portfolio.Order.ProductGroups.FirstOrDefault(
-                        pg => pg.ProductGroupName == this.ParentProductGroup.ProductGroupName);
-            
-            if (value == null)
+            var portfolio = (TViewPortfolioViewModel)this.Parent.Parent;
+
+            if (value == null||(bool)value)
             {
-                this.CreateOrderProduc(productGroup);
+                this.Product.IsSelected = true;
             }
-            else if ((bool)value)
+            else
             {
-                this.CreateOrderProduc(productGroup);
-            } 
-            else 
-            {
-                this.DeleteOrderProduc(productGroup);
+                this.Product.IsSelected = false;
             }
-            
+            portfolio.Order.UpdateOrder();
+         
             base.SetIsChecked(value, updateChildren, updateParent);
         }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="productGroup"></param>
-        private void DeleteOrderProduc(ProductGroup productGroup)
-        {
-            if (productGroup!=null)
-            {
-                productGroup.Products.RemoveAll(p => p.Id == this.Product.Id);
-            }
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="productGroup"></param>
-        private void CreateOrderProduc(ProductGroup productGroup)
-        {
-            if (productGroup != null)
-            {
-                if (productGroup.Products.FirstOrDefault(p => p.Name == this.Product.Name) == null)
-                {
-                    var item = new Product
-                              {
-                                  Name = this.Product.Name,
-                                  Id = this.Product.Id,
-                                  Description = this.Product.Description
-                              };
-                    productGroup.Products.Add(item); 
-                }
-               
-            }
-        }
-
+        
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -125,11 +78,7 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
-        
-        public ProductGroup ParentProductGroup { get; set; }
-
-        public TViewPortfolioViewModel Portfolio { get; set; }
-
+       
         public Product Product { get; private set; }
         
         //---------------------------------------------------------------------

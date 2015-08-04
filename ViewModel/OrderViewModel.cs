@@ -10,9 +10,9 @@
 namespace ViewModel
 {
     using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
+    using System.Linq;
     using System.Runtime.CompilerServices;
 
     using Model;
@@ -27,16 +27,10 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
-        
-        private string productName;
+       
+        private ObservableCollection<OrderItemViewModel> orderItemsCollection;
 
         public event PropertyChangedEventHandler PropertyChanged;
-
-        private string productGroup;
-
-        private string productVersion;
-
-        private ObservableCollection<string> featuresCollection;
 
         //---------------------------------------------------------------------
         #endregion
@@ -48,8 +42,15 @@ namespace ViewModel
 
         public OrderViewModel(Order order)
         {
+            this.TimeStamp = order.DateTime;
             this.SerialNumber = order.SerialNumber;
+            this.OrderModel = order;
+            orderItemsCollection=new ObservableCollection<OrderItemViewModel>();
         }
+
+        public Order OrderModel { get; set; }
+
+        public DateTime TimeStamp { get; set; }
 
         public Guid SerialNumber { get; set; }
 
@@ -60,56 +61,15 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
-
-        public string ProductGroup
+        public ObservableCollection<OrderItemViewModel> OrderItems
         {
             get
             {
-                return this.productGroup;
-            }
-            private set
-            {
-                this.productGroup = value;
-                this.OnPropertyChanged();
-            }
-        }
-
-        public string ProductName
-        {
-            get
-            {
-                return this.productName;
+                return this.orderItemsCollection;
             }
             set
             {
-                this.productName = value;
-                this.OnPropertyChanged();
-            }
-        }
-
-        public string ProductVersion
-        {
-            get
-            {
-                return this.productVersion;
-            }
-            set
-            {
-                this.productVersion = value;
-                this.OnPropertyChanged();
-            }
-        }
-
-        public ObservableCollection<string> FeaturesCollection
-        {
-            get
-            {
-                return this.featuresCollection;
-            }
-            set
-            {
-                this.featuresCollection = value;
-                this.OnPropertyChanged();
+                this.orderItemsCollection = value;
             }
         }
 
@@ -121,7 +81,44 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
+
+        public void UpdateOrder()
+        {
+
+            foreach (var productGroup in OrderModel.ProductGroups)
+            {
+                foreach (var product in productGroup.Products)
+                {
+                    foreach (var version in product.Versions)
+                    {
+                        if (version.IsSelected)
+                        {
+                            var item = new OrderItemViewModel
+                                           {
+                                               ProductGroupName = productGroup.ProductGroupName,
+                                               ProductName = product.Name,
+                                               Version = version.VersionNumber
+                                           };
+                            var features = version.Features.Where(f => f.IsSelected);
+                            var featureRepresentation= features.Aggregate(string.Empty, (current, feature) => current + string.Format("{0}", feature.ToString()));
+                            item.Features=featureRepresentation;
+                            
+                            if (null==OrderItems.FirstOrDefault(x=>x.ProductName==item.ProductName && x.Version==item.Version))
+                            {
+                                 this.OrderItems.Add(item);
+                            }
+                            
+                           
+                        }
+                    }
+                }
+            }
+        }
         
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -130,11 +127,6 @@ namespace ViewModel
             {
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
-
         }
-        
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
     }
 }

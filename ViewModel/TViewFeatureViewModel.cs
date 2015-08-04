@@ -56,14 +56,16 @@ namespace ViewModel
 
         internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
-            if (value!=null && (bool)value)
+            var portfolio = (TViewPortfolioViewModel)this.Parent.Parent.Parent.Parent;
+            if (value==null ||  (bool)value)
             {
-                Console.WriteLine("SCHREIBE F " + feature.ToString());
+                this.feature.IsSelected = true;
             }
-            else if (value != null && !(bool)value)
+            else
             {
-                Console.WriteLine("Lösche F " + feature.ToString());
+                this.feature.IsSelected = false;
             }
+            portfolio.Order.UpdateOrder();
             base.SetIsChecked(value,updateChildren,updateParent);
         }
 

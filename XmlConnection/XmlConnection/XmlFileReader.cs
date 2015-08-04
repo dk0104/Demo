@@ -92,7 +92,7 @@ namespace XmlConnection
             var portfolioElement = this.rootElement.Element("portfolio");
             if (portfolioElement!=null)
             {
-                portfolio = new Portfolio { CurrentElement = portfolioElement };
+                portfolio = new Portfolio() ;
                 foreach (var productGroupElement in portfolioElement.Elements())
                 {
                     ProductGroup pg;
@@ -108,7 +108,7 @@ namespace XmlConnection
 
         private static void CreateProductGroup(XElement element,out ProductGroup productGroup)
         {
-            productGroup = new ProductGroup{ CurrentElement = element }; 
+            productGroup = new ProductGroup(); 
             var productGroupElementName = element.Element("productGroupName");
             if (productGroupElementName != null)
             {
@@ -117,7 +117,7 @@ namespace XmlConnection
 
             foreach (var productElement in element.Elements("product"))
             {
-                var product = new Product { CurrentElement = productElement };
+                var product = new Product ();
                 productGroup.Products.Add(product);
                 var descriptionElement = productElement.Element("productDescription");
                 if (descriptionElement != null)
@@ -132,7 +132,7 @@ namespace XmlConnection
 
                 foreach (var versionElement in productElement.Elements("version"))
                 {
-                    var version = new Version { CurrentElement = versionElement };
+                    var version = new Version ();
                     product.Versions.Add(version);
                     var versionNumberElement = versionElement.Element("versionNumber");
                     if (versionNumberElement != null)
@@ -141,7 +141,7 @@ namespace XmlConnection
                     }
                     foreach (var feautureElement in versionElement.Elements("feature"))
                     {
-                        var feauture = new Feature{CurrentElement = feautureElement};
+                        var feauture = new Feature();
                         version.Features.Add(feauture);
                         var featureElementName = feautureElement.Element("featureName");
                         if (featureElementName != null)

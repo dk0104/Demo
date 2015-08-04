@@ -30,7 +30,7 @@ namespace Model
         /// </summary>
         public string Description { get; set; }
 
-        public override XElement CurrentElement { get; set; }
+        public override bool IsSelected { get; set; }
         
         //---------------------------------------------------------------------
         #endregion

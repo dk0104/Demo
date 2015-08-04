@@ -51,7 +51,7 @@ namespace ViewModel
         #region [Properties]
         //---------------------------------------------------------------------
 	
-        public Order Order { get; set; }
+        public OrderViewModel Order { get; set; }
 
         //---------------------------------------------------------------------
         #endregion

@@ -6,6 +6,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <DockPanel>
-        <DataGrid DockPanel.Dock="Top"> </DataGrid>
+        <DataGrid DockPanel.Dock="Top" ItemsSource="{Binding OrderItems}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Product Group" Binding="{Binding ProductGroupName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Version" Binding="{Binding Version}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Features" Binding="{Binding Features}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
     </DockPanel>
 </UserControl>
