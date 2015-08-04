@@ -52,7 +52,7 @@
     <Compile Include="MainViewModel.cs" />
     <Compile Include="OrderElementViewModel.cs" />
     <Compile Include="OrderViewModel.cs" />
-    <Compile Include="TViewPortofolioViewModel.cs" />
+    <Compile Include="TViewPortfolioViewModel.cs" />
     <Compile Include="TViewProductGroupViewModel.cs" />
     <Compile Include="TViewProductViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />

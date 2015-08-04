@@ -1,10 +1,10 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Version model
+//   Portofolio Model
 // </brief>
 //
 // <author>Denis Keksel</author>
-// <since>08.01.2015</since>
+// <since>02.08.2015</since>
 //-----------------------------------------------------------------------
 
 namespace Model
@@ -13,54 +13,29 @@ namespace Model
     using System.Xml.Linq;
 
     /// <summary>
-    /// The product.
+    /// Portofolio Model
     /// </summary>
-    public class PortofolioProduct : ModelBase
+    public class Portfolio : ModelBase
     {
-
         //---------------------------------------------------------------------
-        #region [Constructor]
+        #region [Constructors]
         //---------------------------------------------------------------------
-	
-        /// <summary>
-        /// Initializes a new instance of the <see cref="PortofolioProduct"/> class.
-        /// </summary>
-        public PortofolioProduct()
-        {
-            this.Versions = new List<Version>();
-        }
         
+        public Portfolio()
+        {
+            this.ProductGroups = new List<ProductGroup>();
+        }
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
-       
+
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
-	
-        /// <summary>
-        /// Gets or sets the name.
-        /// </summary>
-        public string Name { get; set; }
 
-        /// <summary>
-        /// Gets or sets the id.
-        /// </summary>
-        public string Id { get; set; }
+        public List<ProductGroup> ProductGroups { get; private set; }
 
-        /// <summary>
-        /// Gets or sets the description.
-        /// </summary>
-        public string Description { get; set; }
-
-        /// <summary>
-        /// Gets or sets the features.
-        /// </summary>
-        public List<Version> Versions { get; private set; }
-
-        /// <summary>
-        /// Gets or sets the Current xelement.Shoul de used for data transfomation.
-        /// </summary>
         public override XElement CurrentElement { get; set; }
         
         //---------------------------------------------------------------------
@@ -70,10 +45,10 @@ namespace Model
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-	
+
         public override string ToString()
         {
-            return this.Name;
+            return "Potofolio";
         }
 
         //---------------------------------------------------------------------

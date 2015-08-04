@@ -43,8 +43,8 @@
     <Compile Include="Feature.cs" />
     <Compile Include="ModelBase.cs" />
     <Compile Include="Order.cs" />
-    <Compile Include="Portofolio.cs" />
-    <Compile Include="PortofolioProduct.cs" />
+    <Compile Include="Portfolio.cs" />
+    <Compile Include="PortfolioProduct.cs" />
     <Compile Include="ProductGroup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Version.cs" />

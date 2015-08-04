@@ -1,60 +1,51 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Portofolio Model
+// Portofolio view model.
 // </brief>
 //
 // <author>Denis Keksel</author>
 // <since>02.08.2015</since>
 //-----------------------------------------------------------------------
 
-namespace Model
+namespace ViewModel
 {
-    using System;
-    using System.Collections;
-    using System.Collections.Generic;
-    using System.Xml.Linq;
+    using System.Collections.ObjectModel;
+    using System.Linq;
+
+    using Model;
 
     /// <summary>
-    /// Portofolio Model
+    /// Denis Keksel
     /// </summary>
-    public class Portofolio : ModelBase
+    public sealed class TViewPortfolioViewModel : ElementViewModel
     {
+        private Portfolio portoflio;
+
+        //---------------------------------------------------------------------
+        #region [Fields]
+        //---------------------------------------------------------------------
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
-        
-        public Portofolio()
+
+        public TViewPortfolioViewModel(Portfolio p)
         {
-            this.ProductGroups = new List<ProductGroup>();
+            this.Parent = null;
+            this.portoflio = p;
+            this.Name = p.ToString();
+            this.Children = new ReadOnlyCollection<ElementViewModel>((from pgroup in this.portoflio.ProductGroups
+                                                                       select new TViewProductGroupViewModel(pgroup, this)).ToList<ElementViewModel>()).ToList();
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
-        //---------------------------------------------------------------------
-        #region [Properties]
-        //---------------------------------------------------------------------
-
-        public List<ProductGroup> ProductGroups { get; private set; }
-
-        public override XElement CurrentElement { get; set; }
-        
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
-        #region [Methods]
-        //---------------------------------------------------------------------
-
-        public override string ToString()
-        {
-            return "Potofolio";
-        }
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
+       
     }
 }

@@ -86,23 +86,23 @@ namespace XmlConnection
         /// <summary>
         /// Return portofolie object.
         /// </summary>
-        /// <param name="portofolio"></param>
-        public void ReadPortofolio(out Portofolio portofolio)
+        /// <param name="portfolio"></param>
+        public void ReadPortfolio(out Portfolio portfolio)
         {
-            var portofolioElement = this.rootElement.Element("portofolio");
-            if (portofolioElement!=null)
+            var portfolioElement = this.rootElement.Element("portofolio");
+            if (portfolioElement!=null)
             {
-                portofolio = new Portofolio { CurrentElement = portofolioElement };
-                foreach (var productGroupElement in portofolioElement.Elements())
+                portfolio = new Portfolio { CurrentElement = portfolioElement };
+                foreach (var productGroupElement in portfolioElement.Elements())
                 {
                     ProductGroup pg;
                     CreateProductGroup(productGroupElement,out pg);
-                    portofolio.ProductGroups.Add(pg);
+                    portfolio.ProductGroups.Add(pg);
                 }
             }
             else
             {
-                portofolio = null;
+                portfolio = null;
             }
         }
 
@@ -117,7 +117,7 @@ namespace XmlConnection
 
             foreach (var productElement in element.Elements("product"))
             {
-                var product = new PortofolioProduct { CurrentElement = productElement };
+                var product = new PortfolioProduct { CurrentElement = productElement };
                 productGroup.Products.Add(product);
                 var descriptionElement = productElement.Element("productDescription");
                 if (descriptionElement != null)
