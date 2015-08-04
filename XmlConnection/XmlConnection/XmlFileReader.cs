@@ -177,7 +177,7 @@ namespace XmlConnection
             };
 
             var appPath = Environment.CurrentDirectory;
-            var validationPath = Path.Combine(appPath, "ValidationSchema", "ProductPortofolioSchema.xsd");
+            var validationPath = Path.Combine(appPath, "ValidationSchema", "ProductPortfolioSchema.xsd");
             settings.Schemas.Add(null, validationPath);
 
             this.settings.ValidationEventHandler += this.OnValidationViolation;
