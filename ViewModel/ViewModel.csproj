@@ -44,8 +44,8 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FeatureViewModel.cs" />
-    <Compile Include="IElementViewModel.cs" />
+    <Compile Include="TViewFeatureViewModel.cs" />
+    <Compile Include="ElementViewModel.cs" />
     <Compile Include="Interactions\EncryptCommand.cs" />
     <Compile Include="Interactions\VirtualToggleButton.cs" />
     <Compile Include="Interactions\WeakCollection.cs" />

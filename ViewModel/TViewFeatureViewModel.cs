@@ -1,59 +1,48 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-// Element view model interface
+//   Feature view model
 // </brief>
 //
 // <author>Denis Keksel</author>
 // <since>01.08.2015</since>
-//
 //-----------------------------------------------------------------------
 
 namespace ViewModel
 {
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Runtime.CompilerServices;
+
+    using Model;
+
+    using ViewModel.Annotations;
 
     /// <summary>
-    /// Element view model interface
+    /// Feature view model
     /// </summary>
-    public interface IElementViewModel
+    public sealed class TViewFeatureViewModel:ElementViewModel 
     {
         //---------------------------------------------------------------------
-        #region [Properties]
+        #region [Fields]
         //---------------------------------------------------------------------
+       
+        private Feature feature;
         
-        /// <summary>
-        /// Gets parent tree view element. 
-        /// </summary>
-        IElementViewModel Parent { get; } 
 
-        /// <summary>
-        /// Gets or set children.
-        /// </summary>
-        IEnumerable<IElementViewModel> Children { get; } 
-
-        /// <summary>
-        /// Gets or set selected state.
-        /// </summary>
-        bool IsSelected { get; set; }
-
-        /// <summary>
-        /// Gets or sets the expandet state.
-        /// </summary>
-        bool IsExpanded { get; set; }
-
-
-
-        /// <summary>
-        /// Gets or Sets the element name.
-        /// </summary>
-        string Name { get; }
+        public TViewFeatureViewModel(Feature feature, ElementViewModel parent)
+        {
+            this.feature = feature;
+            this.Parent = parent;
+            this.Name = feature.ToString();
+            this.Children = null;
+        }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
-        #region [Methods]
+        #region [Constructors]
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------

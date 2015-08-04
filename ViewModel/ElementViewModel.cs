@@ -1,10 +1,11 @@
 ﻿//-----------------------------------------------------------------------
 // <brief>
-//   Feature view model
+// Element view model interface
 // </brief>
 //
 // <author>Denis Keksel</author>
 // <since>01.08.2015</since>
+//
 //-----------------------------------------------------------------------
 
 namespace ViewModel
@@ -13,65 +14,32 @@ namespace ViewModel
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
 
-    using Model;
-
     using ViewModel.Annotations;
 
     /// <summary>
-    /// Feature view model
+    /// Element view model interface
     /// </summary>
-    public sealed class FeatureViewModel:INotifyPropertyChanged,IElementViewModel 
+    public abstract class ElementViewModel : INotifyPropertyChanged
     {
-        //---------------------------------------------------------------------
-        #region [Fields]
-        //---------------------------------------------------------------------
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private bool isSelected;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        private bool isExpanded;
-
-        private Feature feature;
-
         private string name;
 
-        public FeatureViewModel(Feature feature, IElementViewModel parent)
-        {
-            this.feature = feature;
-            this.Parent = parent;
-            this.Name = feature.ToString();
-            this.Children = null;
-        }
+        private bool isSelected;
 
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
-        #region [Constructors]
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
+        private bool isExpanded;
 
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
         
-        public IElementViewModel Parent { get; private set; }
+        /// <summary>
+        /// Gets parent tree view element. 
+        /// </summary>
+        public ElementViewModel Parent { get; set; } 
 
-        public IEnumerable<IElementViewModel> Children { get; private set; }
+        /// <summary>
+        /// Gets or set children.
+        /// </summary>
+        public IEnumerable<ElementViewModel> Children { get; set; }
 
         public bool IsSelected
         {
@@ -105,14 +73,14 @@ namespace ViewModel
             {
                 return this.name;
             }
-            private set
+            
+            set
             {
                 this.name = value;
                 this.OnPropertyChanged();
             }
         }
 
-        
 
         //---------------------------------------------------------------------
         #endregion
@@ -121,9 +89,15 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
         
+        public event PropertyChangedEventHandler PropertyChanged;
+
         [NotifyPropertyChangedInvocator]
-        private void OnPropertyChanged([CallerMemberName] string propertyName = null)
+        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
             var handler = this.PropertyChanged;
             if (handler != null)
@@ -131,9 +105,5 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
     }
 }
