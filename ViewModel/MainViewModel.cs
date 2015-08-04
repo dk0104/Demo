@@ -44,9 +44,9 @@ namespace ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
 
 
-        private PortofolioViewModel portofolioViewModel;
+        private TViewPortofolioViewModel portofolioViewModel;
 
-        private ObservableCollection<PortofolioViewModel> rootElementCollection;
+        private ObservableCollection<TViewPortofolioViewModel> rootElementCollection;
 
         //---------------------------------------------------------------------
         #endregion
@@ -58,7 +58,7 @@ namespace ViewModel
 
         public MainViewModel()
         {
-            this.rootElementCollection = new ObservableCollection<PortofolioViewModel>();
+            this.rootElementCollection = new ObservableCollection<TViewPortofolioViewModel>();
             this.EncryptCommand = new EncryptCommand(this);
             this.IsPortofolioOpened = false;
             this.IsLicenseFileOpened = false;
@@ -74,7 +74,7 @@ namespace ViewModel
         
         public bool IsPortofolioOpened { get; private set; }
 
-        public ObservableCollection<PortofolioViewModel> RootElementCollection
+        public ObservableCollection<TViewPortofolioViewModel> RootElementCollection
         {
             get
             {
@@ -239,7 +239,7 @@ namespace ViewModel
             Portofolio portofolio;
             var xmlReader = new XmlFileReader(fileName);
             xmlReader.ReadPortofolio(out portofolio);
-            this.portofolioViewModel = new PortofolioViewModel(portofolio);
+            this.portofolioViewModel = new TViewPortofolioViewModel(portofolio);
             this.RootElementCollection.Add(this.portofolioViewModel);
         }
 

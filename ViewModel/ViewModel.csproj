@@ -49,12 +49,14 @@
     <Compile Include="Interactions\EncryptCommand.cs" />
     <Compile Include="Interactions\WeakCollection.cs" />
     <Compile Include="MainViewModel.cs" />
-    <Compile Include="PortofolioViewModel.cs" />
-    <Compile Include="ProductGroupViewModel.cs" />
-    <Compile Include="ProductViewModel.cs" />
+    <Compile Include="OrderElementViewModel.cs" />
+    <Compile Include="OrderViewModel.cs" />
+    <Compile Include="TViewPortofolioViewModel.cs" />
+    <Compile Include="TViewProductGroupViewModel.cs" />
+    <Compile Include="TViewProductViewModel.cs" />
     <Compile Include="Properties\Annotations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VersionViewModel.cs" />
+    <Compile Include="TViewVersionViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EncryptionMock\EncryptionMock.csproj">

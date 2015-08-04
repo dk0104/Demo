@@ -9,14 +9,20 @@
 
 namespace Model
 {
+    using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Xml.Linq;
 
     /// <summary>
     /// Portofolio Model
     /// </summary>
     public class Portofolio : ModelBase
     {
+        private string elementName;
+
+        private string value;
+
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
@@ -35,7 +41,17 @@ namespace Model
         //---------------------------------------------------------------------
 
         public List<ProductGroup> ProductGroups { get; private set; }
-        
+
+        public override XElement CurrentElement { get; set; }
+
+        public override string Value
+        {
+            get
+            {
+                return string.Empty;
+            }
+        }
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
