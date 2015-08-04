@@ -9,6 +9,7 @@
 
 namespace ViewModel
 {
+    using System;
     using System.Collections.Generic;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
@@ -44,6 +45,29 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Constructors]
         //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #region [Methods]
+        //---------------------------------------------------------------------
+
+        internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
+        {
+
+            if (value!=null && (bool)value)
+            {
+                Console.WriteLine("SCHREIBE F " + feature.ToString());
+            }
+            else if (value != null && !(bool)value)
+            {
+                Console.WriteLine("Lösche F " + feature.ToString());
+            }
+            
+            base.SetIsChecked(value, updateChildren, updateParent);
+        }
 
         //---------------------------------------------------------------------
         #endregion
