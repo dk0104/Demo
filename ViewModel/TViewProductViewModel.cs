@@ -44,7 +44,7 @@ namespace ViewModel
             this.product = product;
             this.Name = product.ToString();
             this.Children = new ReadOnlyCollection<ElementViewModel>((from version in this.product.Versions
-                                                                       select new TViewVersionViewModel(version, this)).ToList<ElementViewModel>());
+                                                                       select new TViewVersionViewModel(version, this)).ToList<ElementViewModel>()).ToList();
         }
 
         //---------------------------------------------------------------------

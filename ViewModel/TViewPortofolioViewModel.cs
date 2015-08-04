@@ -39,7 +39,7 @@ namespace ViewModel
             this.portofolio = p;
             this.Name = p.ToString();
             this.Children = new ReadOnlyCollection<ElementViewModel>((from pgroup in this.portofolio.ProductGroups
-                                                                       select new TViewProductGroupViewModel(pgroup, this)).ToList<ElementViewModel>());
+                                                                       select new TViewProductGroupViewModel(pgroup, this)).ToList<ElementViewModel>()).ToList();
         }
 
         //---------------------------------------------------------------------
