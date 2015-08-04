@@ -22,7 +22,7 @@ namespace Model
         #region [Properties]
         //---------------------------------------------------------------------
 
-        public abstract XElement CurrentElement { get; set; }
+        public abstract bool IsSelected { get; set; }
         
         //---------------------------------------------------------------------
         #endregion

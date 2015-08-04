@@ -33,7 +33,7 @@ namespace Model
         /// <summary>
         /// Gets or sets the List of products. 
         /// </summary>
-        public IEnumerable<ProductGroup> ProductGroups { get; private set; } 
+        public List<ProductGroup> ProductGroups { get; private set; } 
         
         /// <summary>
         /// Gets or sets the serial number.

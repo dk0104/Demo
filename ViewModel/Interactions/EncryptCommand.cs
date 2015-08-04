@@ -21,19 +21,12 @@ namespace ViewModel.Interactions
         #region [Fields]
         //---------------------------------------------------------------------
         
-        public event EventHandler CanExecuteChanged
-        {
-            add { canExecuteChanged.Add(value); }
-            remove { canExecuteChanged.Remove(value); }
-        }
+       
 
         private MainViewModel viewModel;
 
-        /// <summary>
-        /// The weak collection of delegates for <see cref="CanExecuteChanged"/>.
-        /// </summary>
-        private WeakCollection<EventHandler> canExecuteChanged = new WeakCollection<EventHandler>();
-        
+        public event EventHandler CanExecuteChanged;
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -53,15 +46,10 @@ namespace ViewModel.Interactions
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-        
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="parameter"></param>
-        /// <returns></returns>
+
         public bool CanExecute(object parameter)
         {
-            return this.viewModel.IsOrderFileOpened && this.viewModel.IsPortfolioOpened;
+            return this.viewModel.IsEncryptLicenseAvailable;
         }
 
         /// <summary>

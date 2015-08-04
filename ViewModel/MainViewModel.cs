@@ -47,10 +47,6 @@ namespace ViewModel
 
         private ObservableCollection<TViewPortfolioViewModel> rootElementCollection;
 
-        private OrderViewModel currentOrder;
-
-        private Order order;
-
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -63,6 +59,8 @@ namespace ViewModel
         {
             this.rootElementCollection = new ObservableCollection<TViewPortfolioViewModel>();
             this.EncryptCommand = new EncryptCommand(this);
+            this.Order = new Order { DateTime = DateTime.Now };
+            this.CurrentOrder = new OrderViewModel(this.Order);
             this.IsPortfolioOpened = false;
             this.IsOrderFileOpened = false;
         }
@@ -90,9 +88,17 @@ namespace ViewModel
             }
         }
 
+        public OrderViewModel CurrentOrder { get; private set; }
+
+        public Order Order { get; set; }
+
+        public bool IsEncryptLicenseAvailable { get; set; }
+
         public bool IsOrderFileOpened { get; set; }
 
         public ICommand EncryptCommand { get; set; }
+
+      
 
         //---------------------------------------------------------------------
 
@@ -103,6 +109,7 @@ namespace ViewModel
         #region [Methods]
         //---------------------------------------------------------------------
 
+        
         public  void NewCommand(object sender, ExecutedRoutedEventArgs e)
         {
             this.CreateOrder();
@@ -229,19 +236,16 @@ namespace ViewModel
             }
 
             this.ReadPortfolio(fileName);
-
             this.IsPortfolioOpened = true;
         }
 
         private void CreateOrder()
         {
-            this.order = new Order { DateTime = DateTime.Now };
             this.IsOrderFileOpened = true;
-            this.portfolioViewModel.Order = order;
-
+            this.CurrentOrder.TimeStamp = DateTime.Now;
+            this.portfolioViewModel.Order = this.CurrentOrder;
+            this.IsEncryptLicenseAvailable = true;
         }
-
-        public bool IsEncryptLicenseAvailable { get; set; }
 
         public void DeleteOrder()
         {
@@ -259,6 +263,7 @@ namespace ViewModel
             xmlReader.ReadPortfolio(out portfolio);
             this.portfolioViewModel = new TViewPortfolioViewModel(portfolio);
             this.RootElementCollection.Add(this.portfolioViewModel);
+            this.CreateOrder();
         }
 
         [NotifyPropertyChangedInvocator]

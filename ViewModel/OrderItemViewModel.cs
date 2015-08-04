@@ -9,12 +9,10 @@
 
 namespace ViewModel
 {
+    using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
-
-    using Model;
-
     using ViewModel.Annotations;
 
     /// <summary>
@@ -22,15 +20,11 @@ namespace ViewModel
     /// </summary>
     public class OrderItemViewModel :INotifyPropertyChanged
     {
-        private string productGroupName;
-
-        private string productName;
-
-        private string version;
-
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
+        
+        public event PropertyChangedEventHandler PropertyChanged;
         
         //---------------------------------------------------------------------
         #endregion
@@ -40,7 +34,10 @@ namespace ViewModel
         #region [Constructors]
         //---------------------------------------------------------------------
 
-        // OrderViewModel()
+        public OrderItemViewModel()
+        {
+            this.Features=string.Empty;
+        }
 
         //---------------------------------------------------------------------
         #endregion
@@ -54,61 +51,26 @@ namespace ViewModel
         /// <summary>
         /// 
         /// </summary>
-        public string ProductGroupName          
-        {
-            get
-            {
-                return this.productGroupName;
-            }
-            set
-            {
-                this.productGroupName = value;
-            }
-        }
+        public string ProductGroupName { get; set; }
 
         /// <summary>
         /// Product name.
         /// </summary>
-        public string ProductName
-        {
-            get
-            {
-                return this.productName;
-            }
-            set
-            {
-                this.productName = value;
-            }
-        }
+        public string ProductName { get; set; }
 
         /// <summary>
         /// Version.
         /// </summary>
-        public string Version
-        {
-            get
-            {
-                return this.version;
-            }
-            set
-            {
-                this.version = value;
-            }
-        }
+        public string Version { get; set; }
 
-        public ObservableCollection<string> Features { get; set; } 
+        public string Features { get; set; } 
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #region [Methods]
-        //---------------------------------------------------------------------
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-        public event PropertyChangedEventHandler PropertyChanged;
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -119,5 +81,11 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+
+        //---------------------------------------------------------------------
+
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
     }
 }

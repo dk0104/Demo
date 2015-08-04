@@ -36,7 +36,7 @@ namespace Model
 
         public List<ProductGroup> ProductGroups { get; private set; }
 
-        public override XElement CurrentElement { get; set; }
+        public override bool IsSelected { get; set; }
         
         //---------------------------------------------------------------------
         #endregion

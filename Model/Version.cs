@@ -48,7 +48,7 @@ namespace Model
         /// <summary>
         /// 
         /// </summary>
-        public override XElement CurrentElement { get; set; }
+        public override bool IsSelected { get; set; }
 
         //---------------------------------------------------------------------
         #endregion

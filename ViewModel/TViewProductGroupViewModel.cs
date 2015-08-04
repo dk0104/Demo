@@ -11,7 +11,6 @@ namespace ViewModel
 {
     using System;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
     using System.Linq;
 
     using Model;
@@ -26,8 +25,6 @@ namespace ViewModel
         //---------------------------------------------------------------------
 
         public ProductGroup Group { get; private set; }
-
-        private Order order;
 
         //---------------------------------------------------------------------
         #endregion
@@ -60,44 +57,25 @@ namespace ViewModel
 
             if (portfolio!=null)
             {
-                if (value==null)
+                if (value==null||(bool)value)
                 {
-                    this.CreateProductGroupOrder(portfolio);
-                }
-                else if ((bool)value)
-                {
-                    this.CreateProductGroupOrder(portfolio);
+                    this.Group.IsSelected = true; 
+                    portfolio.Order.OrderModel.ProductGroups.Add(this.Group);
+                    portfolio.Order.UpdateOrder();
                 }
                 else
                 {
-                    RemoveProductGroupOrder(portfolio);
+                    this.Group.IsSelected = false;
+                    portfolio.Order.OrderModel.ProductGroups.RemoveAll(x => x.ProductGroupName == Group.ProductGroupName);
                 }
             }
 
             base.SetIsChecked(value, updateChildren, updateParent);
         }
 
-        private void CreateProductGroupOrder(TViewPortfolioViewModel portfolio)
+        internal void CreateProductGroupOrder(TViewPortfolioViewModel portfolio)
         {
-            if (portfolio.Order != null)
-            {
-                if (null==portfolio.Order.ProductGroups.ToList().FirstOrDefault(pg=>pg.ProductGroupName==this.Group.ProductGroupName))
-                {
-                    var orderPg = new ProductGroup();
-                    orderPg.ProductGroupName = this.Group.ProductGroupName;
-                    portfolio.Order.ProductGroups.ToList().Add(orderPg);
-                }
-            }
-        }
-
-        private void RemoveProductGroupOrder(TViewPortfolioViewModel portfolio)
-        {
-             if (portfolio.Order != null)
-             {
-                 Console.WriteLine("LÖSCHE Ganze PG " + this.Group.ToString());
-                 portfolio.Order.ProductGroups.ToList()
-                     .RemoveAll(pg => pg.ProductGroupName == this.Group.ProductGroupName);
-             }
+           
         }
     }
 }
