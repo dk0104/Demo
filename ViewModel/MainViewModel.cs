@@ -12,7 +12,6 @@ namespace ViewModel
     using System;
     using System.Collections.ObjectModel;
     using System.ComponentModel;
-    using System.IO;
     using System.Linq;
     using System.Runtime.CompilerServices;
     using System.Windows;
@@ -48,6 +47,10 @@ namespace ViewModel
 
         private ObservableCollection<TViewPortfolioViewModel> rootElementCollection;
 
+        private OrderViewModel currentOrder;
+
+        private Order order;
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -61,7 +64,7 @@ namespace ViewModel
             this.rootElementCollection = new ObservableCollection<TViewPortfolioViewModel>();
             this.EncryptCommand = new EncryptCommand(this);
             this.IsPortfolioOpened = false;
-            this.IsLicenseFileOpened = false;
+            this.IsOrderFileOpened = false;
         }
 
         //---------------------------------------------------------------------
@@ -87,7 +90,7 @@ namespace ViewModel
             }
         }
 
-        public bool IsLicenseFileOpened { get; set; }
+        public bool IsOrderFileOpened { get; set; }
 
         public ICommand EncryptCommand { get; set; }
 
@@ -102,7 +105,7 @@ namespace ViewModel
 
         public  void NewCommand(object sender, ExecutedRoutedEventArgs e)
         {
-            
+            this.CreateOrder();
         }
 
         public  void OpenCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
@@ -154,7 +157,7 @@ namespace ViewModel
 
         public void DeleteCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
-            
+            this.DeleteOrder();
         }
 
         public void HelpCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
@@ -189,7 +192,7 @@ namespace ViewModel
 
         public  void CanExecuteSave(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
-            canExecuteRoutedEventArgs.CanExecute = true;
+            canExecuteRoutedEventArgs.CanExecute = this.IsOrderFileOpened;
         }
 
         public void CanExecuteFind(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
@@ -199,7 +202,7 @@ namespace ViewModel
 
         public void CanExecuteDelete(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
-            canExecuteRoutedEventArgs.CanExecute = this.IsLicenseFileOpened;
+            canExecuteRoutedEventArgs.CanExecute = this.IsOrderFileOpened;
         }
 
         public void CanExecuteHelp(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
@@ -228,6 +231,21 @@ namespace ViewModel
             this.ReadPortfolio(fileName);
 
             this.IsPortfolioOpened = true;
+        }
+
+        private void CreateOrder()
+        {
+            this.order = new Order { DateTime = DateTime.Now };
+            this.IsOrderFileOpened = true;
+            this.portfolioViewModel.Order = order;
+
+        }
+
+        public bool IsEncryptLicenseAvailable { get; set; }
+
+        public void DeleteOrder()
+        {
+            this.IsOrderFileOpened = false;
         }
 
         /// <summary>

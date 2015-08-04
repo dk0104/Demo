@@ -61,7 +61,7 @@ namespace ViewModel.Interactions
         /// <returns></returns>
         public bool CanExecute(object parameter)
         {
-            return this.viewModel.IsLicenseFileOpened && this.viewModel.IsPortfolioOpened;
+            return this.viewModel.IsOrderFileOpened && this.viewModel.IsPortfolioOpened;
         }
 
         /// <summary>

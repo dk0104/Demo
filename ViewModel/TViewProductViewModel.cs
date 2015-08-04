@@ -9,16 +9,10 @@
 
 namespace ViewModel
 {
-    using System;
-    using System.Collections.Generic;
     using System.Collections.ObjectModel;
-    using System.ComponentModel;
     using System.Linq;
-    using System.Runtime.CompilerServices;
 
     using Model;
-
-    using ViewModel.Annotations;
 
     /// <summary>
     /// Product view model
@@ -29,8 +23,6 @@ namespace ViewModel
         #region [Fields]
         //---------------------------------------------------------------------
 
-        private readonly PortfolioProduct product;
-        
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -39,13 +31,21 @@ namespace ViewModel
         #region [Constructors]
         //---------------------------------------------------------------------
         
-        public TViewProductViewModel(PortfolioProduct product, ElementViewModel parent = null)
+        public TViewProductViewModel(Product product, ElementViewModel parent = null)
         {
             this.Parent = parent;
-            this.product = product;
+            this.Product = product;
             this.Name = product.ToString();
-            this.Children = new ReadOnlyCollection<ElementViewModel>((from version in this.product.Versions
+            this.Children = new ReadOnlyCollection<ElementViewModel>((from version in this.Product.Versions
                                                                        select new TViewVersionViewModel(version, this)).ToList<ElementViewModel>()).ToList();
+
+            var elementViewModel = this.Parent;
+            if (elementViewModel != null && (elementViewModel.Parent != null && elementViewModel.Parent is TViewPortfolioViewModel))
+            {
+                this.Portfolio = (TViewPortfolioViewModel)this.Parent.Parent;
+                this.ParentProductGroup = ((TViewProductGroupViewModel)this.Parent).Group;
+            }
+
         }
 
         //---------------------------------------------------------------------
@@ -56,27 +56,85 @@ namespace ViewModel
         #region [Methods]
         //---------------------------------------------------------------------
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="updateChildren"></param>
+        /// <param name="updateParent"></param>
         internal override void SetIsChecked(bool? value, bool updateChildren, bool updateParent)
         {
-
-            if (value==null)
-            {
-                Console.WriteLine("SCHREIBE Product " + product.ToString());
-            }
+            var productGroup =
+                    this.Portfolio.Order.ProductGroups.FirstOrDefault(
+                        pg => pg.ProductGroupName == this.ParentProductGroup.ProductGroupName);
             
-           
-            else if (value != null && !(bool)value)
+            if (value == null)
             {
-                Console.WriteLine("Lösche Product " + product.ToString());
+                this.CreateOrderProduc(productGroup);
+            }
+            else if ((bool)value)
+            {
+                this.CreateOrderProduc(productGroup);
+            } 
+            else 
+            {
+                this.DeleteOrderProduc(productGroup);
             }
             
             base.SetIsChecked(value, updateChildren, updateParent);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productGroup"></param>
+        private void DeleteOrderProduc(ProductGroup productGroup)
+        {
+            if (productGroup!=null)
+            {
+                productGroup.Products.RemoveAll(p => p.Id == this.Product.Id);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="productGroup"></param>
+        private void CreateOrderProduc(ProductGroup productGroup)
+        {
+            if (productGroup != null)
+            {
+                if (productGroup.Products.FirstOrDefault(p => p.Name == this.Product.Name) == null)
+                {
+                    var item = new Product
+                              {
+                                  Name = this.Product.Name,
+                                  Id = this.Product.Id,
+                                  Description = this.Product.Description
+                              };
+                    productGroup.Products.Add(item); 
+                }
+               
+            }
         }
 
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
 
+        //---------------------------------------------------------------------
+        #region [Properties]
+        //---------------------------------------------------------------------
+        
+        public ProductGroup ParentProductGroup { get; set; }
+
+        public TViewPortfolioViewModel Portfolio { get; set; }
+
+        public Product Product { get; private set; }
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
       
     }
 }

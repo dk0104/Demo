@@ -156,7 +156,7 @@ namespace XmlConnectionTest
         /// <returns>
         /// The <see cref="XElement"/>.
         /// </returns>
-        private static XElement CreateProductElement(PortfolioProduct product)
+        private static XElement CreateProductElement(Product product)
         {
             var productElement = new XElement("product");
             productElement.Add(new XAttribute("id", product.Id));
@@ -180,9 +180,9 @@ namespace XmlConnectionTest
         /// The greate product dummy.
         /// </summary>
         /// <returns>
-        /// The <see cref="PortfolioProduct"/>.
+        /// The <see cref="Product"/>.
         /// </returns>
-        private static PortfolioProduct GreateProductDummy()
+        private static Product GreateProductDummy()
         {
             var featureA = new Feature { Description = "feature A Deskription", Name = "Feature A" };
 
@@ -192,7 +192,7 @@ namespace XmlConnectionTest
 
             var fl = new List<Feature> { featureC, featureA, featureB };
 
-            var product = new PortfolioProduct
+            var product = new Product
                               {
                                   Id = "PJ1", 
                                   Name = "Product J", 

@@ -15,7 +15,7 @@ namespace Model
     /// <summary>
     /// The product.
     /// </summary>
-    public class PortfolioProduct : ModelBase
+    public class Product : ModelBase
     {
 
         //---------------------------------------------------------------------
@@ -23,9 +23,9 @@ namespace Model
         //---------------------------------------------------------------------
 	
         /// <summary>
-        /// Initializes a new instance of the <see cref="PortfolioProduct"/> class.
+        /// Initializes a new instance of the <see cref="Product"/> class.
         /// </summary>
-        public PortfolioProduct()
+        public Product()
         {
             this.Versions = new List<Version>();
         }
