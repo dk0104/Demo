@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<order xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <orderDate>2015-08-05T09:31:39.349048+02:00</orderDate>
+  <SerialNumber>18a1d598-58fc-4670-9a9b-a5bb6e14cbe0</SerialNumber>
+  <productCroup>
+    <productGroupName>Tools</productGroupName>
+    <product>
+      <product />
+      <product>
+        <product />
+      </product>
+    </product>
+  </productCroup>
+</order>
