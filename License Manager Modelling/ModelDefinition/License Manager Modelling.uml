@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="ef6a5c4b-38ea-4100-9645-9a4e00167ea0"
+  name="License Manager Modelling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="d8edc3ab-6e87-4b98-8971-3330c8e2dd24"
+        name="Cusomer"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="436760af-71d5-47aa-8c97-139d4c1b1763"
+            isDerived="false"
+            sourceEndRoleName="Cusomer"
+            targetEndRoleName="View License"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe"
+              LastKnownName="View License"
+              LastKnownLocation="License Manager Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="91f06c2f-424c-44ba-8f8c-4e46214617df"
+                  name="Cusomer"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0df04618-229c-4415-9d2d-abc0c26c84a0"
+                  name="View License"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="84548463-7f4d-4930-8987-8e0cae437b56"
+        name="employee"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="866a81b1-e403-4f25-aef9-e78e494b4534"
+            isDerived="false"
+            sourceEndRoleName="employee"
+            targetEndRoleName="Select Products"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="6c742317-1bef-41f9-a5b8-664e631f61fa"
+              LastKnownName="Select Products"
+              LastKnownLocation="License Manager Modelling.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="b4361d33-8720-4eb0-9fa9-928c64c47510"
+                  name="employee"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ecb46a1f-50ed-4af5-9549-45459a32446c"
+                  name="Select Products"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe"
+        name="View License"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="0f4ead54-54f0-4caf-898f-aa81500dc2dd">
+            <artifactMoniker
+              Id="464d9efd-83ef-49b4-be31-6e2fac17eff2"
+              LastKnownName="License Key"
+              LastKnownLocation="License Manager Modelling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="464d9efd-83ef-49b4-be31-6e2fac17eff2"
+        name="License Key"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="6c742317-1bef-41f9-a5b8-664e631f61fa"
+        name="Select Products"
+        isAbstract="false"
+        isLeaf="false">
+        <additions>
+          <include
+            Id="089f72e2-27d7-42b4-9822-4ad9b2b0efd3">
+            <useCaseMoniker
+              Id="ab43dcf6-9585-4b27-8dd7-3b307aa573ad"
+              LastKnownName="Create license"
+              LastKnownLocation="License Manager Modelling.uml" />
+          </include>
+        </additions>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="ab43dcf6-9585-4b27-8dd7-3b307aa573ad"
+        name="Create license"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="69273a9d-05c1-419a-9041-1cc5032f2189">
+            <artifactMoniker
+              Id="bccb8d40-c0c9-4693-be4c-0fe3ebe04562"
+              LastKnownName="License Key "
+              LastKnownLocation="License Manager Modelling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="87d7b602-b979-4b97-bca3-e20afdaceb48"
+        name="Portfolio db."
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="85bcc3c7-9b49-4a12-ae6e-173a79738861">
+            <useCaseMoniker
+              Id="6c742317-1bef-41f9-a5b8-664e631f61fa"
+              LastKnownName="Select Products"
+              LastKnownLocation="License Manager Modelling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </artifact>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <artifact
+        Id="bccb8d40-c0c9-4693-be4c-0fe3ebe04562"
+        name="License Key "
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="81400a9f-8089-4794-9a6c-12ce5b68ba2e"
+        name="View"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="dda9f5fd-0987-476c-b360-0f373715f1d6"
+        name="ViewModel "
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <component
+        Id="c844cd12-bf96-45a0-8bcb-2f86a7202825"
+        name="Model"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="73823580-c6b2-465b-91a6-38cda2676d55"
+        name="Interface1"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <Interface
+        Id="5b5d271a-0ade-4f3c-a2ac-701043c6a1bc"
+        name="Interface2"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="4dd59c63-9a0f-4888-93a9-0490900876de"
+        name="Class1"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

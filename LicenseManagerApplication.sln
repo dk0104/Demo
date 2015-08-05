@@ -23,6 +23,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Data\ProductPortfolio.portfolio.xml = Data\ProductPortfolio.portfolio.xml
 	EndProjectSection
 EndProject
+Project("{F088123C-0E9E-452A-89E6-6BA2F21D5CAC}") = "License Manager Modelling", "License Manager Modelling\License Manager Modelling.modelproj", "{76CCE579-C0CD-4A7A-B147-08F97C6A5D76}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,6 +55,10 @@ Global
 		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE4D6B60-8F87-46FE-A656-3A6F6744036C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76CCE579-C0CD-4A7A-B147-08F97C6A5D76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76CCE579-C0CD-4A7A-B147-08F97C6A5D76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76CCE579-C0CD-4A7A-B147-08F97C6A5D76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76CCE579-C0CD-4A7A-B147-08F97C6A5D76}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
