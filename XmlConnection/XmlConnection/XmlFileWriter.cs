@@ -10,8 +10,12 @@
 namespace XmlConnection
 {
     using System.Collections.Generic;
+    using System.Linq;
+    using System.Linq.Expressions;
     using System.Xml.Linq;
     using System.Xml.Schema;
+
+    using Model;
 
     using XmlConnection.XmlAccess;
     using XmlConnection.XmlAccess.Decorator;
@@ -19,131 +23,52 @@ namespace XmlConnection
     /// <summary>
     /// The xml file manager.
     /// </summary>
-    internal class XmlFileWriter
+    public class XmlFileWriter
     {
-        //---------------------------------------------------------------------
-        #region [Fields]
-        //---------------------------------------------------------------------
-	
-         /// <summary>
-        /// The element modification.
-        /// </summary>
-        private readonly ElementModification<XElement> elementModification;
-
-        /// <summary>
-        /// The root element.
-        /// </summary>
-        private XElement rootElement;
-        
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-        
-        //---------------------------------------------------------------------
-        #region [Constructor]
-        //---------------------------------------------------------------------
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="XmlFileWriter"/> class.
-        /// </summary>
-        public XmlFileWriter(XElement rootElement)
-        {
-            this.rootElement = rootElement;
-            this.elementModification = new ElementModification<XElement>(
-                    new XmlSave(rootElement), 
-                    new XmlDelete(rootElement));
-           
-        }
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-     
-        //---------------------------------------------------------------------
-        #region [Properties]
-        //---------------------------------------------------------------------
-	
-        /// <summary>
-        /// Gets the list of xml errors.
-        /// </summary>
-        public List<string> XmlReaderErrors { get; private set; }
-
-        /// <summary>
-        /// Gets the list of xml warnings.
-        /// </summary>
-        public List<string> XmlReaderWarnings { get; private set; }
-
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-        
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-        
-        /// <summary>
-        /// Update element.
-        /// </summary>
-        /// <param name="element">
-        /// </param>
-        public void Save(XElement element)
-        {
-            this.elementModification.Save(element);
-        }
 
         /// <summary>
-        /// The delete.
+        /// Write order.
         /// </summary>
-        /// <param name="element">
-        /// The element.
-        /// </param>
-        public void Delete(XElement element)
+        /// <param name="order"></param>
+        public void WriteOrder(Order order,string filePath)
         {
-            this.elementModification.Save(element);
-        }
-        
-
-        /// <summary>
-        /// The write file.
-        /// </summary>
-        public void WriteFile(string filePath)
-        {
-            this.rootElement.Save(filePath);
-        }
-
-        /// <summary>
-        /// Error or Warnings collector.
-        /// </summary>
-        /// <param name="sender">
-        /// </param>
-        /// <param name="validationEventArgs">
-        /// </param>
-        private void OnValidationViolation(object sender, ValidationEventArgs validationEventArgs)
-        {
-            switch (validationEventArgs.Severity)
+            XNamespace xsi = XmlSchema.InstanceNamespace;
+            var rootElement = new XElement("order");
+            rootElement.Add(new XAttribute("orderDate",order.DateTime));
+            rootElement.Add(new XElement("SerialNumber",order.SerialNumber));
+            var productGroup = new XElement("productCroup");
+            foreach (var pg in order.ProductGroups)
             {
-                case XmlSeverityType.Error:
+               
+                productGroup.Add(new XElement("productGroupName",pg.ProductGroupName)); 
+                var product = new XElement("product");
+                foreach (var p in pg.Products)
+                {
+                    product.Add(new XAttribute("id",p.Id));
+                    product.Add(new XElement("productName",p.Name));
+                    product.Add(new XElement("productDescription",p.Description));
+                    var versionElement = new XElement("version");
+                    foreach (var version in p.Versions)
                     {
-                        this.XmlReaderErrors.Add(
-                            string.Format(
-                                "Error Line Number : {0} Message {1}", 
-                                validationEventArgs.Exception.LineNumber, 
-                                validationEventArgs.Message));
+                        versionElement.Add(new XElement("versionNumber",version.VersionNumber)); 
+                        var featureElement = new XElement("feature");
+                        foreach (var feature in version.Features)
+                        {
+                            featureElement.Add(new XElement("featureName",feature.Name));
+                            featureElement.Add(new XElement("featureDescription"),feature.Description);
+                            versionElement.Add("feature",featureElement);
+                        }
+                        versionElement.Add("feature",featureElement);
                     }
-
-                    break;
-
-                case XmlSeverityType.Warning:
-                    {
-                        this.XmlReaderWarnings.Add(
-                            string.Format(
-                                "Warning Line Number : {0} Message {1}", 
-                                validationEventArgs.Exception.LineNumber, 
-                                validationEventArgs.Message));
-                    }
-
-                    break;
+                    product.Add(new XElement("version",versionElement));
+                }
+                productGroup.Add(new XElement("product",product));
             }
+            rootElement.Add("productGroup",productGroup);
+            rootElement.Save(filePath);
         }
 
         //---------------------------------------------------------------------

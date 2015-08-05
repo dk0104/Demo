@@ -58,7 +58,7 @@ namespace ViewModel.Interactions
         /// <param name="parameter"></param>
         public void Execute(object parameter)
         {
-            MainViewModel.ExecuteEncrypt();
+            this.viewModel.ExecuteEncrypt();
         }
 
         //---------------------------------------------------------------------

@@ -56,18 +56,21 @@
     <xs:attribute name="id" type="idType" use="required"></xs:attribute>
   </xs:complexType>
 
-  <xs:complexType name ="orderType">
-    <xs:sequence>
-      <xs:element name="orderDate" type ="datetype"></xs:element>
-      <xs:element name="product" maxOccurs="unbounded" type="productType"></xs:element>
-      <xs:element name="serialnumber" type="sernumber"></xs:element>
-    </xs:sequence>
-  </xs:complexType>
+  
 
   <xs:complexType name="productGroupType">
     <xs:sequence>
       <xs:element name="productGroupName" type="stringtype" maxOccurs="1"></xs:element>
       <xs:element name ="product" minOccurs="1" maxOccurs="unbounded" type="productType"></xs:element>
+    </xs:sequence>
+  </xs:complexType>
+  
+  
+  <xs:complexType name ="orderType">
+    <xs:sequence>
+      <xs:element name="orderDate" type ="datetype"></xs:element>
+      <xs:element name="productGroup" maxOccurs="unbounded" type="productGroupType"></xs:element>
+      <xs:element name="serialnumber" type="sernumber"></xs:element>
     </xs:sequence>
   </xs:complexType>
   
