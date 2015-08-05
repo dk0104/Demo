@@ -62,6 +62,10 @@
             binding.Executed += (s, e) => { mainViewModel.SaveCommand(s, e); };
             binding.CanExecute += (s,e) => { mainViewModel.CanExecuteSave(s,e); };
 
+            binding = new CommandBinding(ApplicationCommands.SaveAs);
+            binding.Executed += (s, e) => { mainViewModel.SaveAsCommand(s, e); };
+            binding.CanExecute += (s, e) => { mainViewModel.CanExecuteSaveAs(s, e); };
+
             binding = new CommandBinding(ApplicationCommands.Find);
             binding.Executed += (s, e) => { mainViewModel.FindCommand(s, e); };
             binding.CanExecute += (s, e) => { mainViewModel.CanExecuteFind(s, e); };

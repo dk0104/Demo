@@ -63,6 +63,7 @@ namespace ViewModel
             this.CurrentOrder = new OrderViewModel(this.Order);
             this.IsPortfolioOpened = false;
             this.IsOrderFileOpened = false;
+            this.IsEncryptLicenseAvailable = true;
         }
 
         //---------------------------------------------------------------------
@@ -144,9 +145,19 @@ namespace ViewModel
 
         public  void SaveCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
-            var dialog = new SaveFileDialog();
-            dialog.Filter = "License key|*.xml";
-            dialog.Title = "Savie license key";
+            //var dialog = new SaveFileDialog { Filter = "License key|*.xml", Title = "Savie license key" };
+            //XmlFileWriter.WriteOrder(this.Order,dialog.FileName);
+        }
+
+        public void SaveAsCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
+        {
+            var dialog = new SaveFileDialog { Filter = "License key|*.xml", Title = "Savie license key" };
+            var showDialog = dialog.ShowDialog();
+            if (showDialog != null && (bool)showDialog)
+            {
+                var xmlWriter=new XmlFileWriter();
+                xmlWriter.WriteOrder(this.Order,dialog.FileName);
+            }
         }
 
         public  void FindCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
@@ -199,6 +210,13 @@ namespace ViewModel
 
         public  void CanExecuteSave(object sender,CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
         {
+            //TODO: store file path
+            canExecuteRoutedEventArgs.CanExecute = this.IsOrderFileOpened;
+            canExecuteRoutedEventArgs.CanExecute = false;
+        }
+
+        public void CanExecuteSaveAs(object sender, CanExecuteRoutedEventArgs canExecuteRoutedEventArgs)
+        {
             canExecuteRoutedEventArgs.CanExecute = this.IsOrderFileOpened;
         }
 
@@ -217,9 +235,16 @@ namespace ViewModel
             canExecuteRoutedEventArgs.CanExecute = true;
         }
 
-        public static void ExecuteEncrypt()
+        public void ExecuteEncrypt()
         {
-            Encrypt.Enctypt(Guid.NewGuid());
+            var dialog = new SaveFileDialog{ Filter = "Save License key|*.xml", Title = "Save license file" };
+            var showDialog = dialog.ShowDialog();
+            if (showDialog != null && (bool)showDialog)
+            {
+                this.Order.SerialNumber=Encrypt.Enctypt(Guid.NewGuid());
+                var xmlWriter = new XmlFileWriter();
+                xmlWriter.WriteOrder(this.Order,dialog.FileName);
+            }
         }
 
         private void LoadLicenseFile(string fileName)

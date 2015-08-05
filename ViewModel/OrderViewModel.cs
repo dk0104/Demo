@@ -84,7 +84,7 @@ namespace ViewModel
 
         public void UpdateOrder()
         {
-
+            this.OrderItems.Clear();
             foreach (var productGroup in OrderModel.ProductGroups)
             {
                 foreach (var product in productGroup.Products)
@@ -107,7 +107,6 @@ namespace ViewModel
                             {
                                  this.OrderItems.Add(item);
                             }
-                            
                            
                         }
                     }
