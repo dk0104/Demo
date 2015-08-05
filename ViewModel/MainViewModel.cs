@@ -63,9 +63,14 @@ namespace ViewModel
             this.CurrentOrder = new OrderViewModel(this.Order);
             this.IsPortfolioOpened = false;
             this.IsOrderFileOpened = false;
-            this.IsEncryptLicenseAvailable = true;
+            //this.IsEncryptLicenseAvailable = true;
+            this.CurrentOrder.OrderItems.CollectionChanged += OrderItems_CollectionChanged;
         }
 
+        void OrderItems_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            this.IsEncryptLicenseAvailable = this.CurrentOrder.OrderItems.Count > 0;
+        }
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -93,7 +98,22 @@ namespace ViewModel
 
         public Order Order { get; set; }
 
-        public bool IsEncryptLicenseAvailable { get; set; }
+        private bool isEncryptLicenseAvailable;
+        public bool IsEncryptLicenseAvailable
+        { 
+            get
+            {
+                return isEncryptLicenseAvailable;
+            } 
+            set
+            {
+                if (this.isEncryptLicenseAvailable != value)
+                {
+                    this.isEncryptLicenseAvailable = value;
+                    this.OnPropertyChanged();
+                }
+            }
+        }
 
         public bool IsOrderFileOpened { get; set; }
 
@@ -269,7 +289,7 @@ namespace ViewModel
             this.IsOrderFileOpened = true;
             this.CurrentOrder.TimeStamp = DateTime.Now;
             this.portfolioViewModel.Order = this.CurrentOrder;
-            this.IsEncryptLicenseAvailable = true;
+            //this.IsEncryptLicenseAvailable = true;
         }
 
         public void DeleteOrder()
