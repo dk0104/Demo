@@ -44,7 +44,7 @@ namespace XmlConnection
             foreach (var pg in order.ProductGroups)
             { 
                 productGroup.Add(new XElement("productGroupName", pg.ProductGroupName));
-                var products = new XElement("product"); 
+                
                 foreach (var p in pg.Products)
                 { 
                     var product = new XElement("product");
@@ -66,9 +66,8 @@ namespace XmlConnection
                       versionElement.Add(featureElements);
                     }
                     product.Add(versionElement);
-                    products.Add(products);
+                    productGroup.Add(product);
                 } 
-                productGroup.Add(products);
                 rootElement.Add(productGroup);
             }
             rootElement.Save(filePath);
