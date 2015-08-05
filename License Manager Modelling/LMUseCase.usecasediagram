@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="5311aaa5-05f3-4897-9de3-1551f95ab9a0" name="LMUseCase" linkedPackageId="4728a522-09c6-4c1b-9838-9b4ecd277ec6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="22350278-6555-4dd6-af00-976a3511ec67">
+      <profileInstance Id="627d0833-f8ef-45e0-a79c-da3e6cfe9189" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="b65232af-83be-4307-94d4-23544aa52cb3">
+      <profileInstance Id="c200c61b-afa7-4cf3-a00f-cb141b9d89d1" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="e42a36bd-0252-4ce1-9344-2dad3ab845b4" name="Cusomer" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="d8edc3ab-6e87-4b98-8971-3330c8e2dd24" />
+        <targetEnds>
+          <association Id="40975c50-20a2-48ac-bb62-b272d4923b4e" isDerived="false" sourceEndRoleName="Cusomer" targetEndRoleName="View License" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="c0ae27d9-04b6-4538-81cd-206dccaa6fb3" LastKnownName="View License" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8c572d35-68f3-4340-8023-23e7a3595eaa" name="Cusomer" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="91f06c2f-424c-44ba-8f8c-4e46214617df" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="601d5b43-3884-4a9e-a9e0-88764a0325f8" name="View License" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="0df04618-229c-4415-9d2d-abc0c26c84a0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="436760af-71d5-47aa-8c97-139d4c1b1763" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="1d802974-a7ac-40ce-abbb-c373bb6fea88" name="employee" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="84548463-7f4d-4930-8987-8e0cae437b56" />
+        <targetEnds>
+          <association Id="bd53d44f-1783-4d61-b217-90161afbccb6" isDerived="false" sourceEndRoleName="employee" targetEndRoleName="Select Products" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="4d1dff01-b7f5-4e77-8a21-db45155752c1" LastKnownName="Select Products" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="d738d1ea-98c3-4e48-96d4-2c6f7883130a" name="employee" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="b4361d33-8720-4eb0-9fa9-928c64c47510" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="99b936a1-3736-48c9-be42-e4ffb72fe0fa" name="Select Products" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ecb46a1f-50ed-4af5-9549-45459a32446c" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="866a81b1-e403-4f25-aef9-e78e494b4534" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c0ae27d9-04b6-4538-81cd-206dccaa6fb3" name="View License" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe" />
+        <suppliersInternal>
+          <dependency Id="85472338-eea5-4496-8ba9-88f696585e49">
+            <artifactMoniker Id="ae78e803-b1e2-47c5-b6a3-13254e369034" LastKnownName="License Key" />
+            <elementDefinition Id="0f4ead54-54f0-4caf-898f-aa81500dc2dd" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="ae78e803-b1e2-47c5-b6a3-13254e369034" name="License Key" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="464d9efd-83ef-49b4-be31-6e2fac17eff2" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="4d1dff01-b7f5-4e77-8a21-db45155752c1" name="Select Products" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="6c742317-1bef-41f9-a5b8-664e631f61fa" />
+        <additions>
+          <include Id="62202ec7-6b1d-4c46-8e50-64565d8eeee5">
+            <useCaseMoniker Id="fb8e0c4b-103d-4394-ade8-55d03dadec47" LastKnownName="Create license" />
+            <elementDefinition Id="089f72e2-27d7-42b4-9822-4ad9b2b0efd3" />
+          </include>
+        </additions>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="fb8e0c4b-103d-4394-ade8-55d03dadec47" name="Create license" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="ab43dcf6-9585-4b27-8dd7-3b307aa573ad" />
+        <suppliersInternal>
+          <dependency Id="b2417622-35cc-448d-a139-b9e16e89dcc2">
+            <artifactMoniker Id="f8540118-5e46-45e5-9241-2e6b6dadd46c" LastKnownName="License Key " />
+            <elementDefinition Id="69273a9d-05c1-419a-9041-1cc5032f2189" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="b7d7a0d8-b928-492f-b7a4-c16e7bbbc56f" name="Portfolio db." isAbstract="false" isLeaf="false">
+        <elementDefinition Id="87d7b602-b979-4b97-bca3-e20afdaceb48" />
+        <suppliersInternal>
+          <dependency Id="7ce694d0-09a0-4d8c-bb84-79994fc0fab6">
+            <useCaseMoniker Id="4d1dff01-b7f5-4e77-8a21-db45155752c1" LastKnownName="Select Products" />
+            <elementDefinition Id="85bcc3c7-9b49-4a12-ae6e-173a79738861" />
+          </dependency>
+        </suppliersInternal>
+      </artifact>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <artifact Id="f8540118-5e46-45e5-9241-2e6b6dadd46c" name="License Key " isAbstract="false" isLeaf="false">
+        <elementDefinition Id="bccb8d40-c0c9-4693-be4c-0fe3ebe04562" />
+      </artifact>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="4728a522-09c6-4c1b-9838-9b4ecd277ec6" name="License Manager Modelling">
+    <elementDefinition Id="ef6a5c4b-38ea-4100-9645-9a4e00167ea0" />
+  </package>
+</useCaseModelRoot>
