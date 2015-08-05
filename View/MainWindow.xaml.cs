@@ -27,7 +27,7 @@
         {
             InitializeComponent();
             // this.ReadXml();
-            _ribbon.IsMinimized = true;
+            //_ribbon.IsMinimized = true;
             mainViewModel = new MainViewModel();
             base.DataContext = mainViewModel;
             this._treeViewControl.DataContext = base.DataContext;

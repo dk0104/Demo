@@ -130,6 +130,7 @@
 						SmallImageSource="Images/Encrypt.png" 
 						Label="Encrypt"
 						Command="{Binding EncryptCommand}"
+                        IsEnabled="{Binding Path=IsEncryptLicenseAvailable}"
 						ToolTip="Encrypt license file"
 						KeyTip="E"/>
                 </RibbonGroup>

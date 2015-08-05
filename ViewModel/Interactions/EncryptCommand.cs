@@ -49,7 +49,8 @@ namespace ViewModel.Interactions
 
         public bool CanExecute(object parameter)
         {
-            return this.viewModel.IsEncryptLicenseAvailable;
+            //return this.viewModel.IsEncryptLicenseAvailable;
+            return true;
         }
 
         /// <summary>
