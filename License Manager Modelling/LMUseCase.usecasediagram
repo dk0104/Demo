@@ -1,17 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="5311aaa5-05f3-4897-9de3-1551f95ab9a0" name="LMUseCase" linkedPackageId="4728a522-09c6-4c1b-9838-9b4ecd277ec6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" dslVersion="1.0.0.0" Id="5311aaa5-05f3-4897-9de3-1551f95ab9a0" name="LMUseCase" linkedPackageId="4728a522-09c6-4c1b-9838-9b4ecd277ec6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
   <profileInstances>
-    <packageHasProfileInstances Id="22350278-6555-4dd6-af00-976a3511ec67">
-      <profileInstance Id="627d0833-f8ef-45e0-a79c-da3e6cfe9189" name="StandardProfileL2">
-        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+    <packageHasProfileInstances Id="1da827ec-d3ca-4256-a132-63b8919ce926">
+      <profileInstance Id="805e8db8-f2da-4a6a-aaed-d0b327db8f36" name="CSharpProfile">
+        <elementDefinition Id="98a552c3-46e9-4098-aa95-eaa1ba4ccd54" />
       </profileInstance>
-      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
-    </packageHasProfileInstances>
-    <packageHasProfileInstances Id="b65232af-83be-4307-94d4-23544aa52cb3">
-      <profileInstance Id="c200c61b-afa7-4cf3-a00f-cb141b9d89d1" name="StandardProfileL3">
-        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
-      </profileInstance>
-      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      <elementDefinition Id="2fa60422-0eed-4bb9-b25b-5071bf8d33c6" />
     </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
@@ -64,17 +58,17 @@
     <useCaseModelRootHasTypes>
       <useCase Id="c0ae27d9-04b6-4538-81cd-206dccaa6fb3" name="View License" isAbstract="false" isLeaf="false">
         <elementDefinition Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe" />
-        <suppliersInternal>
-          <dependency Id="85472338-eea5-4496-8ba9-88f696585e49">
-            <artifactMoniker Id="ae78e803-b1e2-47c5-b6a3-13254e369034" LastKnownName="License Key" />
-            <elementDefinition Id="0f4ead54-54f0-4caf-898f-aa81500dc2dd" />
-          </dependency>
-        </suppliersInternal>
       </useCase>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
       <artifact Id="ae78e803-b1e2-47c5-b6a3-13254e369034" name="License Key" isAbstract="false" isLeaf="false">
         <elementDefinition Id="464d9efd-83ef-49b4-be31-6e2fac17eff2" />
+        <suppliersInternal>
+          <dependency Id="ebef7c4b-a048-423d-b8b9-2ffa02d3bed3">
+            <useCaseMoniker Id="c0ae27d9-04b6-4538-81cd-206dccaa6fb3" LastKnownName="View License" />
+            <elementDefinition Id="fb152582-e0b3-4aba-9063-1720b1666ca9" />
+          </dependency>
+        </suppliersInternal>
       </artifact>
     </useCaseModelRootHasTypes>
     <useCaseModelRootHasTypes>
@@ -118,5 +112,19 @@
   </packagedElements>
   <package Id="4728a522-09c6-4c1b-9838-9b4ecd277ec6" name="License Manager Modelling">
     <elementDefinition Id="ef6a5c4b-38ea-4100-9645-9a4e00167ea0" />
+    <profileInstances>
+      <packageHasProfileInstances Id="22350278-6555-4dd6-af00-976a3511ec67">
+        <profileInstance Id="627d0833-f8ef-45e0-a79c-da3e6cfe9189" name="StandardProfileL2">
+          <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+        </profileInstance>
+        <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+      </packageHasProfileInstances>
+      <packageHasProfileInstances Id="b65232af-83be-4307-94d4-23544aa52cb3">
+        <profileInstance Id="c200c61b-afa7-4cf3-a00f-cb141b9d89d1" name="StandardProfileL3">
+          <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+        </profileInstance>
+        <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+      </packageHasProfileInstances>
+    </profileInstances>
   </package>
 </useCaseModelRoot>

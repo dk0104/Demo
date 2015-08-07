@@ -100,7 +100,7 @@ namespace ViewModel
                                                Version = version.VersionNumber
                                            };
                             var features = version.Features.Where(f => f.IsSelected);
-                            var featureRepresentation= features.Aggregate(string.Empty, (current, feature) => current + string.Format("{0}", feature.ToString()));
+                            var featureRepresentation= features.Aggregate(string.Empty, (current, feature) => current + string.Format("{0}\n ", feature.ToString()));
                             item.Features=featureRepresentation;
                             
                             if (null==OrderItems.FirstOrDefault(x=>x.ProductName==item.ProductName && x.Version==item.Version))
@@ -114,10 +114,6 @@ namespace ViewModel
             }
         }
         
-        //---------------------------------------------------------------------
-        #endregion
-        //---------------------------------------------------------------------
-
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
@@ -127,5 +123,10 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
+        
+        //---------------------------------------------------------------------
+        #endregion
+        //---------------------------------------------------------------------
+
     }
 }

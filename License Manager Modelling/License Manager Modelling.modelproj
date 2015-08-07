@@ -22,19 +22,69 @@
   </PropertyGroup>
   <Import Project="$(VSToolsPath)\ArchitectureTools\Microsoft.VisualStudio.TeamArchitect.ModelingProject.targets" Condition="'$(VSToolsPath)' != ''" />
   <ItemGroup>
-    <Content Include="UMLClassDiagram1.classdiagram">
+    <Content Include="MainWindow.cd">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLClassDiagram1.classdiagram.layout">
-      <SubType>Content</SubType>
-      <DependentUpon>UMLClassDiagram1.classdiagram</DependentUpon>
-    </Content>
-    <Content Include="UMLComponentDiagram1.componentdiagram">
+    <Content Include="ModelDefinition\Package1_1015.uml">
       <SubType>Content</SubType>
     </Content>
-    <Content Include="UMLComponentDiagram1.componentdiagram.layout">
+    <Content Include="ModelDefinition\Package1_1022.uml">
       <SubType>Content</SubType>
-      <DependentUpon>UMLComponentDiagram1.componentdiagram</DependentUpon>
+    </Content>
+    <Content Include="ModelDefinition\Package1_1133.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1022.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package2_1133.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package3_1133.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package4_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package5_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package6_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package7_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package8_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1015.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1020.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1022.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1023.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="ModelDefinition\Package_1133.uml">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LicenseManagerApplication.classdiagram">
+      <SubType>Content</SubType>
+    </Content>
+    <Content Include="LicenseManagerApplication.classdiagram.layout">
+      <SubType>Content</SubType>
+      <DependentUpon>LicenseManagerApplication.classdiagram</DependentUpon>
     </Content>
     <Folder Include="ModelDefinition\" />
     <Content Include="LMUseCase.usecasediagram">
