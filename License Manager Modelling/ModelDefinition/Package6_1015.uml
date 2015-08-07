@@ -1,0 +1,250 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+  dslVersion="1.0.0.0"
+  Id="6d8f697f-bf92-4933-a01d-9af12074fc46"
+  name="Ribbon"
+  visibility="Private" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <referencesInternal>
+    <reference
+      Id="0180308b-ea3b-4dcb-a7a2-bca13ba2ce5f"
+      handle="viewcode://./CodeSchema_Namespace?Namespace%3DSystem.Windows.Controls.Ribbon"
+      tag="ViewCode" />
+  </referencesInternal>
+  <packagedElements>
+    <packageHasNamedElement>
+      <class
+        Id="d6bd0552-7e08-4444-afa7-7b0c1e5be0e3"
+        name="RibbonGroup"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="fabfd5c1-3f1b-4b74-bc5d-b3abc223aabb"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Controls.Ribbon.dll&quot; Namespace%3DSystem.Windows.Controls.Ribbon Type%3DRibbonGroup"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="ba118af9-b0fe-4df3-9b36-25bb7170f0b2"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="4c24c37f-f2d0-4121-a767-6fd2fca30c2a">
+                <propertyInstance
+                  Id="d5ef868d-7810-493a-a52c-b5681f2d2f2b"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="22dc28c8-f7a5-4667-9fd5-8b94656857b8">
+                <propertyInstance
+                  Id="c4ba4606-d2eb-4932-8eb4-7c1eb78f1177"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9fec8f48-7e5f-4991-9694-81685ed0ce93">
+                <propertyInstance
+                  Id="5515b2ad-ca8f-413d-8242-bea27b5e20a3"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fddf1b6a-a3ec-402f-b69a-6845ce182a04">
+                <propertyInstance
+                  Id="5e39dd3a-ee31-4c34-a259-09b2cce0ff91"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="da5da356-1f7e-45f3-a363-7f511530bb4e">
+                <propertyInstance
+                  Id="127c1694-5d00-40a5-b97f-bad3122e42d3"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="8e4bbefe-69bd-47f8-b9ef-73ce35a85895"
+        name="Ribbon"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="b4e8438b-0ec8-4d06-9c9b-5bf3dad61da7"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Controls.Ribbon.dll&quot; Namespace%3DSystem.Windows.Controls.Ribbon Type%3DRibbon"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="973e7ec0-2380-4bd2-8ba3-5a1ea7061467"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="7ad3fa80-da78-41da-9e01-9defbe98bc00">
+                <propertyInstance
+                  Id="d9950407-53c0-4d62-9546-c00771c34347"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="fb4ba335-ae98-49cb-8834-736d4d6e5313">
+                <propertyInstance
+                  Id="9b76ac47-a0cc-4b97-9568-85f14464ea61"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1fea977e-b025-44ab-84d2-59c7983b2bac">
+                <propertyInstance
+                  Id="0b68f038-1199-484c-8fd8-182cc851406f"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="9f439a2d-788c-489f-9f57-6444342493c0">
+                <propertyInstance
+                  Id="15125ead-45dd-4348-96ea-0b632ddd599d"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cde8797a-dfed-4301-8426-28068284970a">
+                <propertyInstance
+                  Id="e37cba33-908e-4bec-ae47-55448c3ce0f9"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="e274e9c0-e7ae-4dd1-bc8c-29a01a9bf0fd"
+        name="RibbonTextBox"
+        visibility="Private"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="997d913d-3a2a-4252-a624-8dd0653879dd"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Controls.Ribbon.dll&quot; Namespace%3DSystem.Windows.Controls.Ribbon Type%3DRibbonTextBox"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="a7e47621-669d-47a9-b382-7313541bd8db"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d9ec3053-011b-4797-a409-209d90dcff78">
+                <propertyInstance
+                  Id="fbbf577e-dd13-4a7c-8e97-c084d9f7d723"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c85d0c25-934d-4165-af9b-4b516a1049b4">
+                <propertyInstance
+                  Id="5b42b0eb-e30d-41f7-bb02-224e15dd85b8"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="0e40d582-5c5e-4d13-921f-b8e5fab90656">
+                <propertyInstance
+                  Id="64464ae1-d8a6-4cd3-a465-3c1aac0a7c84"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="d9f34a78-d33a-4e0b-a9a4-c3d694837cc5">
+                <propertyInstance
+                  Id="6ff59ad2-1561-4dbf-9ee7-d8a0f06281f9"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="cf8e87d0-7d23-480a-a181-11f917087fb6">
+                <propertyInstance
+                  Id="9d420429-7f31-4ccd-b787-60aebaa4a7f0"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="9dcfd814-f662-4793-a689-1611f9c515da"
+        name="RibbonWindow"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false">
+        <referencesInternal>
+          <reference
+            Id="e749fefc-de11-40e9-b0c9-a378d4b16d04"
+            handle="viewcode://./CodeSchema_Class?Assembly%3D&quot;file:%2F%2F%2FC:%2FProgram Files (x86)%2FReference Assemblies%2FMicrosoft%2FFramework%2F.NETFramework%2Fv4.5%2FSystem.Windows.Controls.Ribbon.dll&quot; Namespace%3DSystem.Windows.Controls.Ribbon Type%3DRibbonWindow"
+            tag="ViewCode" />
+        </referencesInternal>
+        <appliedStereotypesInternal>
+          <stereotypeInstance
+            Id="3d7463ac-040d-4ef8-aa07-d73ed656f9c9"
+            name="class"
+            profile="CSharpProfile">
+            <propertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="c22a7ae4-edd5-453f-b396-08a9217bd7df">
+                <propertyInstance
+                  Id="8068e3d0-b994-4fdf-8239-8d40ffafd2d4"
+                  name="ClrAttributes" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="40759913-01ea-43a8-a3f3-e22425b1d498">
+                <propertyInstance
+                  Id="c0d07c46-106a-4c07-b86d-41d661815dfd"
+                  name="IsPartial"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="613259f2-a829-4359-a0be-ba0d2ee74a86">
+                <propertyInstance
+                  Id="1b6183a9-d372-47c9-acff-f1498aa53e63"
+                  name="IsStatic"
+                  value="False" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="1f7795f5-0ad9-40db-b22d-73896309b208">
+                <propertyInstance
+                  Id="5ba7919b-b6dd-4d80-8854-a84709d4a684"
+                  name="IsUnsafe"
+                  value="false" />
+              </stereotypeInstanceHasPropertyInstances>
+              <stereotypeInstanceHasPropertyInstances
+                Id="946638c4-4d1e-4b12-965f-2d76aef1bee8">
+                <propertyInstance
+                  Id="1e7c56a6-e5e2-4579-8289-132cd984e96d"
+                  name="PackageVisibility"
+                  value="internal" />
+              </stereotypeInstanceHasPropertyInstances>
+            </propertyInstances>
+          </stereotypeInstance>
+        </appliedStereotypesInternal>
+      </class>
+    </packageHasNamedElement>
+  </packagedElements>
+</package>

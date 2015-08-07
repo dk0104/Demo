@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm4="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm5="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/VisualStudio/TeamArchitect/ComponentDesigner" xmlns:dm11="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm9="http://schemas.microsoft.com/dsltools/UseCaseModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/LogicalClassDesigner"
   dslVersion="1.0.0.0"
   Id="ef6a5c4b-38ea-4100-9645-9a4e00167ea0"
   name="License Manager Modelling" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
@@ -15,6 +15,12 @@
       <profileInstance
         Id="532ea607-fb19-44b8-8502-3351b05452be"
         name="StandardProfileL3" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="2fa60422-0eed-4bb9-b25b-5071bf8d33c6">
+      <profileInstance
+        Id="98a552c3-46e9-4098-aa95-eaa1ba4ccd54"
+        name="CSharpProfile" />
     </packageHasProfileInstances>
   </profileInstances>
   <packagedElements>
@@ -121,24 +127,24 @@
         Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe"
         name="View License"
         isAbstract="false"
-        isLeaf="false">
-        <suppliersInternal>
-          <dependency
-            Id="0f4ead54-54f0-4caf-898f-aa81500dc2dd">
-            <artifactMoniker
-              Id="464d9efd-83ef-49b4-be31-6e2fac17eff2"
-              LastKnownName="License Key"
-              LastKnownLocation="License Manager Modelling.uml" />
-          </dependency>
-        </suppliersInternal>
-      </useCase>
+        isLeaf="false" />
     </packageHasNamedElement>
     <packageHasNamedElement>
       <artifact
         Id="464d9efd-83ef-49b4-be31-6e2fac17eff2"
         name="License Key"
         isAbstract="false"
-        isLeaf="false" />
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="fb152582-e0b3-4aba-9063-1720b1666ca9">
+            <useCaseMoniker
+              Id="71ea5bc2-48de-4f28-868b-d31fa5c33fbe"
+              LastKnownName="View License"
+              LastKnownLocation="License Manager Modelling.uml" />
+          </dependency>
+        </suppliersInternal>
+      </artifact>
     </packageHasNamedElement>
     <packageHasNamedElement>
       <useCase
@@ -243,6 +249,58 @@
         isAbstract="false"
         isLeaf="false"
         isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="b6639001-4902-4d18-9d7b-0925b26345a1"
+        name="Class2"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <class
+        Id="a473ae96-df9f-4464-a783-b0c83dc12689"
+        name="Class3"
+        isAbstract="false"
+        isLeaf="false"
+        isActiveClass="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="fe160cea-7663-433b-ae34-2ded20602434"
+        LastKnownName="View"
+        LastKnownLocation="Package_1015.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="4c399637-26ff-4797-8335-be1f88575bf9"
+        LastKnownName="System"
+        LastKnownLocation="Package1_1015.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="0653881b-6697-41f3-8a82-eb5189197bfe"
+        LastKnownName="LicenceManagerApplication"
+        LastKnownLocation="Package2_1015.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="bfdf9a1f-1aea-4af4-a0b4-5ad444179738"
+        LastKnownName="ViewModel"
+        LastKnownLocation="Package7_1015.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="c55c51de-dabf-49e9-a1d5-291d4ca60ee4"
+        LastKnownName="Model"
+        LastKnownLocation="Package_1022.uml" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <packageMoniker
+        Id="1604e8b4-8318-452c-b39c-16910c29b9a6"
+        LastKnownName="XmlConnection"
+        LastKnownLocation="Package_1133.uml" />
     </packageHasNamedElement>
   </packagedElements>
   <primitiveType
