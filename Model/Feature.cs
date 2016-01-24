@@ -30,6 +30,9 @@ namespace Model
         /// </summary>
         public string Description { get; set; }
 
+        /// <summary>
+        /// 
+        /// </summary>
         public override bool IsSelected { get; set; }
         
         //---------------------------------------------------------------------

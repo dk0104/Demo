@@ -9,8 +9,6 @@
 
 namespace ViewModel
 {
-    using System;
-    using System.Collections.ObjectModel;
     using System.ComponentModel;
     using System.Runtime.CompilerServices;
     using ViewModel.Annotations;
@@ -24,6 +22,9 @@ namespace ViewModel
         #region [Fields]
         //---------------------------------------------------------------------
         
+        /// <summary>
+        /// Property changed.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
         
         //---------------------------------------------------------------------
@@ -34,6 +35,9 @@ namespace ViewModel
         #region [Constructors]
         //---------------------------------------------------------------------
 
+        /// <summary>
+        /// Oreder Item view model
+        /// </summary>
         public OrderItemViewModel()
         {
             this.Features=string.Empty;
@@ -45,11 +49,10 @@ namespace ViewModel
 
         //---------------------------------------------------------------------
         #region [Properties]
-
         //---------------------------------------------------------------------
         
         /// <summary>
-        /// 
+        /// Product group name.
         /// </summary>
         public string ProductGroupName { get; set; }
 
@@ -63,6 +66,9 @@ namespace ViewModel
         /// </summary>
         public string Version { get; set; }
 
+        /// <summary>
+        /// Features
+        /// </summary>
         public string Features { get; set; } 
 
         //---------------------------------------------------------------------
@@ -71,6 +77,7 @@ namespace ViewModel
 
         //---------------------------------------------------------------------
         #region [Methods]
+        //---------------------------------------------------------------------
 
         [NotifyPropertyChangedInvocator]
         protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
@@ -81,8 +88,6 @@ namespace ViewModel
                 handler(this, new PropertyChangedEventArgs(propertyName));
             }
         }
-
-        //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #endregion

@@ -48,11 +48,6 @@ namespace ViewModel
             orderItemsCollection=new ObservableCollection<OrderItemViewModel>();
         }
 
-        public Order OrderModel { get; set; }
-
-        public DateTime TimeStamp { get; set; }
-
-        public Guid SerialNumber { get; set; }
 
         //---------------------------------------------------------------------
         #endregion
@@ -61,6 +56,7 @@ namespace ViewModel
         //---------------------------------------------------------------------
         #region [Properties]
         //---------------------------------------------------------------------
+
         public ObservableCollection<OrderItemViewModel> OrderItems
         {
             get
@@ -73,6 +69,11 @@ namespace ViewModel
             }
         }
 
+        public Order OrderModel { get; set; }
+
+        public DateTime TimeStamp { get; set; }
+
+        public Guid SerialNumber { get; set; }
 
         //---------------------------------------------------------------------
         #endregion

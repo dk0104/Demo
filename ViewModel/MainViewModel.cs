@@ -16,16 +16,11 @@ namespace ViewModel
     using System.Runtime.CompilerServices;
     using System.Windows;
     using System.Windows.Input;
-
     using EncryptionMock;
-
     using Microsoft.Win32;
-
     using Model;
-
     using ViewModel.Annotations;
     using ViewModel.Interactions;
-
     using XmlConnection;
 
     /// <summary>
@@ -42,9 +37,14 @@ namespace ViewModel
         /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
 
-
+        /// <summary>
+        /// Portofolio view model. 
+        /// </summary>
         private TViewPortfolioViewModel portfolioViewModel;
 
+        /// <summary>
+        /// Root element collecxtion.
+        /// </summary>
         private ObservableCollection<TViewPortfolioViewModel> rootElementCollection;
 
         //---------------------------------------------------------------------
@@ -71,6 +71,7 @@ namespace ViewModel
         {
             this.IsEncryptLicenseAvailable = this.CurrentOrder.OrderItems.Count > 0;
         }
+
         //---------------------------------------------------------------------
         #endregion
         //---------------------------------------------------------------------
@@ -119,17 +120,13 @@ namespace ViewModel
 
         public ICommand EncryptCommand { get; set; }
 
-      
-
         //---------------------------------------------------------------------
-
         #endregion
         //---------------------------------------------------------------------
 
         //---------------------------------------------------------------------
         #region [Methods]
         //---------------------------------------------------------------------
-
         
         public  void NewCommand(object sender, ExecutedRoutedEventArgs e)
         {
@@ -169,6 +166,11 @@ namespace ViewModel
             //XmlFileWriter.WriteOrder(this.Order,dialog.FileName);
         }
 
+        /// <summary>
+        /// Save Command.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="executedRoutedEventArgs"></param>
         public void SaveAsCommand(object sender, ExecutedRoutedEventArgs executedRoutedEventArgs)
         {
             var dialog = new SaveFileDialog { Filter = "License key|*.xml", Title = "Savie license key" };
@@ -255,6 +257,9 @@ namespace ViewModel
             canExecuteRoutedEventArgs.CanExecute = true;
         }
 
+        /// <summary>
+        /// Execute encrypt.
+        /// </summary>
         public void ExecuteEncrypt()
         {
             var dialog = new SaveFileDialog{ Filter = "Save License key|*.xml", Title = "Save license file" };
@@ -267,23 +272,32 @@ namespace ViewModel
             }
         }
 
+        /// <summary>
+        /// Load license file.
+        /// </summary>
+        /// <param name="fileName"></param>
         private void LoadLicenseFile(string fileName)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Load portofolio.
+        /// </summary>
+        /// <param name="fileName"></param>
         private void LoadPortfolio(string fileName)
         {
-
-            if (RootElementCollection.Any())
+            if (this.RootElementCollection.Any())
             {
                 this.RootElementCollection.Clear();
             }
-
             this.ReadPortfolio(fileName);
             this.IsPortfolioOpened = true;
         }
 
+        /// <summary>
+        /// Create order.
+        /// </summary>
         private void CreateOrder()
         {
             this.IsOrderFileOpened = true;
@@ -292,6 +306,9 @@ namespace ViewModel
             //this.IsEncryptLicenseAvailable = true;
         }
 
+        /// <summary>
+        /// Delete order.
+        /// </summary>
         public void DeleteOrder()
         {
             this.IsOrderFileOpened = false;

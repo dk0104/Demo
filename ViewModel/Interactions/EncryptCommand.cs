@@ -20,9 +20,10 @@ namespace ViewModel.Interactions
         //---------------------------------------------------------------------
         #region [Fields]
         //---------------------------------------------------------------------
-        
-       
 
+        /// <summary>
+        /// view Model.
+        /// </summary>
         private MainViewModel viewModel;
 
         public event EventHandler CanExecuteChanged;
